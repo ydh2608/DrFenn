@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fenn MD — Night Clinic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@500;600;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-stage" aria-label="Fenn MD clinical case">
+    <section class="scene phase-workup" id="scene">
+      <img class="scene-art" src="assets/night-clinic-background.png" alt="Pixel-art hospital office overlooking a rainy city at night">
+      <canvas class="rain-canvas" id="rain-canvas" width="330" height="420" aria-hidden="true"></canvas>
+
+      <aside class="fennick-console" aria-label="Dr. Fenn Redtail">
+        <section class="fennick-stage console-panel">
+          <div class="fennick-portrait-layer" aria-label="Replaceable Dr. Fenn Redtail portrait placeholder">
+            <span class="placeholder-ear left"></span><span class="placeholder-ear right"></span>
+            <span class="placeholder-head">?</span><span class="placeholder-coat"></span>
+          </div>
+          <div class="portrait-status"><i></i><i></i><i></i><i></i><span>ATTENDING</span></div>
+        </section>
+        <section class="fennick-dialogue console-panel" aria-live="polite">
+          <span class="console-title">▣ &nbsp;FENN OBSERVES</span>
+          <p id="fennick-comment">Preparing today’s case…</p>
+        </section>
+        <div class="fennick-controls">
+          <button class="hint-button" id="hint-button" type="button" disabled>ASK FENN <small>Loading…</small></button>
+          <div class="judgment-meter" aria-label="Case score"><span>CASE SCORE</span><strong id="judgment-value">100</strong></div>
+        </div>
+      </aside>
+
+      <section class="chart-shell" id="board-ui">
+        <header class="patient-header section-block">
+          <div class="section-rule"><span>♟ &nbsp;PATIENT</span><i></i></div>
+          <div class="patient-layout">
+            <div class="patient-placeholder" id="patient-placeholder" aria-label="Patient image placeholder"><span class="placeholder-head"></span><span class="placeholder-body"></span></div>
+            <div class="patient-copy">
+              <div class="patient-heading">
+                <div><span class="micro-label" id="case-label">CASE</span><h1 id="patient-title">Loading case…</h1><p class="occupation" id="patient-occupation"></p></div>
+                <span class="status-chip" id="patient-status">LOADING</span>
+              </div>
+              <blockquote id="patient-quote">“…”</blockquote>
+              <div class="vitals" id="vitals">
+                <div class="vital critical"><strong data-vital="bp">88/58</strong><span>BP</span></div><div class="vital critical"><strong data-vital="hr">118</strong><span>HR</span></div><div class="vital"><strong data-vital="rr">22</strong><span>RR</span></div><div class="vital"><strong data-vital="temp">37.0°</strong><span>TEMP</span></div><div class="vital critical"><strong data-vital="o2">92%</strong><span>O₂</span></div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <div class="chart-scroll" id="board-scroll">
+          <div class="presentation-stream" id="presentation-stream">
+            <section class="context-panel section-block" id="context-panel">
+              <div class="section-rule"><span>▤ &nbsp;PRESENTATION &amp; MEDICAL CHART</span><i></i><small id="context-status">HPI + CHART</small></div>
+              <div class="context-body" id="context-body"></div>
+              <div class="evidence-log" id="evidence-log" aria-live="polite">
+                <button class="evidence-heading" id="evidence-toggle" type="button" aria-expanded="true"><span class="micro-label">ACQUIRED EVIDENCE</span><small><span id="evidence-count">0 findings</span><b class="evidence-chevron">▾</b></small></button>
+                <p class="evidence-empty" id="evidence-empty">Focused history, examination, laboratory, and imaging findings will remain here.</p>
+                <div class="evidence-items" id="evidence-items"></div>
+              </div>
+            </section>
+
+            <section class="workup-section section-block" aria-label="Clinical workup">
+              <div class="section-rule"><span>✚ &nbsp;CLINICAL WORKUP</span><i></i><small>SELECT DELIBERATELY</small></div>
+              <div class="workup-row">
+                <button class="workup-card" type="button" data-workup="history" disabled><span class="workup-icon">▤</span><strong>HISTORY</strong><small>Loading case</small><b>—</b></button>
+                <button class="workup-card" type="button" data-workup="exam" disabled><span class="workup-icon">◉</span><strong>PHYSICAL EXAM</strong><small>Loading case</small><b>—</b></button>
+                <button class="workup-card gated" type="button" data-workup="labs" disabled aria-describedby="test-lock-note"><span class="workup-icon">▥</span><strong>LAB TESTS</strong><small>Record a working diagnosis</small><b>LOCKED</b></button>
+                <button class="workup-card gated" type="button" data-workup="imaging" disabled aria-describedby="test-lock-note"><span class="workup-icon">⌕</span><strong>IMAGING</strong><small>Record a working diagnosis</small><b>LOCKED</b></button>
+              </div>
+            </section>
+
+            <section class="next-step differential-panel section-block" id="differential-panel">
+              <div class="section-rule"><span>◇ &nbsp;CLINICAL REASONING</span><i></i><small id="differential-stage">PRE-TEST</small></div>
+              <p class="differential-intro" id="differential-intro">Record one working diagnosis before ordering tests. Add safety differentials only when they are genuinely worth excluding.</p>
+              <div class="differential-list" id="differential-list">
+                <div class="differential-row lead-row" data-slot="lead">
+                  <span class="slot-marker">◎</span>
+                  <label><span>WORKING DIAGNOSIS <b>REQUIRED</b></span><div class="diagnosis-combobox"><input class="differential-input" id="differential-one" placeholder="Start typing a diagnosis…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="diagnosis-results-one" disabled><div class="diagnosis-results" id="diagnosis-results-one" role="listbox" hidden></div></div></label>
+                  <button class="clear-diagnosis" type="button" data-clear aria-label="Clear working diagnosis">×</button>
+                </div>
+                <div class="differential-row safety-row" data-slot="safety">
+                  <span class="slot-marker">!</span>
+                  <label><span>SAFETY DIFFERENTIAL <b>OPTIONAL</b></span><div class="diagnosis-combobox"><input class="differential-input" id="differential-two" placeholder="Must-not-miss alternative…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="diagnosis-results-two" disabled><div class="diagnosis-results" id="diagnosis-results-two" role="listbox" hidden></div></div></label>
+                  <div class="slot-actions"><button class="promote-diagnosis" type="button" data-promote aria-label="Make this the working diagnosis">MAKE LEAD</button><button class="clear-diagnosis" type="button" data-clear aria-label="Clear first safety differential">×</button></div>
+                </div>
+                <div class="differential-row safety-row" data-slot="safety">
+                  <span class="slot-marker">!</span>
+                  <label><span>SAFETY DIFFERENTIAL <b>OPTIONAL</b></span><div class="diagnosis-combobox"><input class="differential-input" id="differential-three" placeholder="Another dangerous alternative…" autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="diagnosis-results-three" disabled><div class="diagnosis-results" id="diagnosis-results-three" role="listbox" hidden></div></div></label>
+                  <div class="slot-actions"><button class="promote-diagnosis" type="button" data-promote aria-label="Make this the working diagnosis">MAKE LEAD</button><button class="clear-diagnosis" type="button" data-clear aria-label="Clear second safety differential">×</button></div>
+                </div>
+              </div>
+              <div class="differential-action-bar"><p id="test-lock-note"><span class="lock-light"></span><span id="differential-status">Select a working diagnosis from the search results.</span></p><button class="primary-button differential-primary" id="differential-primary" type="button" disabled>RECORD DIAGNOSIS &amp; BEGIN WORKUP →</button></div>
+              <div id="differential-feedback" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <section class="lab-drawer section-block" id="lab-drawer" aria-hidden="true">
+            <div class="drawer-heading"><div><span class="micro-label">CLINICAL WORKUP</span><h2>Select laboratory studies</h2></div><button class="icon-button" id="lab-close" type="button" aria-label="Close laboratory drawer">×</button></div>
+            <div class="lab-grid" id="lab-grid"></div><div class="result-card" id="lab-result"><span class="empty-result">Select a test to review its result.</span></div>
+          </section>
+          <section class="phase-workspace section-block" id="phase-workspace" aria-live="polite"></section>
+        </div>
+      </section>
+
+      <nav class="mode-tabs" aria-label="Case sections">
+        <button class="mode-tab active" id="case-tab" type="button" aria-pressed="true">CASE &amp; DX</button>
+        <button class="mode-tab locked" id="management-tab" type="button" aria-pressed="false" disabled><span>▣</span> MANAGEMENT</button>
+      </nav>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
