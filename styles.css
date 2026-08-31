@@ -1,8 +1,8 @@
 :root{color-scheme:dark;--navy:#081f2d;--teal:#073c4b;--teal-2:#0d5562;--ink:#243c3e;--muted:#6f7b72;--cream:#fbf2d5;--cream-2:#f3e6c2;--line:#8e927e;--gold:#d7b35e;--danger:#ac4e46;--green:#86aa78}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#071924;font-family:"Nunito Sans",system-ui,sans-serif}button,input{font:inherit}button{-webkit-tap-highlight-color:transparent}
 .game-stage{width:100vw;height:100dvh;display:grid;place-items:center;overflow:hidden;background:#071924}
-.scene{position:relative;width:min(100vw,150dvh);max-height:100dvh;aspect-ratio:3/2;overflow:hidden;container-type:inline-size;box-shadow:0 20px 80px rgba(0,0,0,.5)}
-.scene-art{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;image-rendering:pixelated;user-select:none;-webkit-user-drag:none}
+.scene{position:relative;width:100vw;height:100dvh;overflow:hidden;container-type:inline-size;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+.scene-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;image-rendering:pixelated;user-select:none;-webkit-user-drag:none}
 .rain-canvas{position:absolute;z-index:2;left:60.2%;top:1%;width:39.2%;height:50%;pointer-events:none;image-rendering:pixelated}
 
 .micro-label{display:block;color:#566c67;font:700 clamp(8px,.62cqw,11px)/1 "Pixelify Sans",monospace;letter-spacing:.1em}
@@ -54,7 +54,6 @@ blockquote{height:2.75em;min-height:2.75em;margin:.5cqw 0 .3cqw;padding-left:.75
 .workup-card{min-height:clamp(90px,7.7cqw,124px);padding:.55cqw .5cqw}
 .fennick-console{left:4.8%}
 
-@media(max-aspect-ratio:3/2){.scene{width:100vw;height:auto}}
 @media(max-width:720px){body{overflow:auto}.scene{width:150vw;max-height:none;transform:translateX(-15%)}.fennick-console{display:none}.chart-shell{left:24.5%;width:50.5%}.occupation{display:none}.workup-row,.option-grid{grid-template-columns:1fr 1fr}}
 
 /* Persistent case review and management history. */
@@ -68,3 +67,12 @@ blockquote{height:2.75em;min-height:2.75em;margin:.5cqw 0 .3cqw;padding-left:.75
 .phase-workspace{position:relative}.staff-update{position:relative;right:calc(-1.4cqw - 2px);width:min(68%,690px);display:grid;grid-template-columns:minmax(0,1fr) clamp(68px,5.6cqw,92px);align-items:end;gap:.75cqw;margin:.9cqw 0 1cqw auto;padding:.75cqw .8cqw .72cqw 1cqw;color:#294a49;background:linear-gradient(135deg,#edf2dc,#dbe7d5);border:2px solid #68867c;border-right:0;border-radius:7px 0 0 7px;box-shadow:inset 0 0 0 2px rgba(255,255,237,.58),-3px 4px 0 rgba(45,66,61,.18)}.staff-update-copy{display:grid;gap:.18cqw}.staff-update-copy>span{color:#54736e;font:700 clamp(8px,.56cqw,10px)/1 "Pixelify Sans",monospace;letter-spacing:.11em}.staff-update-copy strong{color:#254d50;font:700 clamp(12px,.88cqw,15px)/1.1 "Pixelify Sans",monospace}.staff-update-copy small{color:#6b7b73;font-size:clamp(8px,.54cqw,10px);font-weight:800}.staff-update-copy p{margin:.38cqw 0 0!important;color:#314e4c!important;font-size:clamp(11px,.76cqw,13px)!important;line-height:1.4!important}.staff-portrait-placeholder{position:relative;align-self:end;height:clamp(78px,6.4cqw,105px);display:grid;place-items:end center;overflow:hidden;color:#ecf0d8;background:linear-gradient(#69918b,#315f64);border:2px solid #31565a;border-bottom:0;border-radius:5px 5px 0 0}.staff-portrait-placeholder i{position:absolute;top:16%;width:38%;aspect-ratio:1;background:#dce6d3;border:2px solid #36595a;border-radius:50%}.staff-portrait-placeholder i:after{content:"";position:absolute;left:50%;top:88%;width:190%;height:170%;background:#eef0de;border:2px solid #36595a;border-radius:50% 50% 0 0;transform:translateX(-50%)}.staff-portrait-placeholder b{position:relative;z-index:2;margin-bottom:.35cqw;font:700 clamp(8px,.55cqw,10px)/1 "Pixelify Sans",monospace;letter-spacing:.08em}
 @media(max-width:720px){.staff-update{right:0;width:100%;grid-template-columns:minmax(0,1fr) 64px;border-right:2px solid #68867c;border-radius:6px}.staff-portrait-placeholder{height:76px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Wide desktop composition: prioritize the playable chart while retaining the
+   office, window, and Fenn as atmosphere rather than empty margins. */
+@media(min-width:721px){
+  .chart-shell{left:21.5%;top:2.5%;width:64%;height:95%}
+  .mode-tabs{left:85.25%;top:25%}
+  .fennick-console{left:3.5%;top:22%;width:16.5%;height:72%}
+  .rain-canvas{left:69.5%;top:2%;width:29.5%;height:46.5%;clip-path:inset(0 1.5% 0 1.5%)}
+}
