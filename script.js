@@ -908,12 +908,12 @@ const random = () => {
   return (rainSeed - 1) / 2147483646;
 };
 
-const rainDrops = Array.from({ length: 58 }, () => ({
+const rainDrops = Array.from({ length: 78 }, () => ({
   x: random() * rainCanvas.width,
   y: random() * rainCanvas.height,
-  length: 3 + Math.floor(random() * 6),
-  speed: 1.4 + random() * 3.2,
-  alpha: .24 + random() * .34,
+  length: 5 + Math.floor(random() * 7),
+  speed: 1.6 + random() * 3.4,
+  alpha: .28 + random() * .36,
   drift: .14 + random() * .28
 }));
 
@@ -939,9 +939,9 @@ function drawRain(time) {
       const y = Math.round(drop.y);
       const split = Math.max(1, Math.floor(drop.length * .58));
       rainContext.fillStyle = `rgba(115, 191, 231, ${drop.alpha})`;
-      rainContext.fillRect(x, y, 1, split);
+      rainContext.fillRect(x, y, 2, split);
       rainContext.fillStyle = `rgba(183, 226, 246, ${Math.min(drop.alpha + .12, .72)})`;
-      rainContext.fillRect(x + 1, y + split, 1, drop.length - split);
+      rainContext.fillRect(x + 1, y + split, 2, drop.length - split);
     });
   }
   requestAnimationFrame(drawRain);
