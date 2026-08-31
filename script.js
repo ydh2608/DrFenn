@@ -169,18 +169,30 @@ function validateDiagnosisReferences() {
 }
 
 async function loadCaseData() {
-  const manifestResponse = await fetch('cases/manifest.json', { cache: 'no-store' });
-  if (!manifestResponse.ok) throw new Error(`Case manifest returned ${manifestResponse.status}`);
-  const manifest = await manifestResponse.json();
+  const loadJson = async (paths, label) => {
+    const failures = [];
+    for (const path of paths) {
+      const response = await fetch(path, { cache: 'no-store' });
+      if (response.ok) return { data: await response.json(), path };
+      failures.push(`${path} (${response.status})`);
+      if (response.status !== 404) throw new Error(`${label} returned ${response.status}`);
+    }
+    throw new Error(`${label} was not found at ${failures.join(' or ')}`);
+  };
+
+  // GitHub-friendly: case files may live in /cases or beside index.html.
+  const manifestFile = await loadJson(['cases/manifest.json', 'manifest.json'], 'Case manifest');
+  const manifest = manifestFile.data;
   const requested = new URLSearchParams(window.location.search).get('case') || manifest.defaultCase;
   const manifestEntry = manifest.cases.find((entry) => entry.id === requested && entry.status === 'active');
   if (!/^[a-z0-9-]+$/.test(requested) || !manifestEntry) {
     throw new Error(`Unknown or inactive case: ${requested}`);
   }
   if (!/^[a-z0-9-]+\.json$/.test(manifestEntry.batch)) throw new Error(`Invalid batch file for case: ${requested}`);
-  const caseResponse = await fetch(`cases/${manifestEntry.batch}`, { cache: 'no-store' });
-  if (!caseResponse.ok) throw new Error(`Batch ${manifestEntry.batch} returned ${caseResponse.status}`);
-  const batch = await caseResponse.json();
+  const preferredBatchPath = manifestFile.path.includes('/') ? `cases/${manifestEntry.batch}` : manifestEntry.batch;
+  const fallbackBatchPath = manifestFile.path.includes('/') ? manifestEntry.batch : `cases/${manifestEntry.batch}`;
+  const batchFile = await loadJson([preferredBatchPath, fallbackBatchPath], `Batch ${manifestEntry.batch}`);
+  const batch = batchFile.data;
   if (!Array.isArray(batch)) throw new Error(`Batch ${manifestEntry.batch} is not an array.`);
   const data = batch.find((entry) => entry.id === requested);
   if (!data) throw new Error(`Case ${requested} is missing from ${manifestEntry.batch}.`);
