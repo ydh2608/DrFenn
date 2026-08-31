@@ -1,7 +1,7 @@
 :root{color-scheme:dark;--navy:#081f2d;--teal:#073c4b;--teal-2:#0d5562;--ink:#243c3e;--muted:#6f7b72;--cream:#fbf2d5;--cream-2:#f3e6c2;--line:#8e927e;--gold:#d7b35e;--danger:#ac4e46;--green:#86aa78}
 *{box-sizing:border-box}html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#071924;font-family:"Nunito Sans",system-ui,sans-serif}button,input{font:inherit}button{-webkit-tap-highlight-color:transparent}
 .game-stage{width:100vw;height:100dvh;display:grid;place-items:center;overflow:hidden;background:#071924}
-.scene{position:relative;width:100vw;height:100dvh;overflow:hidden;container-type:inline-size;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+.scene{position:relative;width:min(100vw,172.5dvh);max-height:100dvh;aspect-ratio:1.725;overflow:hidden;container-type:inline-size;box-shadow:0 20px 80px rgba(0,0,0,.5)}
 .scene-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;image-rendering:pixelated;user-select:none;-webkit-user-drag:none}
 .rain-canvas{position:absolute;z-index:2;left:60.2%;top:1%;width:39.2%;height:50%;pointer-events:none;image-rendering:pixelated}
 
@@ -71,8 +71,9 @@ blockquote{height:2.75em;min-height:2.75em;margin:.5cqw 0 .3cqw;padding-left:.75
 /* Wide desktop composition: prioritize the playable chart while retaining the
    office, window, and Fenn as atmosphere rather than empty margins. */
 @media(min-width:721px){
-  .chart-shell{left:21.5%;top:2.5%;width:64%;height:95%}
-  .mode-tabs{left:85.25%;top:25%}
-  .fennick-console{left:3.5%;top:22%;width:16.5%;height:72%}
+  .chart-shell{left:24%;top:3.3%;width:52.5%;height:91.5%}
+  .mode-tabs{left:76.3%;top:26%}
+  .fennick-console{left:8.2%;top:26.5%;width:13.6%;height:63%}
+  .fennick-stage{flex-basis:36%}
   .rain-canvas{left:69.5%;top:2%;width:29.5%;height:46.5%;clip-path:inset(0 1.5% 0 1.5%)}
 }
