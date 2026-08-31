@@ -914,7 +914,7 @@ const rainDrops = Array.from({ length: 78 }, () => ({
   length: 5 + Math.floor(random() * 7),
   speed: 1.6 + random() * 3.4,
   alpha: .28 + random() * .36,
-  drift: .14 + random() * .28
+  drift: .45 + random() * .35
 }));
 
 let lastRainFrame = 0;
@@ -937,11 +937,13 @@ function drawRain(time) {
 
       const x = Math.round(drop.x);
       const y = Math.round(drop.y);
-      const split = Math.max(1, Math.floor(drop.length * .58));
-      rainContext.fillStyle = `rgba(115, 191, 231, ${drop.alpha})`;
-      rainContext.fillRect(x, y, 2, split);
-      rainContext.fillStyle = `rgba(183, 226, 246, ${Math.min(drop.alpha + .12, .72)})`;
-      rainContext.fillRect(x + 1, y + split, 2, drop.length - split);
+      const slant = Math.max(2, Math.round(drop.length * .24));
+      rainContext.strokeStyle = `rgba(150, 210, 240, ${drop.alpha})`;
+      rainContext.lineWidth = 2;
+      rainContext.beginPath();
+      rainContext.moveTo(x, y);
+      rainContext.lineTo(x + slant, y + drop.length);
+      rainContext.stroke();
     });
   }
   requestAnimationFrame(drawRain);
