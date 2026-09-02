@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "defaultCase": "001-inferior-stemi",
+  "cases": [
+    {
+      "number": 1,
+      "id": "001-inferior-stemi",
+      "batch": "batch01cases.json",
+      "legacyId": "025",
+      "date": "2026-04-25",
+      "title": "The Principal's Chest Pain",
+      "diagnosis": "Inferior STEMI with right-ventricular involvement",
+      "system": "Cardiology",
+      "status": "active"
+    },
+    {
+      "number": 2,
+      "id": "002-wernicke-encephalopathy",
+      "batch": "batch01cases.json",
+      "legacyId": "017",
+      "title": "The Restaurant Manager's Collapse",
+      "diagnosis": "Wernicke Encephalopathy",
+      "system": "Neurology",
+      "status": "active"
+    },
+    {
+      "number": 3,
+      "id": "003-anticholinergic-toxidrome",
+      "batch": "batch01cases.json",
+      "legacyId": "007",
+      "title": "The Conservatory Technician's Confusion",
+      "diagnosis": "Anticholinergic Toxidrome",
+      "system": "Toxicology",
+      "status": "active"
+    },
+    {
+      "number": 4,
+      "id": "004-small-cell-lung-cancer",
+      "batch": "batch01cases.json",
+      "legacyId": "002",
+      "title": "The Sales Director's Cough",
+      "diagnosis": "Small Cell Lung Cancer",
+      "system": "Pulmonology",
+      "status": "active"
+    },
+    {
+      "number": 5,
+      "id": "005-cushing-syndrome",
+      "batch": "batch01cases.json",
+      "legacyId": "011",
+      "title": "The Councilor's Prescription",
+      "diagnosis": "Cushing Syndrome",
+      "system": "Endocrinology",
+      "status": "active"
+    },
+    {
+      "number": 6,
+      "id": "006-iron-deficiency-anemia",
+      "batch": "batch01cases.json",
+      "legacyId": "008",
+      "title": "The Seamstress's Sorrow",
+      "diagnosis": "Iron Deficiency Anemia",
+      "system": "Hematology",
+      "status": "planned"
+    },
+    {
+      "number": 7,
+      "id": "007-common-fibular-nerve-palsy",
+      "batch": "batch01cases.json",
+      "legacyId": "023",
+      "title": "The Postman's Foot",
+      "diagnosis": "Common Fibular (Peroneal) Nerve Palsy",
+      "system": "Neurology",
+      "status": "planned"
+    },
+    {
+      "number": 8,
+      "id": "008-carbon-monoxide-poisoning",
+      "batch": "batch01cases.json",
+      "legacyId": "005",
+      "title": "The Furnace Keeper's Headache",
+      "diagnosis": "Carbon Monoxide Poisoning",
+      "system": "Toxicology",
+      "status": "planned"
+    },
+    {
+      "number": 9,
+      "id": "009-rhabdomyolysis",
+      "batch": "batch01cases.json",
+      "legacyId": "013",
+      "title": "The Stoker's PR",
+      "diagnosis": "Rhabdomyolysis",
+      "system": "Renal / Musculoskeletal",
+      "status": "planned"
+    },
+    {
+      "number": 10,
+      "id": "010-spontaneous-pneumothorax",
+      "batch": "batch01cases.json",
+      "legacyId": "006",
+      "title": "The Locksmith's Sudden Chest",
+      "diagnosis": "Spontaneous Pneumothorax",
+      "system": "Pulmonology",
+      "status": "planned"
+    },
+    {
+      "number": 11,
+      "id": "011-pheochromocytoma",
+      "batch": "batch01cases.json",
+      "legacyId": "004",
+      "title": "The General's Episodes",
+      "diagnosis": "Pheochromocytoma",
+      "system": "Endocrinology",
+      "status": "planned"
+    },
+    {
+      "number": 12,
+      "id": "012-tension-headache",
+      "batch": "batch01cases.json",
+      "legacyId": "015",
+      "title": "The Banker's Certainty",
+      "diagnosis": "Tension Headache",
+      "system": "Neurology",
+      "status": "planned"
+    },
+    {
+      "number": 13,
+      "id": "013-methemoglobinemia",
+      "batch": "batch01cases.json",
+      "legacyId": "010",
+      "title": "The Dye Apprentice's Grey",
+      "diagnosis": "Methemoglobinemia",
+      "system": "Toxicology / Hematology",
+      "status": "planned"
+    },
+    {
+      "number": 14,
+      "id": "014-abusive-head-trauma",
+      "batch": "batch01cases.json",
+      "legacyId": "018",
+      "title": "The Infant's Silence",
+      "diagnosis": "Non-Accidental Injury (Abusive Head Trauma)",
+      "system": "Pediatrics",
+      "status": "planned"
+    },
+    {
+      "number": 15,
+      "id": "015-pulmonary-hypertension",
+      "batch": "batch01cases.json",
+      "legacyId": "014",
+      "title": "The Madame's Breath",
+      "diagnosis": "Pulmonary Hypertension",
+      "system": "Cardiopulmonary",
+      "status": "planned"
+    },
+    {
+      "number": 16,
+      "id": "016-wilson-disease",
+      "batch": "batch02cases.json",
+      "legacyId": "024",
+      "title": "The Beggar King's Humour",
+      "diagnosis": "Wilson Disease",
+      "system": "Hepatology",
+      "status": "planned"
+    }
+  ]
+}
