@@ -439,7 +439,11 @@ function handleDiagnosisKeydown(event) {
 async function loadDiagnosisPool() {
   const response = await fetch('diagnoses.json', { cache: 'no-store' });
   if (!response.ok) throw new Error(`Diagnosis pool returned ${response.status}`);
-  diagnosisPool = await response.json();
+  try {
+    diagnosisPool = JSON.parse(await response.text());
+  } catch {
+    throw new Error('Diagnosis library is corrupted. Replace diagnoses.json with the clean project copy.');
+  }
   if (!Array.isArray(diagnosisPool) || !diagnosisPool.every((item) => item.id && item.label && Array.isArray(item.aliases))) {
     throw new Error('Diagnosis library has an invalid format.');
   }
