@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fenn MD — Case Archives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jersey+15&family=Nunito+Sans:wght@500;600;700;800&family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="archives.css?v=20260901-1">
+</head>
+<body>
+  <main class="archive-stage" aria-label="Fenn MD case archives">
+    <section class="archive-scene">
+      <img class="archive-scene-art" src="assets/archive-desk-window-v1.png?v=20260901-1" alt="Pixel-art view from a hospital archive desk overlooking a rainy city at night">
+      <canvas class="archive-rain" id="archive-rain" width="1200" height="760" aria-hidden="true"></canvas>
+
+      <section class="archive-ledger">
+        <header class="archive-header">
+          <div>
+            <span class="archive-kicker">▣ &nbsp;CLINICAL CASE RECORDS</span>
+            <h1>Night Archive</h1>
+            <p>Completed files remain marked. Unfinished cases begin fresh when reopened.</p>
+          </div>
+          <div class="archive-progress" aria-live="polite">
+            <strong id="archive-progress-value">0 / 5</strong>
+            <span>FILES CLOSED</span>
+          </div>
+        </header>
+
+        <div class="archive-toolbar">
+          <div><span class="status-light"></span><b>ACTIVE CASE SHELF</b><small id="archive-status">Loading records…</small></div>
+          <a class="today-link" id="today-link" href="index.html">RETURN TO TODAY'S CASE →</a>
+        </div>
+
+        <div class="case-shelf" id="case-shelf" aria-live="polite"></div>
+        <p class="archive-error" id="archive-error" hidden></p>
+      </section>
+    </section>
+  </main>
+  <script src="archives.js?v=20260901-1"></script>
+</body>
+</html>
