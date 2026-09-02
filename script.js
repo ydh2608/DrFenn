@@ -951,17 +951,17 @@ const random = () => {
 const rainDrops = Array.from({ length: 78 }, () => ({
   x: random() * rainCanvas.width,
   y: random() * rainCanvas.height,
-  length: 5 + Math.floor(random() * 7),
-  speed: 1.6 + random() * 3.4,
+  length: 7 + Math.floor(random() * 8),
+  speed: 4.8 + random() * 4.6,
   alpha: .28 + random() * .36,
-  drift: -(.45 + random() * .35)
+  drift: -(2.1 + random() * 1.8)
 }));
 
 let lastRainFrame = 0;
 let rainFrameCount = 0;
 
 function drawRain(time) {
-  if (time - lastRainFrame >= 50) {
+  if (time - lastRainFrame >= 32) {
     lastRainFrame = time;
     rainFrameCount += 1;
     rainCanvas.dataset.frame = String(rainFrameCount);
@@ -977,7 +977,7 @@ function drawRain(time) {
 
       const x = Math.round(drop.x);
       const y = Math.round(drop.y);
-      const slant = Math.max(2, Math.round(drop.length * .24));
+      const slant = Math.max(3, Math.round(drop.length * .46));
       rainContext.strokeStyle = `rgba(150, 210, 240, ${drop.alpha})`;
       rainContext.lineWidth = 2;
       rainContext.beginPath();
