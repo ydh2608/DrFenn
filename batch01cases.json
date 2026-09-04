@@ -97,9 +97,9 @@
       "history": {
         "title": "ADDITIONAL HISTORY",
         "cost": 5,
-        "text": "Pain began at rest this morning, is severe and constant, and radiates to the left jaw and arm. Associated nausea and worsening dyspnoea. He recalls a milder episode two weeks ago that he dismissed as indigestion. He drove himself to clinic today.",
+        "text": "He recalls a 10-minute episode of exertional chest pressure two weeks ago that resolved with rest and was dismissed as indigestion. Today’s pain is not pleuritic, positional, or reproducible. No tearing pain to the back, syncope, unilateral leg swelling, recent immobilisation, or prior venous thromboembolism.",
         "quote": "“I had reports to finish. A man of my standing does not let discomfort derail the curriculum.”",
-        "fennick": "Pain at rest, jaw and arm radiation, and a warning two weeks ago. The pattern is sharpening."
+        "fennick": "A prior exertional warning, plus today’s negative pleuritic, positional, dissection, and thromboembolic features. That meaningfully reshapes the field."
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
@@ -132,9 +132,10 @@
       {
         "name": "EKG",
         "status": "critical",
-        "result": "ST elevation II, III, aVF with reciprocal depression I and aVL. V4R is positive: inferior STEMI with right-ventricular involvement.",
+        "result": "Sinus tachycardia. ST elevation in II, III, and aVF with reciprocal ST depression in I and aVL. Right-sided lead V4R also shows ST elevation.",
         "key": true,
-        "fennick": "There it is: inferior leads, reciprocal change, and a positive V4R. A very talkative tracing.",
+        "fennick": "Do not name it yet. Map the involved leads to a territory, then ask what a positive V4R changes about preload-sensitive treatment.",
+        "hint": "Read the tracing anatomically: II, III, and aVF share a territory; I and aVL provide reciprocal evidence. Then interpret V4R separately.",
         "remark": "That expression suggests the tracing has answered a question I have not."
       },
       {
@@ -174,6 +175,8 @@
     "management": [
       {
         "title": "Immediate stabilisation — first actions",
+        "hint": "He is hypotensive and hypoxaemic with a time-critical coronary occlusion. Choose actions that support him and activate definitive reperfusion without reducing preload.",
+        "hintPatient": "If one of those choices lowers my pressure further, I suggest you discard it.",
         "prompt": "Inferior STEMI with worsening cardiogenic shock: BP 76/44, HR 124, O₂ 90%. What do you do first?",
         "promptRemark": "Doctor, the pressure is worse. I would appreciate a decision rather than another observation.",
         "staffUpdate": {
@@ -223,6 +226,8 @@
       },
       {
         "title": "Reperfusion strategy",
+        "hint": "Compare the estimated first-medical-contact-to-device time with the 120-minute threshold. If PCI misses that window and there is no contraindication, another reperfusion route must begin now.",
+        "hintPatient": "The distance will not shorten because we prefer a balloon.",
         "prompt": "The nearest PCI-capable centre is 140 minutes away. Which reperfusion strategy is appropriate?",
         "promptRemark": "One hundred and forty minutes? Even my least punctual teachers could improve upon that.",
         "options": [
@@ -261,6 +266,8 @@
       },
       {
         "title": "Disposition after reperfusion",
+        "hint": "Improved pressure does not erase the first 24–48 hours of arrhythmic and mechanical risk. Choose the unit built for continuous cardiac surveillance.",
+        "hintPatient": "I feel better. I did not say I was ready for my own bed.",
         "prompt": "Reperfusion succeeds and haemodynamics improve. Where should he go next?",
         "promptRemark": "The pain is easing. Do not mistake improvement for permission to send me home.",
         "options": [
@@ -483,6 +490,8 @@
     "management": [
       {
         "title": "Immediate treatment",
+        "hint": "Two reversible neurologic threats coexist. Thiamine should precede carbohydrate when possible, but clinically important hypoglycaemia must never be left untreated while you wait.",
+        "hintPatient": "Gerald: He needs both treatments now, doesn’t he?",
         "prompt": "Suspected Wernicke encephalopathy with glucose 3.2 mmol/L. What is the safest immediate sequence?",
         "promptRemark": "Gerald: He is fading again. Please do something now.",
         "fennick": "Exactly. Give parenteral thiamine immediately, and correct glucose without avoidable delay.",
@@ -521,6 +530,8 @@
       },
       {
         "title": "Correct the cofactors and prevent deterioration",
+        "hint": "Severe magnesium deficiency can blunt thiamine-dependent recovery and the prolonged QT adds electrical risk. Correct the cofactor while continuing definitive therapy and monitoring.",
+        "hintPatient": "Gerald: The vitamin cannot work properly if another piece is missing.",
         "prompt": "He is more alert after thiamine and glucose. Magnesium is 0.6 mmol/L and QTc is prolonged. What is next?",
         "promptRemark": "Patient: This is not my restaurant. Gerald, why is this not my restaurant?",
         "fennick": "Replace magnesium, continue high-dose parenteral thiamine, and monitor for withdrawal and refeeding complications.",
@@ -559,6 +570,8 @@
       },
       {
         "title": "Disposition",
+        "hint": "Persistent ataxia, parenteral treatment, electrolyte replacement, malnutrition, and possible withdrawal require observation beyond an outpatient setting.",
+        "hintPatient": "Gerald: He is awake, but he still cannot walk safely.",
         "prompt": "He is improving but remains ataxic with severe nutritional and electrolyte deficiencies. Where should care continue?",
         "promptRemark": "Patient: I can sleep upstairs at the restaurant. Gerald can check on me.",
         "fennick": "This is an admission: parenteral thiamine, monitored refeeding, electrolyte replacement, and withdrawal surveillance.",
@@ -597,6 +610,8 @@
       },
       {
         "title": "A useful conversation",
+        "hint": "Begin with permission and specific medical observations. Curiosity and choice invite honesty; labels and confrontation usually close the conversation.",
+        "hintPatient": "Gerald: Talk to him, not at him.",
         "prompt": "Once he is lucid, how should you begin discussing alcohol use?",
         "promptRemark": "Patient: I know the speech. I have heard several versions from people who were not asked.",
         "fennick": "Ask permission, connect the medical findings to alcohol without moral judgment, and let him choose the next step.",
@@ -813,6 +828,8 @@
     "management": [
       {
         "title": "Stabilize the toxidrome",
+        "hint": "Before an antidote, control agitation and temperature, monitor the rhythm, secure access, and relieve retention. Supportive care is active treatment.",
+        "hintPatient": "Please cool me down and stop my bladder from becoming another emergency.",
         "prompt": "She is delirious, tachycardic, hyperthermic, and retaining urine. What comes first?",
         "promptRemark": "The room is moving. Why is the room moving?",
         "fennick": "Supportive care first: monitoring, IV access, benzodiazepines, cooling, fluids as indicated, and bladder decompression.",
@@ -851,6 +868,8 @@
       },
       {
         "title": "Persistent central delirium",
+        "hint": "The antidote is considered only after confirming a pure antimuscarinic syndrome and excluding conduction delay or a mixed sodium-channel-blocking ingestion.",
+        "hintPatient": "You checked the tracing before considering the antidote. Good.",
         "prompt": "Despite supportive care, severe delirium persists. The exposure appears purely antimuscarinic and QRS is 84 ms. What is the best next step?",
         "promptRemark": "I know where I am. No—this is the greenhouse. Why is there a monitor in the greenhouse?",
         "fennick": "This is where physostigmine may help—but only with toxicology input, slow dosing, continuous monitoring, and contraindications checked.",
@@ -889,6 +908,8 @@
       },
       {
         "title": "Observation and disposition",
+        "hint": "A brief response does not guarantee sustained clearance. Think about recurrence, residual tachycardia, and the monitoring required after antidote use.",
+        "hintPatient": "I am clearer, not necessarily finished with this.",
         "prompt": "Her delirium improves, but she required physostigmine and remains intermittently tachycardic. What disposition is appropriate?",
         "promptRemark": "I live alone. I am beginning to suspect that is relevant tonight.",
         "fennick": "Continue monitored observation or admission until recurrent toxicity, temperature, rhythm, cognition, and urinary function are stable.",
@@ -1109,6 +1130,8 @@
     "management": [
       {
         "title": "Assess the SVC syndrome",
+        "hint": "First decide whether the obstruction is immediately threatening the airway or brain. Without those red flags, stabilize, coordinate specialists, and preserve the chance for a useful tissue diagnosis.",
+        "hintPatient": "The swelling is frightening, but I can still breathe and think clearly.",
         "prompt": "He has facial edema and headache but no stridor, airway compromise, syncope, or cerebral edema. What is the best immediate plan?",
         "promptRemark": "My face is worse when I lean forward, but I can breathe.",
         "fennick": "Elevate him, monitor closely, and expedite tissue diagnosis and multidisciplinary treatment. Reserve emergent stenting for life-threatening obstruction.",
@@ -1147,6 +1170,8 @@
       },
       {
         "title": "Confirm and stage before definitive therapy",
+        "hint": "Imaging can show where disease is; tissue shows what it is. Treatment direction needs both histology and staging, including the brain.",
+        "hintPatient": "You need to know both the type and how far it has travelled.",
         "prompt": "What investigation establishes treatment direction?",
         "promptRemark": "If this is cancer, I would like the exact kind before anyone treats it.",
         "fennick": "Tissue first, then complete staging. SCLC can mimic other thoracic malignancies and stage changes the plan.",
@@ -1185,6 +1210,8 @@
       },
       {
         "title": "Treat extensive-stage SCLC",
+        "hint": "This is systemic, rapidly proliferative disease. Build the first-line regimen from a platinum backbone, a topoisomerase inhibitor, and immune checkpoint therapy.",
+        "hintPatient": "One drug will not be the whole plan, will it?",
         "prompt": "Biopsy confirms SCLC and liver metastases establish extensive-stage disease. What is standard first-line systemic treatment?",
         "promptRemark": "Tell me the treatment that addresses all of it, not only the chest.",
         "fennick": "Platinum-etoposide plus a PD-L1 inhibitor is the modern systemic backbone for eligible patients.",
@@ -1223,6 +1250,8 @@
       },
       {
         "title": "Manage mild SIADH",
+        "hint": "The sodium is low but there are no severe neurologic symptoms. Correct the driver, restrict free water, and monitor rather than reaching immediately for hypertonic rescue.",
+        "hintPatient": "No seizure, no coma—so correct it carefully.",
         "prompt": "Sodium is 128 without seizure or severe neurologic symptoms. What is appropriate?",
         "promptRemark": "The sodium is low, but I am thinking clearly.",
         "fennick": "Restrict free water, monitor sodium carefully, review medications, and treat the underlying SCLC.",
@@ -1442,6 +1471,8 @@
     "management": [
       {
         "title": "Identify the cause without unnecessary testing",
+        "hint": "When the phenotype and a sustained supraphysiologic glucocorticoid exposure already align, confirm the medication history before ordering a search for an endogenous source.",
+        "hintPatient": "The answer may be in the prescription list rather than a scanner.",
         "prompt": "He takes prednisone 20 mg daily and has a classic Cushing phenotype. What is the best next diagnostic step?",
         "promptRemark": "I can make time for one sensible plan. I cannot make time for every scanner in the building.",
         "fennick": "Document total glucocorticoid exposure and why it was prescribed. Do not launch an endogenous Cushing workup while the exogenous cause is clear.",
@@ -1480,6 +1511,8 @@
       },
       {
         "title": "Reduce glucocorticoids safely",
+        "hint": "Remove the unnecessary exposure without provoking adrenal insufficiency: larger reductions are tolerated at high doses, then the taper slows near physiologic dosing.",
+        "hintPatient": "I want fewer tablets, but not a new emergency.",
         "prompt": "The original pain condition is stable and prednisone is no longer justified. How should it be stopped?",
         "promptRemark": "If the medicine caused this, I would prefer not to take tomorrow morning.",
         "fennick": "Not abruptly. Taper toward physiologic dosing, monitor symptoms, and reassess the underlying condition throughout.",
@@ -1518,6 +1551,8 @@
       },
       {
         "title": "Prevent and treat complications",
+        "hint": "Think beyond appearance: cardiovascular risk, glucose, bone, infection, vitamin status, and adrenal safety all need a place in follow-up.",
+        "hintPatient": "The taper does not undo eighteen months of effects by itself.",
         "prompt": "What belongs in the follow-up plan?",
         "promptRemark": "I would like the entire consequence list, even the inconvenient parts.",
         "fennick": "Blood pressure, glucose, bone health, infection risk, lipids, potassium, and eye symptoms all deserve active review.",
@@ -1556,6 +1591,8 @@
       },
       {
         "title": "Prepare him for the taper",
+        "hint": "A safe plan is one the patient can follow during ordinary days and illness: written dosing, sick-day rules, warning symptoms, and shared decisions.",
+        "hintPatient": "Give me a plan I can understand when I am tired or unwell.",
         "prompt": "What should he understand before leaving?",
         "promptRemark": "What would make this plan fail?",
         "fennick": "Explain withdrawal and adrenal-insufficiency symptoms, sick-day guidance, and when urgent evaluation is needed.",
