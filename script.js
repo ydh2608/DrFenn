@@ -4,6 +4,7 @@ const contextBody = document.querySelector('#context-body');
 const contextStatus = document.querySelector('#context-status');
 const patientQuote = document.querySelector('#patient-quote');
 const fennickComment = document.querySelector('#fennick-comment');
+const fennickPortrait = document.querySelector('#fennick-portrait');
 const judgmentValue = document.querySelector('#judgment-value');
 const labDrawer = document.querySelector('#lab-drawer');
 const labGrid = document.querySelector('#lab-grid');
@@ -32,6 +33,19 @@ const patientStatus = document.querySelector('#patient-status');
 const hintButton = document.querySelector('#hint-button');
 let diagnosisPool = [];
 const COMPLETED_CASES_KEY = 'fenn-md.completed-cases.v1';
+const FENN_IDLE_DELAY = 25000;
+const FENN_SPRITES = {
+  neutral: 'assets/fenn-redtail-base-v2.png',
+  thinking: 'assets/fenn-redtail-thinking-v1.png',
+  hint: 'assets/fenn-redtail-hint-v1.png',
+  pleased: 'assets/fenn-redtail-pleased-v1.png',
+  skeptical: 'assets/fenn-redtail-skeptical-v1.png',
+  urgent: 'assets/fenn-redtail-urgent-v1.png',
+  surprised: 'assets/fenn-redtail-surprised-v1.png',
+  empathetic: 'assets/fenn-redtail-empathetic-v1.png',
+  coffee: 'assets/fenn-redtail-idle-coffee-v1.png'
+};
+let fennIdleTimer = 0;
 
 const state = {
   judgment: 0,
@@ -55,7 +69,8 @@ const state = {
   diagnosesReady: false,
   diagnosisCorrect: false,
   activeView: 'case',
-  completionRecorded: false
+  completionRecorded: false,
+  lastAction: { type: 'initial' }
 };
 
 function readCompletedCases() {
@@ -95,9 +110,34 @@ function spendJudgment(amount) {
   judgmentValue.textContent = state.judgment;
 }
 
-function setFennick(text) {
-  fennickComment.textContent = text;
+function setFennickPortrait(reaction = 'neutral') {
+  const nextSource = FENN_SPRITES[reaction] || FENN_SPRITES.neutral;
+  if (!fennickPortrait || fennickPortrait.getAttribute('src') === nextSource) return;
+  fennickPortrait.classList.add('changing');
+  fennickPortrait.src = nextSource;
+  fennickPortrait.dataset.reaction = reaction;
+  const settle = () => fennickPortrait.classList.remove('changing');
+  if (fennickPortrait.complete) requestAnimationFrame(settle);
+  else fennickPortrait.addEventListener('load', settle, { once: true });
 }
+
+function scheduleFennIdle() {
+  window.clearTimeout(fennIdleTimer);
+  fennIdleTimer = window.setTimeout(() => {
+    if (!document.hidden) setFennickPortrait('coffee');
+  }, FENN_IDLE_DELAY);
+}
+
+function setFennick(text, reaction = 'neutral') {
+  fennickComment.textContent = text;
+  setFennickPortrait(reaction);
+  scheduleFennIdle();
+}
+
+Object.values(FENN_SPRITES).forEach((source) => {
+  const image = new Image();
+  image.src = source;
+});
 
 function setQuote(text, speed = 20) {
   if (!text) return Promise.resolve(null);
@@ -254,6 +294,7 @@ function initializeStateForCase() {
   state.diagnosisCorrect = false;
   state.activeView = 'case';
   state.completionRecorded = false;
+  state.lastAction = { type: 'initial' };
   judgmentValue.textContent = state.judgment;
 }
 
@@ -271,7 +312,7 @@ function renderPatientHeader() {
     element.textContent = value;
     element.closest('.vital').classList.toggle('critical', patient.criticalVitals.includes(key));
   });
-  setFennick(caseData.fenn.initial);
+  setFennick(caseData.fenn.initial, 'neutral');
 }
 
 function enableCaseControls() {
@@ -495,7 +536,8 @@ function lockInitialDifferential() {
   differentialFeedback.textContent = `Initial reasoning recorded: ${diagnoses.map((diagnosis) => diagnosis.label).join(' · ')}`;
   unlockDiagnosticTests();
   updateCommitButton();
-  setFennick('A sound starting point. Now let’s gather evidence that can genuinely move it.');
+  state.lastAction = { type: 'differential' };
+  setFennick('A sound starting point. Now let’s gather evidence that can genuinely move it.', 'pleased');
   setQuote('A structured list. Reassuring. Let us see whether the evidence is equally cooperative.');
 }
 
@@ -559,6 +601,7 @@ function revealWorkup(kind, button) {
   }
 
   const item = caseData.workup[kind];
+  state.lastAction = { type: 'workup', key: kind };
   if (!state.diagnosisCorrect && !state.revealed.has(kind)) {
     state.revealed.add(kind);
     spendJudgment(item.cost);
@@ -568,7 +611,7 @@ function revealWorkup(kind, button) {
   logEvidence(kind, item.title, item.text);
   if (!state.diagnosisCorrect) {
     setQuote(item.quote);
-    setFennick(item.fennick);
+    setFennick(item.fennick, kind === 'exam' ? 'thinking' : 'pleased');
   } else {
     setEvidenceCollapsed(false);
     setFennick(`Of course. Let’s revisit the ${item.title.toLowerCase()}—review never costs points.`);
@@ -579,11 +622,12 @@ function revealWorkup(kind, button) {
 function openLabs() {
   if (!state.differentialLocked) return;
   labDrawer.classList.add('open');
+  state.lastAction = { type: 'labs' };
   labDrawer.setAttribute('aria-hidden', 'false');
   document.querySelector('[data-workup="labs"]').classList.add('used');
   if (!state.diagnosisCorrect) {
     setQuote('More blood, then? I trust each tube has a purpose beyond decorating the laboratory.');
-    setFennick('Choose the tests that separate the possibilities—not merely the ones that are available.');
+    setFennick('Choose the tests that separate the possibilities—not merely the ones that are available.', 'thinking');
   } else {
     setFennick('Everything is open for review now. Take your time; no points are spent here.');
   }
@@ -621,16 +665,17 @@ function orderLab(lab) {
   }
 
   renderLabs();
+  state.lastAction = { type: 'lab', key: lab.name };
   labResult.innerHTML = `<div class="lab-result-heading"><strong>${lab.name}</strong><span class="lab-status ${lab.status}">${lab.status.toUpperCase()}</span></div>${lab.result}`;
   logEvidence(`lab-${lab.name}`, `LAB · ${lab.name}`, lab.result);
   if (!state.diagnosisCorrect) setQuote(lab.remark);
 
   if (state.diagnosisCorrect) {
-    setFennick(`Let’s look at ${lab.name} again. No points spent—only a second look.`);
+    setFennick(`Let’s look at ${lab.name} again. No points spent—only a second look.`, 'thinking');
   } else if (lab.fennick) {
-    setFennick(lab.fennick);
+    setFennick(lab.fennick, lab.status === 'critical' ? 'urgent' : 'thinking');
   } else {
-    setFennick('Useful. That narrows the room a little. What are you chasing next?');
+    setFennick('Useful. That narrows the room a little. What are you chasing next?', lab.status === 'critical' ? 'surprised' : 'thinking');
   }
 }
 
@@ -696,9 +741,15 @@ function commitLeadingDiagnosis() {
     spendJudgment(caseData.scoring.wrongDiagnosisCost);
     state.wrongAnswers += 1;
     differentialFeedback.className = 'differential-feedback error';
-    differentialFeedback.textContent = caseData.diagnosticReasoning.finalFeedback[lead.id]
-      || `${lead.label} was reasonable to consider, but it does not best explain the complete evidence. Revise the working diagnosis and try again.`;
-    setFennick(caseData.fenn.diagnosisWrong);
+    const supportedAlternative = getReasoningEntry(lead.id);
+    const specificFeedback = caseData.diagnosticReasoning.finalFeedback[lead.id];
+    differentialFeedback.textContent = specificFeedback
+      || supportedAlternative?.feedback
+      || caseData.diagnosticReasoning.unsupportedFeedback
+      || `${lead.label} is not supported by the history, examination, or results in this case. Return to the dominant syndrome and choose a diagnosis that explains the positive findings together.`;
+    const plausible = Boolean(specificFeedback || supportedAlternative);
+    state.lastAction = { type: 'diagnosis-wrong', key: lead.id, supported: plausible };
+    setFennick(plausible ? caseData.fenn.diagnosisWrong : 'That diagnosis came from outside the evidence we have. Start again with the dominant syndrome, then account for the defining findings.', 'skeptical');
     setQuote(caseData.diagnosticReasoning.patientWrong);
     return;
   }
@@ -706,13 +757,14 @@ function commitLeadingDiagnosis() {
   differentialFeedback.className = 'differential-feedback success';
   differentialFeedback.textContent = caseData.diagnosticReasoning.correctFeedback;
   state.diagnosisCorrect = true;
+  state.lastAction = { type: 'diagnosis-correct', key: lead.id };
   managementTab.disabled = false;
   managementTab.classList.remove('locked');
   lockDiagnosticWork();
   enableInvestigationReview();
   setEvidenceCollapsed(true);
   const diagnosisRemark = setQuote(caseData.diagnosticReasoning.patientCorrect);
-  setFennick(caseData.fenn.diagnosisCorrect);
+  setFennick(caseData.fenn.diagnosisCorrect, 'pleased');
   continueAfterQuote(diagnosisRemark, () => renderManagement(0));
 }
 
@@ -726,6 +778,7 @@ function renderManagement(stageIndex, { announce = true } = {}) {
   state.phase = 'management';
   scene.className = 'scene phase-management';
   const stage = caseData.management[stageIndex];
+  state.lastAction = { type: 'management', stageIndex };
   const history = state.managementHistory[stageIndex];
   const reviewing = history.completed;
   if (stage.staffUpdate && announce && !reviewing) updateVitals(stage.staffUpdate.vitals);
@@ -754,7 +807,10 @@ function renderManagement(stageIndex, { announce = true } = {}) {
   });
   renderManagementNavigation(stageIndex);
   switchView('management');
-  if (announce) setQuote(stage.promptRemark);
+  if (announce) {
+    setFennick(stage.openingFenn || 'Take the immediate problem first. We can refine the plan once the patient is safe.', stage.staffUpdate ? 'urgent' : 'thinking');
+    setQuote(stage.promptRemark);
+  }
 }
 
 function renderManagementNavigation(stageIndex) {
@@ -815,7 +871,8 @@ function chooseManagement(optionIndex) {
     buttons[optionIndex].classList.add('wrong');
     feedback.className = 'feedback-card wrong';
     feedback.textContent = option.feedback;
-    setFennick(`Let’s pause there. ${option.feedback}`);
+    state.lastAction = { type: 'management-wrong', stageIndex: state.managementStage, optionIndex };
+    setFennick(`Let’s pause there. ${option.feedback}`, option.feedback.match(/danger|unsafe|delay|worsen|must not/i) ? 'urgent' : 'skeptical');
     setQuote(option.patientWrong);
     return;
   }
@@ -827,9 +884,10 @@ function chooseManagement(optionIndex) {
   buttons[optionIndex].classList.add('correct');
   feedback.className = 'feedback-card correct';
   feedback.textContent = option.feedback;
+  state.lastAction = { type: 'management-correct', stageIndex: state.managementStage, optionIndex };
   updateVitals(stage.vitals);
   const patientResponse = setQuote(option.patientCorrect || stage.quote);
-  setFennick(stage.fennick);
+  setFennick(stage.fennick, 'pleased');
 
   const lastStage = state.managementStage === caseData.management.length - 1;
   const advanceNotice = document.createElement('p');
@@ -901,9 +959,53 @@ function renderDebrief() {
     </div>
     <div class="phase-actions"><button class="secondary-button" id="review-management" type="button">← REVIEW MANAGEMENT</button><a class="secondary-button archive-debrief-link" href="archives.html">OPEN ARCHIVES</a><button class="secondary-button" id="restart-case" type="button">RESTART CASE</button></div>`;
   switchView('management');
-  setFennick(caseData.fenn.debrief);
+  state.lastAction = { type: 'debrief' };
+  setFennick(caseData.fenn.debrief, 'empathetic');
   document.querySelector('#review-management').addEventListener('click', () => renderManagement(caseData.management.length - 1, { announce: false }));
   document.querySelector('#restart-case').addEventListener('click', () => window.location.reload());
+}
+
+function genericLabHint(lab) {
+  const name = lab.name.toLowerCase();
+  if (/ecg|ekg/.test(name)) return 'Read the tracing in order: rate, rhythm, intervals, then the distribution of any ST-T changes. Ask what anatomy that distribution represents.';
+  if (/troponin/.test(name)) return 'Troponin establishes myocardial injury, not its mechanism. Interpret the number beside the symptoms and tracing.';
+  if (/cbc/.test(name)) return 'Decide whether each count explains the syndrome, reflects physiologic stress, or is merely background noise.';
+  if (/cmp|electrolyte|magnesium|liver|renal/.test(name)) return 'Do not treat a panel as one result. Identify the individual abnormality that changes diagnosis or immediate safety.';
+  if (/blood gas|abg|vbg|lactate/.test(name)) return 'Use the gas to judge physiology and severity: oxygenation, ventilation, acid-base state, and perfusion are separate questions.';
+  if (/biopsy|pathology/.test(name)) return 'Describe the tissue pattern first. Only then attach the most specific diagnostic name it supports.';
+  if (/urine/.test(name)) return 'Ask whether the urine finding is causal, compensatory, or simply a consequence of the larger process.';
+  return `Use ${lab.name} to test a specific branch of your differential. Which possibility becomes more likely, and which becomes less likely?`;
+}
+
+function getContextualHint() {
+  if (state.phase === 'management' && state.diagnosisCorrect) {
+    const stageIndex = state.managementViewStage;
+    const stage = caseData.management[stageIndex];
+    const legacyHint = caseData.hints[Math.min(2 + stageIndex, caseData.hints.length - 1)];
+    return {
+      fenn: stage.hint || legacyHint?.fenn || 'Name the immediate threat, then choose the action that changes it without delaying definitive care.',
+      patient: stage.hintPatient || legacyHint?.patient || stage.promptRemark
+    };
+  }
+
+  if (state.lastAction.type === 'lab') {
+    const lab = caseData.labs.find((entry) => entry.name === state.lastAction.key);
+    if (lab) return {
+      fenn: lab.hint || genericLabHint(lab),
+      patient: lab.hintPatient || 'You ordered that test for a reason, Doctor. I assume you intend to use it.'
+    };
+  }
+
+  if (state.lastAction.type === 'workup') {
+    const item = caseData.workup[state.lastAction.key];
+    if (item) return {
+      fenn: item.hint || `Separate the new ${item.title.toLowerCase()} finding from what the opening history had already told you. What genuinely changes your differential?`,
+      patient: item.hintPatient || item.quote
+    };
+  }
+
+  const hintIndex = state.differentialLocked ? 1 : 0;
+  return caseData.hints[hintIndex] || caseData.hints[0];
 }
 
 document.querySelectorAll('.workup-card').forEach((button) => button.addEventListener('click', () => revealWorkup(button.dataset.workup, button)));
@@ -932,9 +1034,9 @@ evidenceToggle.addEventListener('click', () => setEvidenceCollapsed(!evidenceLog
 hintButton.addEventListener('click', () => {
   if (!caseData) return;
   spendJudgment(caseData.scoring.hintCost);
-  const hint = caseData.hints[state.hints % caseData.hints.length];
-  setFennick(hint.fenn);
-  setQuote(hint.patient);
+  const hint = getContextualHint();
+  setFennick(hint.fenn, 'hint');
+  if (hint.patient) setQuote(hint.patient);
   state.hints += 1;
 });
 
