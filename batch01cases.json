@@ -35,8 +35,12 @@
     },
     "fenn": {
       "initial": "New shift, new patient. Let’s take this one clue at a time.",
+      "labMenuHint": "For crushing chest pain with shock, start with the tracing; use troponin to establish injury and the remaining tubes to judge organ perfusion and treatment safety.",
+      "labMenuPatient": "Choose the test that changes what you do now, not the one that merely fills another box.",
       "diagnosisCorrect": "Nicely reasoned. We have the diagnosis; now let’s take care of the person attached to it.",
       "diagnosisWrong": "A reasonable attempt. Look once more at II, III, and aVF—the territory is waiting for you.",
+      "diagnosisUnsupported": "That diagnosis does not account for crushing chest pain, shock, and a territorial ST-elevation pattern. Start with the tracing.",
+      "differentialLocked": "Acute coronary occlusion is a defensible start. Now establish the territory and its haemodynamic consequences.",
       "debrief": "He called it a routine appointment. I suspect his wife will be editing that account rather firmly."
     },
     "hpi": "A 67-year-old retired school principal presents with 45 minutes of central crushing chest pain radiating to the left arm and jaw. He is diaphoretic, progressively dyspnoeic, and insists he drove himself because the appointment was ‘routine.’ He missed his antihypertensive and statin this morning. The pain began at rest and has not improved with position.",
@@ -99,21 +103,24 @@
         "cost": 5,
         "text": "He recalls a 10-minute episode of exertional chest pressure two weeks ago that resolved with rest and was dismissed as indigestion. Today’s pain is not pleuritic, positional, or reproducible. No tearing pain to the back, syncope, unilateral leg swelling, recent immobilisation, or prior venous thromboembolism.",
         "quote": "“I had reports to finish. A man of my standing does not let discomfort derail the curriculum.”",
-        "fennick": "A prior exertional warning, plus today’s negative pleuritic, positional, dissection, and thromboembolic features. That meaningfully reshapes the field."
+        "fennick": "One brief exertional episode two weeks ago. Today’s pain is nonpleuritic, nonpositional, and nonreproducible; no tearing pain or thromboembolic history.",
+        "hint": "Which coronary syndrome can begin with exertional warning pain, then progress to prolonged pressure at rest with diaphoresis and haemodynamic compromise?"
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
         "cost": 8,
         "text": "Diaphoretic and pale, maintaining an upright posture despite visible discomfort. S4 present. Bilateral basal crackles. JVP mildly elevated. Peripheral pulses weak. Skin cool and clammy. No murmur or peripheral oedema.",
         "quote": "“Basic patient care. The crackling in my lungs—I assume that is relevant.”",
-        "fennick": "Cold peripheries, raised JVP, crackles, and an S4. His heart is asking for help rather loudly."
+        "fennick": "Pale and diaphoretic. Cool weak pulses, an S4, basal crackles, and mildly elevated JVP; no murmur or unilateral breath-sound loss.",
+        "hint": "The cool periphery marks poor forward flow while crackles mark backward congestion. What acute cardiac process can produce both?"
       },
       "imaging": {
         "title": "CHEST IMAGING",
         "cost": 15,
         "text": "Chest radiograph: mild pulmonary venous congestion. Cardiac silhouette upper-normal. No pneumothorax, focal consolidation, or aortic widening.",
         "quote": "“I attributed that to poor ventilation in my study. I was incorrect.”",
-        "fennick": "Venous congestion. The left side is struggling—but the film has also cleared several dangerous mimics."
+        "fennick": "Mild pulmonary venous congestion. No focal opacity, pneumothorax, or widened mediastinum.",
+        "hint": "The film excludes several chest-pain mimics but does not locate a coronary lesion. Which bedside test should do that next?"
       }
     },
     "labs": [
@@ -121,21 +128,25 @@
         "name": "CBC",
         "status": "abnormal",
         "result": "WBC 13.2 (stress leukocytosis). Hgb 14.8. Platelets 290. No major abnormality.",
-        "remark": "A raised white count? I have not missed a day through illness in thirty-two years."
+        "remark": "A raised white count? I have not missed a day through illness in thirty-two years.",
+        "fennick": "Mild leukocytosis; haemoglobin and platelets are preserved.",
+        "hint": "Nothing here explains the chest pain. Treat the white count as possible physiologic stress and keep looking for the time-critical result."
       },
       {
         "name": "CMP",
         "status": "abnormal",
         "result": "Na 138, K 4.1, creatinine 1.3, glucose 9.2. Mild hypoperfusion pattern.",
-        "remark": "My kidneys are objecting too? This is becoming an administrative revolt."
+        "remark": "My kidneys are objecting too? This is becoming an administrative revolt.",
+        "fennick": "Creatinine and glucose are mildly elevated; potassium is preserved.",
+        "hint": "These values help with perfusion and medication safety, but they do not identify the cause of the chest pain. What test localizes myocardial ischaemia?"
       },
       {
         "name": "EKG",
         "status": "critical",
         "result": "Sinus tachycardia. ST elevation in II, III, and aVF with reciprocal ST depression in I and aVL. Right-sided lead V4R also shows ST elevation.",
         "key": true,
-        "fennick": "Do not name it yet. Map the involved leads to a territory, then ask what a positive V4R changes about preload-sensitive treatment.",
-        "hint": "Read the tracing anatomically: II, III, and aVF share a territory; I and aVL provide reciprocal evidence. Then interpret V4R separately.",
+        "fennick": "ST elevation in II, III, and aVF with reciprocal depression in I and aVL; V4R is also elevated.",
+        "hint": "II, III, and aVF share the inferior wall; reciprocal change strengthens that pattern. What does additional ST elevation in V4R say about ventricular involvement?",
         "remark": "That expression suggests the tracing has answered a question I have not."
       },
       {
@@ -143,38 +154,58 @@
         "status": "critical",
         "result": "Troponin I 2.8 ng/mL (normal <0.04), rising on serial measurement: active myocardial injury.",
         "key": true,
-        "fennick": "The troponin confirms injury, but remember—the ECG had already made this urgent.",
-        "remark": "Two point eight. I assume that is not a passing grade."
+        "fennick": "Troponin is markedly elevated and rising on repeat measurement.",
+        "remark": "That result has risen again. I gather waiting for another sample will not improve matters.",
+        "hint": "Troponin proves myocardial injury, but it cannot distinguish STEMI from NSTEMI or identify territory. Which already-available test supplies that information?"
       },
       {
         "name": "Lipase",
         "status": "normal",
-        "result": "Normal. Pancreatitis is not supported.",
-        "remark": "So it is not my pancreas. One department has been cleared of wrongdoing."
+        "result": "Lipase within reference range.",
+        "remark": "So the abdominal organs are not leading this inquiry. One department has been cleared.",
+        "fennick": "Lipase is within the reference range.",
+        "hint": "A normal lipase weakens pancreatitis; it does not explain shock with radiating chest pressure. Return to the cardiovascular evidence."
       },
       {
         "name": "UA",
         "status": "abnormal",
-        "result": "Concentrated urine with mild proteinuria, consistent with reduced renal perfusion.",
-        "remark": "You required urine while my chest is doing this? I hope the relevance becomes apparent."
+        "result": "Concentrated urine with mild proteinuria; no pyuria or haematuria.",
+        "remark": "You required urine while my chest is doing this? I hope the relevance becomes apparent.",
+        "fennick": "Concentrated urine with mild proteinuria; no pyuria or haematuria.",
+        "hint": "Concentrated urine can follow reduced renal perfusion. Is this the cause of his collapse, or an effect of it?"
       },
       {
         "name": "ABG / VBG",
         "status": "critical",
         "result": "pH 7.31, pO₂ 68, lactate 3.4, pCO₂ 32: cardiogenic shock physiology.",
         "key": true,
-        "remark": "I feel colder now. And considerably less interested in debating your methods."
+        "remark": "I feel colder now—and considerably less interested in debating your methods.",
+        "fennick": "Acidaemia, hypoxaemia, and elevated lactate with a low carbon dioxide.",
+        "hint": "The gas grades the severity of impaired perfusion; it does not name the cause. Pair it with the blood pressure, lung findings, and ECG."
       },
       {
         "name": "Coags",
         "status": "normal",
         "result": "PT/INR 1.1 and PTT 28: normal baseline before anticoagulation.",
-        "remark": "Normal clotting. Good. I would prefer to keep the blood on the inside."
+        "remark": "Normal clotting. Good. I would prefer to keep the blood on the inside.",
+        "fennick": "Baseline coagulation times are within reference range.",
+        "hint": "This result matters before antithrombotic or fibrinolytic therapy, but it is a safety check rather than a diagnostic answer."
+      },
+      {
+        "name": "Right-sided ECG leads",
+        "status": "critical",
+        "special": true,
+        "cost": 20,
+        "result": "Right-sided tracing shows 1.5 mm ST elevation in V4R.",
+        "remark": "Another tracing. Your expression suggests this one changes what you can safely give me.",
+        "fennick": "V4R shows clear ST elevation.",
+        "hint": "Right-ventricular infarction is preload dependent. Which familiar anti-ischaemic medication can sharply worsen hypotension here?"
       }
     ],
     "management": [
       {
         "title": "Immediate stabilisation — first actions",
+        "openingFenn": "His pressure is falling and the inferior tracing includes the right ventricle. Stabilize while reperfusion is activated.",
         "hint": "He is hypotensive and hypoxaemic with a time-critical coronary occlusion. Choose actions that support him and activate definitive reperfusion without reducing preload.",
         "hintPatient": "If one of those choices lowers my pressure further, I suggest you discard it.",
         "prompt": "Inferior STEMI with worsening cardiogenic shock: BP 76/44, HR 124, O₂ 90%. What do you do first?",
@@ -192,27 +223,30 @@
         },
         "options": [
           {
-            "text": "Aspirin 300 mg, oxygen, IV access, continuous monitoring, and immediate cath-lab activation",
+            "text": "Give aspirin, begin monitoring, and activate the cath lab immediately",
             "correct": true,
-            "feedback": "Correct. Give aspirin, support oxygenation, establish access and monitoring, and activate reperfusion immediately. Time is myocardium.",
+            "feedback": "Correct. Give aspirin, support oxygenation when hypoxaemic, establish IV access and continuous monitoring, and activate reperfusion immediately. With right-ventricular involvement and hypotension, avoid nitrates and reassess preload carefully.",
             "patientCorrect": "Aspirin, lines, monitors. At last—a plan with verbs in it."
           },
           {
             "text": "Morphine, oxygen, nitrates, and aspirin—the traditional MONA bundle",
             "correct": false,
-            "feedback": "Nitrates are dangerous with RV involvement and hypotension because they reduce preload. Morphine can delay oral antiplatelet absorption.",
+            "feedback": "Nitrates reduce venous return and can precipitate profound hypotension in preload-dependent right-ventricular infarction. Morphine may also worsen hypotension and delay oral antiplatelet absorption.",
+            "fennWrong": "Nitrates reduce preload; this right ventricle cannot afford that.",
             "patientWrong": "Everything has tilted. If that was meant to help, it has not."
           },
           {
             "text": "One-litre IV fluid bolus before activating the cath lab",
             "correct": false,
-            "feedback": "He already has crackles and pulmonary congestion. Aggressive fluid loading can worsen left-sided failure. Reperfusion cannot wait.",
+            "feedback": "A cautious fluid challenge may sometimes support isolated right-ventricular infarction, but a full litre is unsafe with crackles and pulmonary congestion. Reassess in small increments and do not delay reperfusion.",
+            "fennWrong": "The crackles make a blind litre a poor bargain.",
             "patientWrong": "I can breathe less easily now. Please reconsider whatever is entering that line."
           },
           {
             "text": "Urgent echocardiogram before initiating treatment",
             "correct": false,
-            "feedback": "The ECG establishes STEMI. Echo may follow, but treatment and cath-lab activation must not be delayed.",
+            "feedback": "The ECG already establishes an occlusive infarction requiring immediate treatment. Bedside echocardiography may clarify function or complications, but it must run alongside—not before—reperfusion activation.",
+            "fennWrong": "Echo can answer details while the cath call is already happening.",
             "patientWrong": "Another examination? Doctor, I am becoming less available for further assessment."
           }
         ],
@@ -226,6 +260,7 @@
       },
       {
         "title": "Reperfusion strategy",
+        "openingFenn": "The transfer estimate exceeds the PCI window. Choose the reperfusion path that starts before the ambulance leaves.",
         "hint": "Compare the estimated first-medical-contact-to-device time with the 120-minute threshold. If PCI misses that window and there is no contraindication, another reperfusion route must begin now.",
         "hintPatient": "The distance will not shorten because we prefer a balloon.",
         "prompt": "The nearest PCI-capable centre is 140 minutes away. Which reperfusion strategy is appropriate?",
@@ -234,25 +269,28 @@
           {
             "text": "Transfer for primary PCI without treatment—the balloon is always preferred",
             "correct": false,
-            "feedback": "PCI is preferred only when it can be achieved within 120 minutes of first medical contact. A 140-minute transfer exceeds the window.",
+            "feedback": "Primary PCI is preferred when device treatment can occur within 120 minutes of first medical contact. At 140 minutes, transfer without fibrinolysis leaves viable myocardium untreated for too long.",
+            "fennWrong": "A preferred treatment delivered too late is not the preferred strategy.",
             "patientWrong": "You intend to place me in an ambulance and simply watch the clock? Unacceptable."
           },
           {
             "text": "Administer alteplase now, then transfer for pharmacoinvasive PCI",
             "correct": true,
-            "feedback": "Correct. When PCI cannot be achieved within 120 minutes, fibrinolysis is appropriate, followed by transfer for PCI within 3–24 hours.",
+            "feedback": "Correct. If PCI cannot be achieved within 120 minutes and no contraindication exists, give fibrinolysis promptly and transfer for rescue PCI if it fails or routine angiography within 2–24 hours if it succeeds.",
             "patientCorrect": "Treat the obstruction here, then transfer me. Efficient. Proceed."
           },
           {
             "text": "Unfractionated heparin alone",
             "correct": false,
-            "feedback": "Heparin prevents clot extension but does not dissolve the occluding thrombus. Reperfusion is still required.",
+            "feedback": "Heparin limits thrombus propagation but does not reliably reopen the occluded artery. It is adjunctive therapy; a reperfusion strategy is still required now.",
+            "fennWrong": "Anticoagulation supports reperfusion; it does not replace it.",
             "patientWrong": "Preventing matters from worsening is not the same as correcting them, is it?"
           },
           {
             "text": "Observe serial troponins before committing to reperfusion",
             "correct": false,
-            "feedback": "STEMI is an ECG diagnosis. Waiting for serial biomarkers sacrifices myocardium.",
+            "feedback": "ST-elevation infarction is diagnosed from the clinical presentation and ECG. Serial biomarkers help quantify injury later; waiting for them before reperfusion sacrifices myocardium.",
+            "fennWrong": "The artery will not wait for a second biomarker sample.",
             "patientWrong": "More waiting for another number? I believe my heart has already submitted its report."
           }
         ],
@@ -266,33 +304,37 @@
       },
       {
         "title": "Disposition after reperfusion",
+        "openingFenn": "The artery is open, but the first night still carries arrhythmic and mechanical risk.",
         "hint": "Improved pressure does not erase the first 24–48 hours of arrhythmic and mechanical risk. Choose the unit built for continuous cardiac surveillance.",
         "hintPatient": "I feel better. I did not say I was ready for my own bed.",
         "prompt": "Reperfusion succeeds and haemodynamics improve. Where should he go next?",
         "promptRemark": "The pain is easing. Do not mistake improvement for permission to send me home.",
         "options": [
           {
-            "text": "Coronary care unit for continuous monitoring, echo, and secondary prevention",
+            "text": "Admit to coronary care for monitoring and secondary prevention",
             "correct": true,
-            "feedback": "Correct. Post-STEMI patients need CCU monitoring for reperfusion arrhythmias and mechanical complications, plus echo and secondary prevention.",
+            "feedback": "Correct. Admit to coronary care for continuous rhythm and haemodynamic monitoring, echocardiography, and surveillance for reperfusion arrhythmias or mechanical complications. Begin guideline-directed secondary prevention before discharge.",
             "patientCorrect": "The cardiac ward. Very well. I expect their monitoring to be punctual."
           },
           {
             "text": "General medical ward because the procedure is complete",
             "correct": false,
-            "feedback": "Prior cardiogenic shock and acute STEMI require CCU-level monitoring. A standard ward is insufficient.",
+            "feedback": "Recent cardiogenic shock and acute infarction require continuous cardiac and haemodynamic monitoring. A general ward cannot provide the needed surveillance for early arrhythmias or recurrent instability.",
+            "fennWrong": "A routine bed cannot watch a post-shock rhythm continuously.",
             "patientWrong": "A standard ward after all this? Even I recognize inadequate supervision."
           },
           {
             "text": "Discharge home with cardiology follow-up in one week",
             "correct": false,
-            "feedback": "The first 24–48 hours carry substantial arrhythmic and mechanical risk. Same-day discharge is unsafe.",
+            "feedback": "The first 24–48 hours carry substantial arrhythmic, recurrent-ischaemic, and mechanical risk. Symptom improvement after reperfusion is not evidence that same-day discharge is safe.",
+            "fennWrong": "Reperfusion relieved the pain; it did not erase tonight’s complications.",
             "patientWrong": "My wife would return me before I reached the driveway—and for once, she would be correct."
           },
           {
             "text": "Routine ICU admission despite stable post-reperfusion vitals",
             "correct": false,
-            "feedback": "ICU is appropriate if shock persists or mechanical support is required. Improving haemodynamics are appropriately managed in CCU.",
+            "feedback": "General ICU is appropriate when shock persists, ventilation is required, or mechanical circulatory support is needed. With stabilized haemodynamics, a coronary care unit provides the most targeted monitoring.",
+            "fennWrong": "He needs cardiac intensity, not an indiscriminate escalation of location.",
             "patientWrong": "Intensive care despite improvement? That appears more dramatic than necessary."
           }
         ],
@@ -362,8 +404,12 @@
     },
     "fenn": {
       "initial": "He cannot give us the story yet. Start with the person who brought him.",
+      "labMenuHint": "Check glucose immediately, then electrolytes—especially magnesium—and liver/nutritional markers. The confirmatory vitamin assay is slow and must not hold up treatment.",
+      "labMenuPatient": "Gerald: Please order whatever tells you what is dangerous tonight, not next week.",
       "diagnosisCorrect": "Good. Treat the clinical syndrome now; a thiamine level must never hold the door.",
       "diagnosisWrong": "The intoxication history is tempting, but it does not explain the eye findings and ataxia together.",
+      "diagnosisUnsupported": "That diagnosis cannot connect malnutrition, confusion, ophthalmoparesis, and ataxia. Build from that neurologic cluster.",
+      "differentialLocked": "A nutritional neurologic syndrome is a defensible start. Check glucose, electrolytes, and mimics without delaying treatment.",
       "debrief": "He asked whether breakfast prep was finished before he asked where he was. Some habits survive nearly anything."
     },
     "hpi": "A 54-year-old restaurant owner was found collapsed after closing. His friend reports weeks of poor food intake and daily heavy alcohol use. For roughly two weeks he has misplaced orders and seemed unsteady; three days ago he complained of double vision. Tonight he became confused, could not stand, and stopped speaking coherently.",
@@ -418,73 +464,100 @@
         "cost": 5,
         "text": "Gerald reports two weeks of confusion and unsteadiness, three days of diplopia, almost no solid food for weeks, and daily heavy alcohol use.",
         "quote": "Gerald: I thought he was exhausted. I should have noticed sooner.",
-        "fennick": "Collateral history gives us the timeline he cannot."
+        "fennick": "Two weeks of confusion and gait difficulty, three days of diplopia, minimal food intake, and daily heavy alcohol use.",
+        "hint": "Malnutrition plus confusion, ocular motor findings, and gait dysfunction should trigger treatment for which vitamin-deficiency emergency before confirmation returns?"
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
         "cost": 8,
         "text": "Confused; GCS 12. Horizontal nystagmus and bilateral abduction weakness. Unable to sit or stand without support. No unilateral weakness. Mild tremor and signs of chronic malnutrition. Airway currently protected.",
         "quote": "...too bright. Turn the kitchen lights down...",
-        "fennick": "Altered mental state, ocular abnormality, and ataxia. We do not need all three to act—but he has given us all three."
+        "fennick": "GCS is reduced. Horizontal nystagmus, bilateral abduction weakness, severe truncal and gait instability, tremor, and chronic malnutrition.",
+        "hint": "The classic triad is often incomplete, but this patient has mental-status change, ophthalmoplegia, and ataxia together. Which diagnosis is treated clinically?"
       },
       "imaging": {
         "title": "IMAGING",
         "cost": 15,
-        "text": "Non-contrast CT head shows no acute hemorrhage, mass, or midline shift. Mild generalized volume loss. Imaging does not exclude Wernicke encephalopathy.",
+        "text": "Non-contrast CT head shows no acute hemorrhage, mass, hydrocephalus, or midline shift. Mild generalized volume loss.",
         "quote": "Gerald: The scan is clear, so why can he not sit up?",
-        "fennick": "A normal CT removes one emergency. It does not remove the clinical diagnosis in front of us."
+        "fennick": "No acute hemorrhage, mass, hydrocephalus, or shift; mild generalized volume loss.",
+        "hint": "A normal CT excludes major structural mimics but not a metabolic vitamin-deficiency syndrome. Which diagnosis remains clinical despite unrevealing imaging?"
       }
     },
     "labs": [
       {
         "name": "Bedside glucose",
         "status": "critical",
-        "result": "3.2 mmol/L. Hypoglycemia requires prompt correction.",
-        "remark": "Gerald: That is low, right? Can you fix it now?"
+        "result": "3.2 mmol/L.",
+        "remark": "Gerald: His sugar is low. Please correct it while you work out the rest.",
+        "fennick": "Bedside glucose is below the treatment threshold.",
+        "hint": "Hypoglycaemia needs immediate dextrose, but it does not explain weeks of ataxia and diplopia. Which co-treatment should precede or accompany glucose here?"
       },
       {
         "name": "CBC",
         "status": "abnormal",
         "result": "Hgb 10.8 g/dL, MCV 108 fL, platelets 98 ×10⁹/L: macrocytic anemia and thrombocytopenia.",
-        "remark": "Gerald: He has barely eaten. I did not know it could do all this."
+        "remark": "Gerald: He has barely eaten. I did not know it could affect his blood too.",
+        "fennick": "Macrocytosis, anaemia, and thrombocytopenia are present.",
+        "hint": "Macrocytosis supports chronic nutritional and alcohol-related injury, but it does not explain the acute neurologic triad. Keep the syndrome central."
       },
       {
         "name": "CMP + magnesium",
         "status": "critical",
-        "result": "Na 131, K 3.1, Mg 0.6 mmol/L, albumin 2.6 g/dL. Magnesium is critically low and may impair response to thiamine.",
+        "result": "Na 131, K 3.1, Mg 0.6 mmol/L, albumin 2.6 g/dL.",
         "remark": "Gerald: Another critical number. What comes first?",
-        "fennick": "The magnesium matters twice: arrhythmia risk, and thiamine-dependent metabolism."
+        "fennick": "Potassium and magnesium are low; albumin is reduced.",
+        "hint": "Magnesium is a cofactor for thiamine-dependent enzymes and its depletion prolongs repolarization. Correct it alongside the suspected deficiency."
       },
       {
         "name": "Liver panel",
         "status": "abnormal",
         "result": "AST 88, ALT 52, GGT 340, bilirubin 2.1: alcohol-associated liver injury pattern.",
-        "remark": "Gerald: He always said the restaurant drinks were part of the job."
+        "remark": "Gerald: He always said the restaurant drinks were part of the job.",
+        "fennick": "AST exceeds ALT; GGT and bilirubin are elevated.",
+        "hint": "This supports chronic alcohol-related injury but does not explain ophthalmoplegia and ataxia by itself. Avoid stopping at intoxication or liver disease."
       },
       {
         "name": "ECG",
         "status": "abnormal",
         "result": "Sinus tachycardia, QTc 468 ms. No ischemic changes.",
-        "remark": "Gerald: Is his heart in danger too?"
+        "remark": "Gerald: Is his heart in danger too?",
+        "fennick": "Sinus tachycardia with prolonged corrected QT; no ischaemic change.",
+        "hint": "The prolonged QT raises urgency around the depleted electrolytes. Which measured deficiency is both arrhythmogenic and necessary for vitamin-dependent recovery?"
       },
       {
         "name": "VBG + lactate",
         "status": "abnormal",
         "result": "pH 7.34, bicarbonate 18, lactate 3.1 mmol/L.",
-        "remark": "Gerald: You can take what you need. Just help him wake up."
+        "remark": "Gerald: You can take what you need. Just help him wake up.",
+        "fennick": "Mild metabolic acidosis with elevated lactate.",
+        "hint": "Lactate reflects impaired aerobic metabolism and perfusion. Severe thiamine deficiency blocks pyruvate entry into the Krebs cycle."
       },
       {
         "name": "Coagulation studies",
         "status": "abnormal",
-        "result": "INR 1.6, consistent with impaired hepatic synthetic function and poor nutrition.",
-        "remark": "Gerald: He bruises easily now. I thought it was work."
+        "result": "INR 1.6.",
+        "remark": "Gerald: He bruises easily now. I thought it was work.",
+        "fennick": "The INR is prolonged.",
+        "hint": "This supports impaired synthesis or nutritional injury, but the neurologic emergency still rests on the bedside syndrome."
       },
       {
         "name": "Whole-blood thiamine",
         "status": "critical",
-        "result": "Severely reduced. This result returns later and supports the diagnosis; treatment should already have begun.",
+        "special": true,
+        "cost": 20,
+        "result": "Whole-blood thiamine is markedly below the laboratory reference interval. Result finalized several days after collection.",
         "remark": "Gerald: So you were right not to wait.",
-        "fennick": "The confirmatory result is late. The treatment should be early."
+        "fennick": "The concentration is markedly reduced; the result returned days after collection.",
+        "hint": "This confirms deficiency retrospectively. Treatment should already have started from malnutrition, ocular motor dysfunction, ataxia, and confusion."
+      },
+      {
+        "name": "Ammonia",
+        "status": "normal",
+        "result": "Within the laboratory reference interval.",
+        "remark": "Gerald: So that liver-related toxin does not explain all of this.",
+        "fennick": "Ammonia is within reference range.",
+        "hint": "A normal ammonia weakens hepatic encephalopathy as the sole explanation and leaves the ocular motor findings and ataxia unexplained."
       }
     ],
     "management": [
@@ -503,30 +576,34 @@
         },
         "options": [
           {
-            "text": "Give IV thiamine now, then IV dextrose immediately; do not delay either treatment",
+            "text": "Give IV thiamine now, then promptly give IV dextrose",
             "correct": true,
-            "feedback": "Correct. Give parenteral thiamine as soon as possible before or alongside glucose. Hypoglycemia still requires prompt treatment; the practical lesson is not to delay glucose while searching for thiamine.",
+            "feedback": "Correct. Give parenteral thiamine immediately before or alongside glucose, but never delay correction of clinically important hypoglycaemia while searching for thiamine. Continue thiamine after the first dose because one dose does not replenish a severe deficit.",
             "patientCorrect": "Gerald: You gave both. Good. He squeezed my hand."
           },
           {
             "text": "Wait for the thiamine level before treating",
             "correct": false,
             "feedback": "Wernicke encephalopathy is a clinical diagnosis. Laboratory confirmation is too slow and treatment delay risks permanent neurologic injury.",
-            "patientWrong": ""
+            "patientWrong": "Gerald: Waiting days is not a treatment plan.",
+            "fennWrong": "A send-out level cannot safely delay a bedside diagnosis."
           },
           {
             "text": "Give dextrose and omit thiamine because glucose is the only emergency",
             "correct": false,
             "feedback": "Correct hypoglycemia promptly, but omitting thiamine in this high-risk presentation leaves the underlying cerebral energy failure untreated.",
-            "patientWrong": ""
+            "patientWrong": "Gerald: Please treat the reason this happened too.",
+            "fennWrong": "Glucose is urgent, but omitting thiamine leaves the neurologic injury untreated."
           },
           {
             "text": "Give oral thiamine and reassess tomorrow",
             "correct": false,
             "feedback": "Suspected acute Wernicke encephalopathy requires parenteral thiamine; oral absorption is unreliable and too slow here.",
-            "patientWrong": ""
+            "patientWrong": "Gerald: Tomorrow is too late for something affecting his brain.",
+            "fennWrong": "Oral absorption is unreliable in this acute, malnourished patient."
           }
-        ]
+        ],
+        "openingFenn": "Two urgent deficiencies. Sequence them without delaying either."
       },
       {
         "title": "Correct the cofactors and prevent deterioration",
@@ -543,30 +620,34 @@
         },
         "options": [
           {
-            "text": "IV magnesium replacement, continued parenteral thiamine, electrolyte and cardiac monitoring",
+            "text": "Replace magnesium and continue IV thiamine with monitoring",
             "correct": true,
-            "feedback": "Correct. Severe hypomagnesemia needs replacement and may blunt thiamine response. Continue parenteral thiamine and monitor electrolytes, rhythm, nutrition, and withdrawal.",
+            "feedback": "Correct. Replace severe magnesium deficiency because it can impair thiamine-dependent recovery and prolong repolarization. Continue parenteral thiamine while monitoring rhythm, potassium, phosphate, nutrition, and withdrawal.",
             "patientCorrect": "Patient: Gerald, cancel breakfast service. Gerald: Already done."
           },
           {
             "text": "Stop treatment because mental status improved",
             "correct": false,
             "feedback": "Early improvement does not correct severe deficiency, electrolyte abnormalities, or withdrawal risk.",
-            "patientWrong": ""
+            "patientWrong": "Patient: Clearer is not the same as steady.",
+            "fennWrong": "Early improvement does not replace depleted stores or correct the rhythm risk."
           },
           {
             "text": "Repeat CT head before replacing magnesium",
             "correct": false,
             "feedback": "The CT is already negative. Repeating it delays treatment of a critical electrolyte abnormality without a new neurologic change.",
-            "patientWrong": ""
+            "patientWrong": "Gerald: His scan was clear. His magnesium is not.",
+            "fennWrong": "There is no new focal change to justify repeating a negative head scan."
           },
           {
             "text": "Start a large carbohydrate meal immediately without electrolyte monitoring",
             "correct": false,
             "feedback": "Severe malnutrition creates refeeding risk. Nutrition should be introduced with electrolyte monitoring and replacement.",
-            "patientWrong": ""
+            "patientWrong": "Patient: I would prefer dinner not create a second emergency.",
+            "fennWrong": "A large carbohydrate load without electrolyte surveillance invites refeeding complications."
           }
-        ]
+        ],
+        "openingFenn": "The mind is clearer; the cofactor and rhythm still need attention."
       },
       {
         "title": "Disposition",
@@ -583,30 +664,34 @@
         },
         "options": [
           {
-            "text": "Admit to a monitored medical bed for parenteral thiamine, nutrition, electrolytes, and withdrawal surveillance",
+            "text": "Admit for IV thiamine, refeeding, and withdrawal monitoring",
             "correct": true,
-            "feedback": "Correct. Improvement does not make discharge safe. He needs continued parenteral therapy, rehabilitation assessment, nutrition support, and alcohol-withdrawal planning.",
+            "feedback": "Correct. Persistent ataxia, malnutrition, parenteral therapy, electrolyte replacement, and withdrawal risk require a monitored admission. Add nutrition and mobility assessment before discharge planning.",
             "patientCorrect": "Patient: One night? Fenn: Let us begin with tonight."
           },
           {
             "text": "Discharge with oral vitamins and primary-care follow-up",
             "correct": false,
             "feedback": "Persistent ataxia, severe hypomagnesemia, malnutrition, and withdrawal risk require inpatient care.",
-            "patientWrong": ""
+            "patientWrong": "Patient: Gerald would have to carry me up the restaurant stairs.",
+            "fennWrong": "Oral vitamins cannot cover persistent ataxia, parenteral therapy, or withdrawal risk."
           },
           {
             "text": "Transfer directly to psychiatry",
             "correct": false,
             "feedback": "This is an acute neurologic and metabolic emergency. Behavioral-health support follows medical stabilization.",
-            "patientWrong": ""
+            "patientWrong": "Patient: I am ill, Doctor—not a problem to be removed from your ward.",
+            "fennWrong": "The confusion has a medical cause that still requires active treatment."
           },
           {
             "text": "Send him to an unmonitored detoxification facility",
             "correct": false,
             "feedback": "He still needs medical treatment and monitoring that a nonmedical detoxification setting cannot provide.",
-            "patientWrong": ""
+            "patientWrong": "Gerald: He needs a hospital before he needs a program.",
+            "fennWrong": "A nonmedical detox bed cannot replace electrolyte and neurologic monitoring."
           }
-        ]
+        ],
+        "openingFenn": "He is improving, but he still cannot walk safely."
       },
       {
         "title": "A useful conversation",
@@ -623,30 +708,34 @@
         },
         "options": [
           {
-            "text": "Ask permission, share specific medical concerns, and offer treatment options without judgment",
+            "text": "Ask permission, name the medical concern, and offer treatment choices",
             "correct": true,
-            "feedback": "Correct. A collaborative brief intervention preserves autonomy and makes engagement more likely.",
+            "feedback": "Correct. Permission, specific observations, and a menu of treatment choices preserve autonomy and improve engagement. Agree on one realistic next step rather than demanding a lifetime commitment at the bedside.",
             "patientCorrect": "Patient: Tell me what help actually looks like."
           },
           {
             "text": "Tell him he must stop immediately or treatment will be withdrawn",
             "correct": false,
             "feedback": "Threats damage trust and are not an evidence-based brief intervention.",
-            "patientWrong": ""
+            "patientWrong": "Patient: If help comes with an ultimatum, I will stop listening.",
+            "fennWrong": "A threat turns a treatment conversation into punishment."
           },
           {
             "text": "Avoid the subject because it may embarrass him",
             "correct": false,
             "feedback": "This admission is an important opportunity to offer help respectfully.",
-            "patientWrong": ""
+            "patientWrong": "Patient: I know what we are avoiding. I would rather name it.",
+            "fennWrong": "Avoiding the subject abandons an important prevention opportunity."
           },
           {
             "text": "Discuss his alcohol history with Gerald without asking him",
             "correct": false,
             "feedback": "Once he has capacity, he controls disclosure of his medical information.",
-            "patientWrong": ""
+            "patientWrong": "Patient: Gerald is my manager, not my medical proxy.",
+            "fennWrong": "With capacity restored, disclosure is his choice."
           }
-        ]
+        ],
+        "openingFenn": "Ask permission first. Then connect the illness to the exposure."
       }
     ],
     "hints": [
@@ -709,7 +798,11 @@
       "initial": "She has already named the exposure. Our job is to prove the physiology and keep it from escalating.",
       "diagnosisCorrect": "Good. Pure antimuscarinic poisoning fits—but treatment still begins with support and an ECG.",
       "diagnosisWrong": "Look at the skin. Similar toxidromes race the heart; only one takes the sweat away.",
-      "debrief": "She requested new glove protocols before discharge. Occupational health received a remarkably detailed memorandum."
+      "diagnosisUnsupported": "That diagnosis cannot explain the plant exposure with dry skin, mydriasis, ileus, retention, and delirium.",
+      "differentialLocked": "A dry toxidrome fits. Check conduction and mixed ingestion before considering an antidote.",
+      "debrief": "She requested new glove protocols before discharge. Occupational health received a remarkably detailed memorandum.",
+      "labMenuHint": "Start with an ECG and metabolic assessment. The antidote decision depends on conduction, temperature, and evidence of mixed ingestion.",
+      "labMenuPatient": "The plant exposure was real. You still need to know what it did to the rest of me."
     },
     "hpi": "A 27-year-old conservatory technician developed blurred vision, dry mouth, palpitations, urinary retention, and confusion after processing concentrated belladonna specimens. A glove tore; she continued working and later rubbed her eyes and ate without washing. Symptoms progressed over two hours. She is frightened, hot, and intermittently loses the thread of conversation.",
     "chart": {
@@ -757,21 +850,24 @@
         "cost": 5,
         "text": "A glove tore while she processed belladonna extract. She later touched her eyes and ate lunch without washing. No co-ingestants, prescribed anticholinergics, or recreational substances.",
         "quote": "I knew the protocol. I made one tired decision and kept working.",
-        "fennick": "A credible exposure and a compatible timeline. Still, check for mixed toxicity before reaching for an antidote."
+        "fennick": "Torn glove, ocular contact, then food handling; no reported co-ingestant.",
+        "hint": "The exposure is credible. Use the examination to distinguish a dry antimuscarinic syndrome from a sweaty sympathomimetic one."
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
         "cost": 8,
         "text": "Agitated with fluctuating attention. Pupils 8 mm and poorly reactive. Skin flushed, hot, and completely dry; mucosa dry. Sinus tachycardia. Distended bladder, absent bowel sounds, no clonus or rigidity.",
         "quote": "Please turn the lights down. And please do something about my bladder.",
-        "fennick": "Central delirium plus peripheral antimuscarinic signs. The wet-versus-dry distinction earns its keep."
+        "fennick": "Dilated poorly reactive pupils, hot dry skin, dry mucosa, absent bowel sounds, and a distended bladder.",
+        "hint": "Which toxidrome combines delirium and tachycardia with anhidrosis, mydriasis, ileus, and urinary retention?"
       },
       "imaging": {
         "title": "IMAGING",
         "cost": 15,
-        "text": "CT head is not routinely required for a clear toxidrome; obtained after worsening delirium and shows no acute process. Bladder scan shows 680 mL retention.",
+        "text": "CT head shows no acute intracranial process. Bladder scan shows marked urinary retention.",
         "quote": "The scan is clear. The plant is still very much here.",
-        "fennick": "Imaging excludes a competing catastrophe. It does not detoxify her."
+        "fennick": "No acute intracranial lesion; the bladder is markedly distended.",
+        "hint": "The negative head study removes a competing structural emergency. Return to the exposure, skin, pupils, bowel sounds, and bladder."
       }
     },
     "labs": [
@@ -780,49 +876,74 @@
         "status": "abnormal",
         "result": "Sinus tachycardia 128 bpm. QRS 84 ms, QTc 438 ms. No sodium-channel blockade or ventricular dysrhythmia.",
         "remark": "The tracing is fast, but you said the width is normal.",
-        "fennick": "Normal QRS matters before physostigmine is considered."
+        "fennick": "Sinus tachycardia; narrow QRS and no ventricular dysrhythmia.",
+        "hint": "A narrow QRS makes sodium-channel blockade less likely and matters before considering a centrally acting antidote."
       },
       {
         "name": "CMP",
         "status": "abnormal",
         "result": "Glucose 142 mg/dL; electrolytes and renal function currently preserved.",
-        "remark": "At least one panel is mostly boring."
+        "remark": "At least one panel is mostly boring.",
+        "fennick": "Mild hyperglycaemia; electrolytes and renal function preserved.",
+        "hint": "The metabolic panel has not supplied an alternate cause. Check conduction and complications of agitation next."
       },
       {
         "name": "CBC",
         "status": "abnormal",
-        "result": "WBC 13.2 ×10⁹/L, consistent with physiologic stress. Hemoglobin and platelets normal.",
-        "remark": "Stress. That seems accurate."
+        "result": "WBC 13.2 ×10⁹/L. Haemoglobin and platelets within reference range.",
+        "remark": "Stress. That seems accurate.",
+        "fennick": "Mild leukocytosis with normal haemoglobin and platelets.",
+        "hint": "Stress leukocytosis is nonspecific here. It should not distract from the exposure and dry peripheral findings."
       },
       {
         "name": "CK",
         "status": "normal",
         "result": "Creatine kinase normal initially. Repeat if hyperthermia or agitation persists.",
-        "remark": "So my muscles have not started breaking down."
+        "remark": "So my muscles have not started breaking down.",
+        "fennick": "Creatine kinase is within range.",
+        "hint": "A normal initial CK is reassuring, but persistent hyperthermia or agitation would justify repeating it."
       },
       {
         "name": "VBG",
         "status": "normal",
         "result": "pH 7.43, pCO₂ 38, bicarbonate 25. No metabolic acidosis.",
-        "remark": "Good. One less emergency."
+        "remark": "Good. One less emergency.",
+        "fennick": "Normal pH and bicarbonate; no metabolic acidosis.",
+        "hint": "The absence of acidosis argues against several dangerous co-ingestions but does not identify the toxidrome by itself."
       },
       {
         "name": "Toxicology screen",
         "status": "abnormal",
         "result": "Tropane alkaloids detected. Acetaminophen, salicylate, ethanol, and common drugs of abuse negative.",
-        "remark": "Only the plant. Exactly as I told you."
+        "remark": "Only the plant. Exactly as I told you.",
+        "special": true,
+        "cost": 20,
+        "fennick": "Tropane alkaloids detected; common co-ingestants not detected.",
+        "hint": "Pair the detected plant alkaloid with the dry skin, mydriasis, ileus, retention, and delirium."
       },
       {
         "name": "Urinalysis",
         "status": "abnormal",
-        "result": "Concentrated urine; no infection. Retention is antimuscarinic and confirmed on bladder scan.",
-        "remark": "I would like the catheter now, please."
+        "result": "Concentrated urine without pyuria or bacteriuria. Bladder scan shows marked retention.",
+        "remark": "I would like the catheter now, please.",
+        "fennick": "Concentrated urine without infection.",
+        "hint": "The urine does not explain the retention. The bladder finding belongs to the same autonomic pattern as the dry mouth and ileus."
       },
       {
         "name": "Pregnancy test",
         "status": "normal",
         "result": "Negative.",
-        "remark": "Expected, but fair to check before treatment decisions."
+        "remark": "Expected, but fair to check before treatment decisions.",
+        "fennick": "Pregnancy test is negative.",
+        "hint": "This changes medication safety planning, not the leading diagnosis."
+      },
+      {
+        "name": "Serum osmolality",
+        "status": "normal",
+        "result": "Serum osmolality within reference range.",
+        "remark": "Another quiet result. Keep going.",
+        "fennick": "Serum osmolality is within range.",
+        "hint": "No major osmolar disturbance explains the delirium. Keep the toxic exposure central."
       }
     ],
     "management": [
@@ -841,30 +962,34 @@
         },
         "options": [
           {
-            "text": "Cardiac monitoring, IV access, benzodiazepines, active cooling, and bladder catheterization",
+            "text": "Monitor, use benzodiazepines and cooling, and drain the bladder",
             "correct": true,
-            "feedback": "Correct. Stabilize airway/breathing/circulation, control dangerous agitation with benzodiazepines, cool actively, monitor the ECG, and decompress significant retention.",
+            "feedback": "Correct. Supportive care is active treatment: monitor rhythm, secure access, use benzodiazepines for dangerous agitation, cool actively, give fluids as indicated, and decompress significant retention. Reassess temperature, CK, renal function, and airway risk.",
             "patientCorrect": "Thank you. I can think around the edges again."
           },
           {
-            "text": "Give haloperidol as the sole treatment",
+            "text": "Use haloperidol alone to control the agitation and delirium",
             "correct": false,
             "feedback": "Antipsychotics may worsen hyperthermia, lower seizure threshold, and complicate conduction risk. Benzodiazepines and supportive care are preferred.",
-            "patientWrong": ""
+            "patientWrong": "The room is still burning and my bladder still hurts.",
+            "fennWrong": "Haloperidol alone does not address heat, retention, volume status, or conduction risk."
           },
           {
-            "text": "Induce vomiting",
+            "text": "Induce vomiting now to remove the remaining plant material",
             "correct": false,
             "feedback": "The exposure is already absorbed and she has ileus and delirium. Induced emesis adds aspiration risk without benefit.",
-            "patientWrong": ""
+            "patientWrong": "Please do not make me vomit while the ceiling is moving.",
+            "fennWrong": "With delirium and ileus, induced emesis adds aspiration without useful decontamination."
           },
           {
-            "text": "Discharge because oxygenation is normal",
+            "text": "Discharge once oxygenation is confirmed normal despite the delirium",
             "correct": false,
             "feedback": "Normal oxygen saturation does not make delirium, hyperthermia, tachycardia, and urinary retention safe for discharge.",
-            "patientWrong": ""
+            "patientWrong": "I cannot safely find the door, let alone go home.",
+            "fennWrong": "Normal oxygenation does not neutralize hyperthermia, delirium, or urinary retention."
           }
-        ]
+        ],
+        "openingFenn": "Cool her, control agitation, monitor conduction, and relieve retention."
       },
       {
         "title": "Persistent central delirium",
@@ -881,30 +1006,34 @@
         },
         "options": [
           {
-            "text": "Consult medical toxicology and give carefully titrated IV physostigmine with continuous monitoring",
+            "text": "Use monitored physostigmine with toxicology input",
             "correct": true,
-            "feedback": "Correct. In severe confirmed pure antimuscarinic delirium with a normal QRS, physostigmine can reverse central toxicity. Give slowly with resuscitation capability and monitoring.",
+            "feedback": "Correct. In severe, confirmed pure antimuscarinic delirium with a narrow QRS, carefully titrated physostigmine may be used with toxicology support and continuous monitoring. Give it slowly with atropine and resuscitation capability available.",
             "patientCorrect": "Everything is suddenly much clearer. Unpleasantly clear, but clear."
           },
           {
             "text": "Give physostigmine rapidly without ECG review",
             "correct": false,
             "feedback": "Physostigmine is not a reflex bolus. Exclude QRS prolongation or mixed toxicity, consult toxicology, dose slowly, and monitor for bradycardia and seizures.",
-            "patientWrong": ""
+            "patientWrong": "That sounded much too fast for a drug meant to clear my head.",
+            "fennWrong": "Physostigmine requires ECG review, slow dosing, monitoring, and resuscitation capability."
           },
           {
             "text": "Give sodium bicarbonate despite a normal QRS",
             "correct": false,
             "feedback": "Sodium bicarbonate treats sodium-channel blockade with QRS widening; it is not indicated for isolated sinus tachycardia with QRS 84 ms.",
-            "patientWrong": ""
+            "patientWrong": "You are treating a tracing I do not have.",
+            "fennWrong": "Bicarbonate treats widened-QRS sodium-channel blockade, which this tracing does not show."
           },
           {
-            "text": "Give atropine as the antidote",
+            "text": "Give atropine to reverse the autonomic manifestations",
             "correct": false,
             "feedback": "Atropine is itself antimuscarinic and would worsen this toxidrome.",
-            "patientWrong": ""
+            "patientWrong": "More dryness and confusion is not an antidote.",
+            "fennWrong": "Atropine adds antimuscarinic activity and would intensify this syndrome."
           }
-        ]
+        ],
+        "openingFenn": "The delirium persists. Check the tracing before choosing an antidote."
       },
       {
         "title": "Observation and disposition",
@@ -921,30 +1050,34 @@
         },
         "options": [
           {
-            "text": "Admit or continue monitored observation with toxicology follow-up until sustained resolution",
+            "text": "Continue monitored observation until recovery remains sustained",
             "correct": true,
-            "feedback": "Correct. Severe toxicity and physostigmine use require continued monitoring for recurrence and complications.",
+            "feedback": "Correct. Severe toxicity and physostigmine use require monitored observation for recurrent delirium, dysrhythmia, hyperthermia, and recurrent retention. Discharge only after sustained cognitive and autonomic recovery.",
             "patientCorrect": "A monitored bed sounds much better than being alone."
           },
           {
             "text": "Discharge immediately after the first clear conversation",
             "correct": false,
             "feedback": "Physostigmine can wear off before the toxin. Recurrent delirium and peripheral toxicity must be excluded before discharge.",
-            "patientWrong": ""
+            "patientWrong": "I am clearer, but I still do not trust myself alone tonight.",
+            "fennWrong": "A transient lucid interval does not exclude recurrent central toxicity."
           },
           {
             "text": "Transfer to inpatient psychiatry for hallucinations",
             "correct": false,
             "feedback": "The delirium is toxicologic and requires medical monitoring, not primary psychiatric admission.",
-            "patientWrong": ""
+            "patientWrong": "The greenhouse was chemical, not psychiatric.",
+            "fennWrong": "A psychiatric unit cannot replace post-antidote cardiac and toxicology monitoring."
           },
           {
             "text": "Prescribe outpatient physostigmine",
             "correct": false,
             "feedback": "Physostigmine is an acute monitored antidote, not an outpatient prescription.",
-            "patientWrong": ""
+            "patientWrong": "My torn glove—not an infection—started this.",
+            "fennWrong": "Antibiotics do not treat this exposure, and there is no infectious source."
           }
-        ]
+        ],
+        "openingFenn": "Clarity after an antidote can fade. Prove the recovery is sustained."
       }
     ],
     "hints": [
@@ -1004,7 +1137,11 @@
       "initial": "He has spent months explaining each symptom away. The collar is harder to negotiate with.",
       "diagnosisCorrect": "Yes. Now separate the cancer, the obstructed vein, and the paraneoplastic findings—then manage the whole patient.",
       "diagnosisWrong": "You have named part of the picture. The histology and paraneoplastic clues demand greater specificity.",
-      "debrief": "He rescheduled three client meetings before telling his family. Then, finally, he let his wife take the phone."
+      "diagnosisUnsupported": "That diagnosis does not connect a central hilar mass, SVC obstruction, inappropriate antidiuresis, and facilitation after exercise.",
+      "differentialLocked": "A central lung malignancy fits. Establish the histology and connect the paraneoplastic findings.",
+      "debrief": "He rescheduled three client meetings before telling his family. Then, finally, he let his wife take the phone.",
+      "labMenuHint": "Begin with CBC, metabolic studies, and ECG. Hyponatraemia may be part of the same process, but tissue is still required.",
+      "labMenuPatient": "The swelling is visible. I assume the blood work may show what else this has disturbed."
     },
     "hpi": "A 62-year-old regional sales director reports three months of cough, two weeks of scant hemoptysis, twelve pounds of unintentional weight loss, and six weeks of morning facial swelling. His collar is tighter and headaches worsen when bending forward. He has a 45-pack-year smoking history. He also reports proximal leg weakness that briefly improves with repeated effort.",
     "chart": {
@@ -1058,73 +1195,100 @@
         "cost": 5,
         "text": "Facial swelling and headache are worse in the morning and when bending forward. He has progressive cough, hemoptysis, weight loss, 45 pack-years of smoking, and proximal weakness that improves briefly with repeated movement.",
         "quote": "I kept calling it travel fatigue. That explanation has expired.",
-        "fennick": "The vascular syndrome and cancer risk are clear. The facilitation gives us another clue."
+        "fennick": "Morning facial swelling, positional headache, cough, haemoptysis, weight loss, heavy smoking exposure, and fatigable proximal weakness.",
+        "hint": "A central thoracic process can obstruct venous return and produce paraneoplastic neurologic findings. Which lung cancer classically does both?"
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
         "cost": 8,
         "text": "Plethoric facial and bilateral arm edema, distended nonpulsatile neck veins, and chest-wall venous collaterals. Decreased right-upper-lobe breath sounds. Symmetric proximal weakness with reduced reflexes that improve after brief exercise.",
         "quote": "The collar was not shrinking. I understand that now.",
-        "fennick": "SVC obstruction above; Lambert-Eaton physiology below. One central malignancy can connect them."
+        "fennick": "Plethoric face, bilateral arm oedema, nonpulsatile neck veins, chest-wall collaterals, proximal weakness, and reflexes that improve after exercise.",
+        "hint": "The upper-body venous obstruction and facilitation after exercise point to one central malignancy with a classic presynaptic paraneoplastic syndrome."
       },
       "imaging": {
         "title": "IMAGING",
         "cost": 15,
-        "text": "Contrast CT chest: 6.2-cm right hilar mass compressing the SVC with mediastinal adenopathy. CT abdomen shows multiple liver lesions. Brain MRI shows no metastasis. This is extensive-stage disease once histology confirms SCLC.",
-        "quote": "The liver spots make this extensive, then.",
-        "fennick": "Now the stage is supported—not merely assumed."
+        "text": "Contrast CT chest shows a 6.2-cm right hilar mass compressing the SVC with mediastinal adenopathy. CT abdomen shows multiple liver lesions. Brain MRI shows no focal metastatic lesion.",
+        "quote": "A mass in the chest and spots in the liver. I understand why you need tissue now.",
+        "fennick": "Right hilar mass, SVC compression, mediastinal nodes, and multiple liver lesions; no focal brain lesion.",
+        "hint": "A bulky central or hilar mass with SVC compression, hyponatraemia, and Lambert-Eaton physiology most strongly favors which lung cancer?"
       }
     },
     "labs": [
       {
         "name": "CBC",
         "status": "abnormal",
-        "result": "Hgb 10.4 g/dL; mild anemia of chronic disease. Platelets 398 ×10⁹/L.",
-        "remark": "I expected worse."
+        "result": "Hgb 10.4 g/dL with normocytic indices. Platelets 398 ×10⁹/L.",
+        "remark": "I expected worse.",
+        "fennick": "Mild normocytic anaemia; platelets preserved.",
+        "hint": "The anaemia is nonspecific. A metabolic panel may reveal a more characteristic paraneoplastic clue."
       },
       {
         "name": "CMP",
         "status": "abnormal",
         "result": "Na 128 mEq/L, serum osmolality low; renal function preserved; mild transaminitis.",
-        "remark": "The sodium is low because of the tumor?"
+        "remark": "The sodium is low because of the tumor?",
+        "fennick": "Hypotonic hyponatraemia with preserved renal function and mild transaminitis.",
+        "hint": "In a smoker with dyspnoea and a central thoracic process, hypotonic hyponatraemia should prompt evaluation for inappropriate antidiuresis."
       },
       {
         "name": "Urine studies",
         "status": "abnormal",
-        "result": "Urine osmolality 680 mOsm/kg and urine Na 62 mEq/L, supporting SIADH in the appropriate euvolemic context.",
+        "result": "Urine osmolality 680 mOsm/kg and urine sodium 62 mEq/L despite low serum osmolality.",
         "remark": "So I am retaining water, not lacking salt.",
-        "fennick": "Concentrated urine despite hypotonic hyponatremia: SIADH fits."
+        "fennick": "Urine remains concentrated with elevated urine sodium despite low serum osmolality.",
+        "hint": "Concentrated urine in hypotonic, clinically euvolaemic hyponatraemia supports inappropriate ADH activity. Which lung malignancy is most associated with it?"
       },
       {
         "name": "ECG",
         "status": "normal",
         "result": "Sinus rhythm at 96 bpm. No ischemic changes or conduction abnormality.",
-        "remark": "One ordinary result."
+        "remark": "One ordinary result.",
+        "fennick": "Sinus rhythm without ischaemic or conduction change.",
+        "hint": "The ECG is not the source of the upper-body swelling. Examine the venous pattern and thorax."
       },
       {
         "name": "VBG",
         "status": "abnormal",
         "result": "Mild hypoxemia without hypercapnia.",
-        "remark": "That explains the breathlessness, at least."
+        "remark": "That explains the breathlessness, at least.",
+        "fennick": "Mild hypoxaemia without carbon-dioxide retention.",
+        "hint": "This confirms respiratory impairment but is not histology. Imaging is the next high-yield step."
       },
       {
         "name": "Bronchoscopy biopsy",
         "status": "critical",
-        "result": "Small-cell neuroendocrine carcinoma: nuclear molding, scant cytoplasm, high mitotic rate, synaptophysin/chromogranin/CD56 positive, Ki-67 >80%.",
-        "remark": "That is definitive.",
-        "fennick": "Histology supplies the specificity the scan cannot."
+        "result": "Nuclear molding, scant cytoplasm, high mitotic rate, synaptophysin/chromogranin/CD56 positive, Ki-67 >80%.",
+        "remark": "Those cells are answering the question the scan could not.",
+        "fennick": "Nuclear molding, scant cytoplasm, brisk mitoses, neuroendocrine markers, and a very high proliferation index.",
+        "special": true,
+        "cost": 20,
+        "hint": "This combination describes a high-grade neuroendocrine lung carcinoma. Name the specific diagnosis."
       },
       {
         "name": "Pulmonary function",
         "status": "abnormal",
-        "result": "Mild obstructive defect; not the primary explanation for symptoms.",
-        "remark": "Years of smoking left more than one mark."
+        "result": "Mild obstructive ventilatory defect.",
+        "remark": "Years of smoking left more than one mark.",
+        "fennick": "Mild obstructive physiology.",
+        "hint": "The obstruction reflects smoking injury but cannot explain venous collaterals, liver lesions, or the central mass."
       },
       {
         "name": "EMG",
         "status": "abnormal",
-        "result": "Incremental response with high-frequency stimulation, supporting Lambert-Eaton myasthenic syndrome.",
-        "remark": "The weakness was connected too."
+        "result": "Incremental compound motor response with high-frequency repetitive nerve stimulation.",
+        "remark": "The weakness was connected too.",
+        "fennick": "High-frequency stimulation produces an incremental motor response.",
+        "hint": "Facilitation suggests a presynaptic neuromuscular-junction syndrome strongly associated with one lung cancer subtype."
+      },
+      {
+        "name": "LDH",
+        "status": "abnormal",
+        "result": "LDH elevated above reference range.",
+        "remark": "Another sign that something is moving quickly.",
+        "fennick": "LDH is elevated.",
+        "hint": "Elevated LDH is nonspecific but compatible with a high-burden, rapidly proliferative process."
       }
     ],
     "management": [
@@ -1143,30 +1307,34 @@
         },
         "options": [
           {
-            "text": "Elevate the head, provide supportive care, urgently coordinate oncology/pulmonology, and obtain rapid tissue diagnosis",
+            "text": "Elevate the head, monitor closely, and expedite tissue diagnosis",
             "correct": true,
-            "feedback": "Correct. Without airway compromise or cerebral edema, stabilize and obtain histology promptly because definitive treatment depends on tumor type.",
+            "feedback": "Correct. Without stridor, cerebral oedema, syncope, or airway compromise, elevate the head, monitor closely, and expedite tissue diagnosis with pulmonology and oncology. Escalate to urgent endovascular or radiation intervention if life-threatening features develop.",
             "patientCorrect": "You are moving quickly without pretending every procedure is an emergency."
           },
           {
             "text": "Start anticoagulation for presumed thrombosis",
             "correct": false,
             "feedback": "CT shows tumor compression without documented thrombosis. Anticoagulation is not treatment for pure extrinsic obstruction and hemoptysis increases bleeding concern.",
-            "patientWrong": ""
+            "patientWrong": "I am coughing blood already. Do not add bleeding risk without a clot.",
+            "fennWrong": "There is no documented thrombus; anticoagulation does not relieve pure external compression."
           },
           {
-            "text": "Give aggressive diuresis as definitive therapy",
+            "text": "Use aggressive diuresis to reduce upper-body venous congestion",
             "correct": false,
             "feedback": "Diuresis does not relieve the obstruction and may cause dehydration. It is not definitive treatment.",
-            "patientWrong": ""
+            "patientWrong": "Less fluid will not move the mass off the vein.",
+            "fennWrong": "Diuresis cannot open a vein compressed by a hilar mass."
           },
           {
             "text": "Place an emergent SVC stent before assessing severity or obtaining tissue",
             "correct": false,
             "feedback": "Endovascular stenting is valuable for severe or life-threatening symptoms, but routine immediate stenting is not required in this stable presentation.",
-            "patientWrong": ""
+            "patientWrong": "I want urgency, not a procedure chosen before the severity is judged.",
+            "fennWrong": "Without airway or cerebral compromise, immediate stenting before tissue is not automatically required."
           }
-        ]
+        ],
+        "openingFenn": "First grade the SVC obstruction: airway and neurologic danger change the urgency."
       },
       {
         "title": "Confirm and stage before definitive therapy",
@@ -1183,30 +1351,34 @@
         },
         "options": [
           {
-            "text": "Bronchoscopic or image-guided biopsy plus CT/PET staging and brain MRI",
+            "text": "Obtain tissue and complete systemic and brain staging",
             "correct": true,
-            "feedback": "Correct. Histology must confirm SCLC, and staging should identify distant disease and brain metastases.",
+            "feedback": "Correct. Obtain tissue and complete systemic and brain staging before definitive therapy. Imaging defines distribution; histology determines the treatment pathway.",
             "patientCorrect": "Specific, staged, and not guessed. Good."
           },
           {
-            "text": "Treat from the CT appearance alone",
+            "text": "Classify and treat the tumor from its CT appearance alone",
             "correct": false,
             "feedback": "Imaging cannot reliably distinguish SCLC from NSCLC or lymphoma. Tissue confirmation is required unless an immediate life-threatening intervention cannot wait.",
-            "patientWrong": ""
+            "patientWrong": "I asked for the exact kind, not the shape on a scan.",
+            "fennWrong": "CT cannot reliably separate the possible thoracic histologies."
           },
           {
-            "text": "Proceed directly to surgical resection",
+            "text": "Proceed directly to surgical resection with nodal dissection",
             "correct": false,
             "feedback": "A bulky central mass with mediastinal nodes and liver metastases is not a surgical presentation.",
-            "patientWrong": ""
+            "patientWrong": "Removing one piece would leave the rest behind.",
+            "fennWrong": "A central mass with nodal and liver disease is not an upfront surgical presentation."
           },
           {
-            "text": "Repeat chest radiographs until the mass changes",
+            "text": "Follow serial chest radiographs before deciding on tissue sampling",
             "correct": false,
             "feedback": "Serial plain films delay histologic diagnosis and staging.",
-            "patientWrong": ""
+            "patientWrong": "Watching the shadow grow is not a diagnostic plan.",
+            "fennWrong": "Serial radiographs postpone the tissue diagnosis without answering it."
           }
-        ]
+        ],
+        "openingFenn": "Imaging maps the disease. Tissue determines what it is."
       },
       {
         "title": "Treat extensive-stage SCLC",
@@ -1223,30 +1395,34 @@
         },
         "options": [
           {
-            "text": "Platinum plus etoposide with a PD-L1 inhibitor such as atezolizumab or durvalumab",
+            "text": "Use platinum-etoposide plus a PD-L1 inhibitor",
             "correct": true,
-            "feedback": "Correct. Extensive-stage SCLC is treated with platinum-etoposide plus immunotherapy in eligible patients, followed by maintenance immunotherapy.",
+            "feedback": "Correct. Eligible patients with extensive-stage disease receive platinum-etoposide plus a PD-L1 inhibitor, followed by maintenance immunotherapy. Treatment planning should also address symptoms, performance status, and goals of care.",
             "patientCorrect": "I will need the schedule in writing. My wife will insist."
           },
           {
-            "text": "Surgical lobectomy alone",
+            "text": "Use lobectomy with nodal dissection as definitive treatment",
             "correct": false,
             "feedback": "Extensive-stage SCLC is systemic and not managed with resection of the primary mass alone.",
-            "patientWrong": ""
+            "patientWrong": "The liver findings would still be there after lung surgery.",
+            "fennWrong": "Local resection cannot treat extensive systemic disease."
           },
           {
-            "text": "EGFR inhibitor monotherapy",
+            "text": "Begin EGFR-inhibitor monotherapy from the imaging pattern",
             "correct": false,
             "feedback": "EGFR-directed therapy is for selected NSCLC, not standard SCLC treatment.",
-            "patientWrong": ""
+            "patientWrong": "That sounds precise for somebody else’s cancer.",
+            "fennWrong": "EGFR monotherapy targets selected non-small-cell tumors, not this histology."
           },
           {
-            "text": "Observation until symptoms worsen",
+            "text": "Use symptom-directed observation with interval restaging",
             "correct": false,
             "feedback": "SCLC is aggressive but initially treatment-responsive. Delay permits rapid progression.",
-            "patientWrong": ""
+            "patientWrong": "I did not clear my calendar so we could wait for this to worsen.",
+            "fennWrong": "This tumor can progress rapidly; observation sacrifices a treatment-responsive window."
           }
-        ]
+        ],
+        "openingFenn": "This is systemic, fast-growing disease; choose a systemic first-line regimen."
       },
       {
         "title": "Manage mild SIADH",
@@ -1265,28 +1441,32 @@
           {
             "text": "Fluid restriction with serial sodium monitoring while treating the malignancy",
             "correct": true,
-            "feedback": "Correct. Mild, minimally symptomatic SIADH is managed with fluid restriction and treatment of the underlying cause, with careful monitoring.",
+            "feedback": "Correct. Mild, minimally symptomatic SIADH is managed with fluid restriction, serial sodium checks, and treatment of the malignancy. Severe neurologic symptoms require carefully monitored hypertonic saline; selected refractory cases may need specialist-guided second-line therapy.",
             "patientCorrect": "I can follow a limit if someone gives me an actual number."
           },
           {
             "text": "Rapidly normalize sodium with repeated 3% saline boluses",
             "correct": false,
             "feedback": "Hypertonic saline is reserved for severe neurologic symptoms. Overcorrection risks osmotic demyelination.",
-            "patientWrong": ""
+            "patientWrong": "I am thinking clearly. Please do not correct this faster than is safe.",
+            "fennWrong": "Hypertonic saline is rescue therapy for severe neurologic symptoms, not routine rapid normalization."
           },
           {
             "text": "Give a large normal-saline bolus as definitive SIADH treatment",
             "correct": false,
             "feedback": "Isotonic saline may fail or worsen hyponatremia when urine remains concentrated. Address free water and the cause.",
-            "patientWrong": ""
+            "patientWrong": "A large bag of saline sounds simpler than the problem is.",
+            "fennWrong": "Isotonic saline may not correct SIADH while urine remains concentrated."
           },
           {
             "text": "Ignore the sodium because cancer treatment will eventually fix it",
             "correct": false,
             "feedback": "The underlying cancer must be treated, but sodium still requires monitoring and interim management.",
-            "patientWrong": ""
+            "patientWrong": "Eventually is not a monitoring schedule.",
+            "fennWrong": "Cancer treatment addresses the driver, but the sodium still needs an interim plan and surveillance."
           }
-        ]
+        ],
+        "openingFenn": "The sodium is low without severe neurologic symptoms. Correct it carefully."
       }
     ],
     "hints": [
@@ -1348,7 +1528,11 @@
       "initial": "He arrived with a schedule and half a medication list. The missing half is usually where the case lives.",
       "diagnosisCorrect": "Exactly. This is iatrogenic Cushing syndrome; the medication history is the diagnostic test.",
       "diagnosisWrong": "The phenotype is real, but before searching for a tumor, ask what cortisol-like substance he already takes.",
-      "debrief": "He requested the taper in calendar format. Fenn supplied one with fewer committee meetings than expected."
+      "diagnosisUnsupported": "That diagnosis cannot explain the glucocorticoid phenotype plus eighteen months of daily prednisone. Start with the medication exposure.",
+      "differentialLocked": "Glucocorticoid excess fits. Determine whether its source is prescribed or endogenous before scanning glands.",
+      "debrief": "He requested the taper in calendar format. Fenn supplied one with fewer committee meetings than expected.",
+      "labMenuHint": "Check metabolic, cardiovascular, and bone complications first. Hormonal interpretation is distorted while supraphysiologic prednisone continues.",
+      "labMenuPatient": "If the tablets caused this, show me what else they have changed."
     },
     "hpi": "A 40-year-old city councilor reports eighteen months of progressive central weight gain, facial rounding, easy bruising, proximal weakness, irritability, and worsening hypertension. He initially lists only amlodipine. When specifically asked about injections, creams, supplements, and medications from other prescribers, he reveals prednisone 20 mg daily for eighteen months for back pain.",
     "chart": {
@@ -1401,21 +1585,24 @@
         "cost": 5,
         "text": "Targeted medication reconciliation reveals prednisone 20 mg every morning for 18 months, repeatedly renewed for lumbar radicular pain. No recent review, inhaled steroid, injection, or topical high-potency steroid.",
         "quote": "It controlled the pain, so I kept renewing it. Nobody connected it to the rest of this.",
-        "fennick": "There is the exposure. Exogenous Cushing syndrome is diagnosed by history and phenotype—not by forcing endogenous screening tests through prednisone."
+        "fennick": "Prednisone every morning for eighteen months, repeatedly renewed without review; no other major glucocorticoid exposure.",
+        "hint": "Before searching for an endogenous cortisol source, identify the cortisol-like medication already present and its duration."
       },
       "exam": {
         "title": "PHYSICAL EXAMINATION",
         "cost": 8,
         "text": "Moon facies, dorsocervical and supraclavicular fat pads, central adiposity, thin extremities, wide violaceous striae, easy bruising, skin fragility, and proximal muscle weakness. No acute infection or heart failure.",
         "quote": "The bruises appear after handshakes. That has become inconvenient professionally.",
-        "fennick": "The skin and proximal muscles show glucocorticoid catabolism more clearly than a random cortisol level would."
+        "fennick": "Facial and truncal adiposity, violaceous striae, skin fragility, bruising, thin extremities, and proximal weakness.",
+        "hint": "These are glucocorticoid effects. Decide whether the source is endogenous or already listed in the medication history."
       },
       "imaging": {
         "title": "IMAGING",
         "cost": 15,
-        "text": "No pituitary or adrenal imaging is indicated before addressing the clear exogenous glucocorticoid source. Lumbar MRI from the outside record shows degenerative disease without a surgical emergency.",
-        "quote": "So we are not scanning every gland I own. Efficient.",
-        "fennick": "Correct. Avoid an incidentaloma hunt when the cause is already on the medication list."
+        "text": "Lumbar MRI shows degenerative disease without cord compression, destructive lesion, or another surgical emergency.",
+        "quote": "Another scan, and it found the same worn back everyone already knew about.",
+        "fennick": "Degenerative lumbar change; no cord compression or surgical lesion.",
+        "hint": "This scan explains neither the systemic phenotype nor the prolonged glucocorticoid exposure. Return to medication reconciliation."
       }
     },
     "labs": [
@@ -1423,49 +1610,75 @@
         "name": "CMP",
         "status": "abnormal",
         "result": "K 3.1 mEq/L, fasting glucose 128 mg/dL; renal and liver function preserved.",
-        "remark": "The potassium and glucose both need follow-up."
+        "remark": "The potassium and glucose both need follow-up.",
+        "fennick": "Hypokalaemia and elevated fasting glucose; renal and liver function preserved.",
+        "hint": "These are metabolic complications of glucocorticoid excess, but they do not locate the source."
       },
       {
         "name": "HbA1c",
         "status": "abnormal",
-        "result": "6.4%, consistent with glucocorticoid-associated dysglycemia.",
-        "remark": "One tenth below a familiar threshold. Not reassuring."
+        "result": "HbA1c 6.4%.",
+        "remark": "Not quite over the line, but not reassuring either.",
+        "fennick": "Glycated haemoglobin is elevated below the diabetes threshold.",
+        "hint": "Chronic glucocorticoid exposure can worsen glycaemia. Treat the risk while addressing the exposure."
       },
       {
         "name": "CBC",
         "status": "abnormal",
-        "result": "Neutrophilic leukocytosis without infectious symptoms, compatible with glucocorticoid effect.",
-        "remark": "An abnormal count without an infection."
+        "result": "Neutrophilic leukocytosis; no fever or localizing infectious symptoms.",
+        "remark": "An abnormal count without an infection.",
+        "fennick": "Neutrophilic leukocytosis without an infectious pattern.",
+        "hint": "Glucocorticoids can demarginate neutrophils. The count alone should not trigger an infection diagnosis."
       },
       {
         "name": "Lipid panel",
         "status": "abnormal",
-        "result": "Elevated LDL and triglycerides, increasing cardiovascular risk.",
-        "remark": "Another item for the agenda."
+        "result": "LDL and triglycerides are above reference range.",
+        "remark": "Another item for the agenda.",
+        "fennick": "LDL and triglycerides are elevated.",
+        "hint": "This adds cardiovascular risk and belongs in follow-up, not in source localization."
       },
       {
         "name": "DEXA scan",
         "status": "abnormal",
         "result": "Low bone mineral density for age; no fragility fracture identified.",
-        "remark": "The back medication weakened the bones. That is difficult to appreciate."
+        "remark": "The back medication weakened the bones. That is difficult to appreciate.",
+        "fennick": "Bone density is low for age; no fragility fracture.",
+        "hint": "Long-term systemic glucocorticoids accelerate bone loss. Prevention and treatment cannot wait for the taper to finish."
       },
       {
         "name": "ECG",
         "status": "abnormal",
         "result": "Sinus rhythm with voltage criteria for LVH.",
-        "remark": "The blood pressure has been leaving a record."
+        "remark": "The blood pressure has been leaving a record.",
+        "fennick": "Sinus rhythm with voltage criteria for left-ventricular hypertrophy.",
+        "hint": "The tracing reflects chronic pressure burden rather than an endocrine source."
       },
       {
-        "name": "Morning cortisol",
+        "name": "Morning cortisol and ACTH",
         "status": "indeterminate",
-        "result": "Not used to diagnose endogenous Cushing syndrome while taking supraphysiologic prednisone. HPA-axis assessment becomes useful near physiologic dosing during discontinuation planning.",
-        "remark": "So this number is not the shortcut."
+        "result": "Morning cortisol and ACTH are suppressed while the patient is taking supraphysiologic prednisone.",
+        "remark": "The tablets have quieted the system that normally makes these hormones.",
+        "special": true,
+        "cost": 20,
+        "fennick": "Morning cortisol and ACTH are suppressed during ongoing prednisone exposure.",
+        "hint": "Suppression during exogenous glucocorticoid use reflects HPA-axis suppression; it is not a screen for a hidden cortisol-producing tumor."
       },
       {
         "name": "Vitamin D",
         "status": "abnormal",
         "result": "25-hydroxy vitamin D is low.",
-        "remark": "At least that one has a straightforward supplement."
+        "remark": "At least that one has a straightforward supplement.",
+        "fennick": "25-hydroxy vitamin D is below range.",
+        "hint": "Replace the deficiency as part of bone protection, alongside calcium intake and fracture-risk assessment."
+      },
+      {
+        "name": "Urinalysis",
+        "status": "normal",
+        "result": "No glucose, protein, blood, or evidence of infection.",
+        "remark": "One section of the chart can stay uncomplicated.",
+        "fennick": "Urinalysis is unremarkable.",
+        "hint": "This does not explain the phenotype. The medication history remains the highest-yield evidence."
       }
     ],
     "management": [
@@ -1484,30 +1697,34 @@
         },
         "options": [
           {
-            "text": "Confirm complete glucocorticoid exposure and diagnose iatrogenic Cushing syndrome clinically",
+            "text": "Confirm the complete glucocorticoid exposure and its indication",
             "correct": true,
-            "feedback": "Correct. Exogenous glucocorticoid use plus the phenotype establishes the cause. Routine endogenous cortisol screening and adrenal/pituitary imaging are not appropriate now.",
+            "feedback": "Correct. A sustained supraphysiologic glucocorticoid exposure plus the phenotype establishes the exogenous source. Document the full exposure and indication before ordering endocrine imaging or screening that prednisone will confound.",
             "patientCorrect": "Then put the prednisone at the top of the chart this time."
           },
           {
-            "text": "Order pituitary MRI immediately",
+            "text": "Order pituitary MRI to search for an ACTH-secreting lesion",
             "correct": false,
             "feedback": "Pituitary imaging is for established ACTH-dependent endogenous Cushing disease, not an obvious exogenous presentation.",
-            "patientWrong": ""
+            "patientWrong": "Another imaging order? The prednisone is already sitting on the medication list.",
+            "fennWrong": "Pituitary imaging follows biochemical evidence of ACTH-dependent endogenous disease, which is not established here."
           },
           {
             "text": "Perform overnight dexamethasone suppression testing while he continues prednisone",
             "correct": false,
             "feedback": "Exogenous glucocorticoids interfere with HPA physiology and testing. The medication history already explains the syndrome.",
-            "patientWrong": ""
+            "patientWrong": "A test the medication interferes with will not improve this meeting.",
+            "fennWrong": "Prednisone distorts HPA physiology, so a suppression test now cannot answer the intended question."
           },
           {
             "text": "Order adrenal CT for an autonomous cortisol-producing mass",
             "correct": false,
             "feedback": "Imaging risks incidental findings and does not supersede the clear exogenous exposure.",
-            "patientWrong": ""
+            "patientWrong": "Scanning every gland still sounds like avoiding the prescription list.",
+            "fennWrong": "Adrenal imaging now risks an incidentaloma while ignoring the documented exposure."
           }
-        ]
+        ],
+        "openingFenn": "The exposure is already documented. Do not let an incidental finding replace it."
       },
       {
         "title": "Reduce glucocorticoids safely",
@@ -1524,30 +1741,34 @@
         },
         "options": [
           {
-            "text": "Coordinate a gradual taper, faster at high doses and slower near physiologic dosing, while monitoring symptoms",
+            "text": "Use a monitored taper that slows near physiologic dosing",
             "correct": true,
-            "feedback": "Correct. Long-term supraphysiologic prednisone should be tapered only when the underlying condition is controlled. Tapering generally slows near physiologic doses as HPA recovery is assessed.",
+            "feedback": "Correct. Taper only after the underlying condition is controlled, with larger reductions tolerated at high doses and slower reductions near physiologic dosing. Monitor for recurrence, withdrawal, and adrenal insufficiency throughout.",
             "patientCorrect": "Put it on a calendar and I will follow it."
           },
           {
-            "text": "Stop prednisone immediately",
+            "text": "Stop prednisone immediately and monitor symptoms as needed",
             "correct": false,
             "feedback": "Abrupt cessation after prolonged use risks glucocorticoid withdrawal and adrenal insufficiency or crisis.",
-            "patientWrong": ""
+            "patientWrong": "I wanted fewer tablets, not a collapse tomorrow morning.",
+            "fennWrong": "Abrupt withdrawal after prolonged use can precipitate adrenal insufficiency or crisis."
           },
           {
             "text": "Continue prednisone indefinitely and add ketoconazole",
             "correct": false,
             "feedback": "The cortisol-like exposure is the prednisone itself. Blocking endogenous synthesis while continuing the unnecessary drug is not appropriate.",
-            "patientWrong": ""
+            "patientWrong": "That adds a medicine while preserving the one that caused the problem.",
+            "fennWrong": "Continuing the causal drug while blocking endogenous synthesis does not remove the exposure."
           },
           {
-            "text": "Arrange bilateral adrenalectomy",
+            "text": "Arrange bilateral adrenalectomy to eliminate cortisol production",
             "correct": false,
             "feedback": "His adrenal glands are suppressed, not the source of excess. Surgery is not indicated.",
-            "patientWrong": ""
+            "patientWrong": "Removing quiet glands is not a controlled taper.",
+            "fennWrong": "The adrenal glands are suppressed rather than surgically overactive."
           }
-        ]
+        ],
+        "openingFenn": "Long exposure means the exit must be controlled, not abrupt."
       },
       {
         "title": "Prevent and treat complications",
@@ -1564,30 +1785,34 @@
         },
         "options": [
           {
-            "text": "Address BP and glucose, assess bone health, replace deficiencies, review infection risk, and provide steroid safety education",
+            "text": "Treat metabolic and bone complications and provide steroid-safety education",
             "correct": true,
-            "feedback": "Correct. Long-term glucocorticoids affect cardiovascular, metabolic, skeletal, infectious, ocular, and adrenal health. The taper does not erase those risks overnight.",
+            "feedback": "Correct. Treat blood pressure, dysglycaemia, lipids, potassium, bone loss, vitamin deficiency, infection risk, and ocular symptoms while exposure is reduced. Bone and cardiovascular protection should not wait for taper completion.",
             "patientCorrect": "Give me the monitoring schedule as well as the taper."
           },
           {
-            "text": "Focus only on cosmetic weight changes",
+            "text": "Focus follow-up on weight reduction and cosmetic recovery",
             "correct": false,
             "feedback": "The major risks are systemic: diabetes, hypertension, osteoporosis, infection, thrombosis, and adrenal suppression.",
-            "patientWrong": ""
+            "patientWrong": "The bruises and weak legs are not a weight-loss discussion.",
+            "fennWrong": "The dangerous consequences are metabolic, skeletal, infectious, cardiovascular, and adrenal—not merely cosmetic."
           },
           {
             "text": "Wait until the taper is complete before addressing hypertension or dysglycemia",
             "correct": false,
             "feedback": "Complications should be treated now while glucocorticoid exposure is reduced.",
-            "patientWrong": ""
+            "patientWrong": "My calendar can hold two plans at once. Start the monitoring now.",
+            "fennWrong": "Hypertension and dysglycaemia require treatment during the taper, not after it."
           },
           {
             "text": "Recommend bariatric surgery before correcting the glucocorticoid exposure",
             "correct": false,
             "feedback": "The body-composition change is medication-driven. Treat the cause and metabolic risks before considering unrelated surgery.",
-            "patientWrong": ""
+            "patientWrong": "I would rather remove the cause than schedule unrelated surgery.",
+            "fennWrong": "Surgery does not address medication-driven body composition or the underlying risks."
           }
-        ]
+        ],
+        "openingFenn": "The taper is only one part; treat the complications already present."
       },
       {
         "title": "Prepare him for the taper",
@@ -1604,30 +1829,34 @@
         },
         "options": [
           {
-            "text": "Use shared decision-making, give written taper and sick-day instructions, and explain adrenal warning symptoms",
+            "text": "Give a written taper, sick-day rules, and adrenal warning signs",
             "correct": true,
-            "feedback": "Correct. Education and a written plan reduce unsafe self-adjustment and help patients recognize hypotension, vomiting, severe weakness, or collapse.",
+            "feedback": "Correct. Provide a written taper, sick-day instructions, warning symptoms, and clear thresholds for urgent care. Shared decisions and coordinated follow-up reduce unsafe self-adjustment.",
             "patientCorrect": "Written, specific, and without blame. Good."
           },
           {
             "text": "Tell him only to take fewer tablets and call if concerned",
             "correct": false,
             "feedback": "A vague plan invites dosing errors and misses essential adrenal-safety education.",
-            "patientWrong": ""
+            "patientWrong": "“Take fewer” is not a schedule I can follow.",
+            "fennWrong": "A vague instruction invites dosing errors and omits adrenal-safety guidance."
           },
           {
             "text": "Emphasize that taking prednisone was irresponsible",
             "correct": false,
             "feedback": "Blame does not improve safety. He followed repeated prescriptions; focus on informed future decisions and coordinated care.",
-            "patientWrong": ""
+            "patientWrong": "I came for a safe plan, not a verdict on trusting my doctors.",
+            "fennWrong": "Blame adds no safety information; he followed repeatedly renewed prescriptions."
           },
           {
             "text": "Promise his appearance and strength will normalize within one week",
             "correct": false,
             "feedback": "Recovery of HPA function and Cushing features is variable and often takes months. Avoid false certainty.",
-            "patientWrong": ""
+            "patientWrong": "Do not promise a one-week repair for an eighteen-month problem.",
+            "fennWrong": "Recovery of strength, appearance, and HPA function is variable and often slow."
           }
-        ]
+        ],
+        "openingFenn": "Give him a written plan that still works on a sick day."
       }
     ],
     "hints": [
