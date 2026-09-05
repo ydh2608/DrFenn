@@ -1881,5 +1881,1661 @@
       "title": "Iatrogenic Cushing Syndrome",
       "pearl": "A complete medication history is the key diagnostic test for exogenous Cushing syndrome. If long-term glucocorticoids are no longer needed, taper them rather than stopping abruptly, usually slowing near physiologic doses, and actively address metabolic, cardiovascular, skeletal, infectious, and adrenal-safety consequences."
     }
+  },
+  {
+    "schemaVersion": 1,
+    "scoring": {
+      "initialScore": 100,
+      "hintCost": 10,
+      "labCost": 5,
+      "wrongDiagnosisCost": 10,
+      "wrongManagementCost": 5,
+      "earlyRecognitionBonus": 2,
+      "mustNotMissBonus": 1
+    },
+    "id": "006-iron-deficiency-anemia",
+    "date": "2026-05-03",
+    "patient": {
+      "caseLabel": "ROUTINE · CASE 006",
+      "status": "STABLE",
+      "title": "The Tailor's Fatigue",
+      "age": 29,
+      "sex": "F",
+      "occupation": "Lead tailor · Hemline Alterations",
+      "initialQuote": "My supervisor says I've started making mistakes. I thought I was simply tired.",
+      "vitals": {
+        "bp": "102/68",
+        "hr": "108",
+        "rr": "16",
+        "temp": "36.8°",
+        "o2": "98%"
+      },
+      "criticalVitals": [
+        "hr"
+      ]
+    },
+    "fenn": {
+      "initial": "She was sent for low mood, but her body has been conserving energy for months.",
+      "labMenuHint": "Start with the cell count and indices. If they are microcytic, use the remaining tests to distinguish depleted stores from inherited or inflammatory causes.",
+      "labMenuPatient": "I do not mind needles. I would simply like an answer that fits.",
+      "diagnosisCorrect": "Good. Now replace what is missing and find the source.",
+      "diagnosisWrong": "The mood symptoms are real, but they may be downstream of a physical problem.",
+      "diagnosisUnsupported": "That does not connect exertional dyspnoea, pallor, spoon nails, heavy periods, and ice craving.",
+      "differentialLocked": "A microcytic process is a defensible start. Establish the pattern, then identify why her stores emptied.",
+      "debrief": "She measures every hem twice. No one had measured how much blood she was losing."
+    },
+    "hpi": "A 29-year-old lead tailor presents after four months of progressive fatigue, poor concentration, unexplained tearfulness, and errors at work. Sertraline started eight weeks ago has not helped. She becomes breathless climbing one flight of stairs, craves ice daily, eats irregularly during busy weeks, and reports long, heavy menstrual periods.",
+    "chart": {
+      "PMH": "Heavy menstrual bleeding; diagnosed depression two months ago.",
+      "PSH": "None.",
+      "Medications": "Sertraline 50 mg daily.",
+      "Allergies": "NKDA.",
+      "Family Hx": "Mother was treated for anaemia in her thirties.",
+      "Social Hx": "Works long seated shifts; lives alone; non-smoker; rarely drinks; frequently skips meals."
+    },
+    "diagnosticReasoning": {
+      "finalDiagnosisId": "iron-deficiency-anemia",
+      "earlyRecognitionIds": [
+        "iron-deficiency-anemia"
+      ],
+      "earlyRecognitionFeedback": "Pagophagia, heavy menstrual loss, pallor, and koilonychia make depleted iron stores recognizable before laboratory confirmation.",
+      "mustNotMiss": [
+        {
+          "id": "aplastic-anemia",
+          "feedback": "Severe fatigue and pallor warrant a cell count, although isolated microcytosis would argue against marrow failure."
+        }
+      ],
+      "reasonableAlternatives": [
+        {
+          "id": "major-depressive-disorder",
+          "feedback": "Low mood and poor concentration are plausible, but the physical signs and exertional symptoms demand a medical explanation."
+        },
+        {
+          "id": "thalassemia-beta",
+          "feedback": "A microcytic anaemia is possible, though the acquired symptoms and high RDW favor iron depletion."
+        },
+        {
+          "id": "anemia-of-chronic-disease",
+          "feedback": "This can be microcytic, but there is no inflammatory history and the iron profile differs."
+        }
+      ],
+      "finalFeedback": {
+        "major-depressive-disorder": "Depression does not explain pagophagia, koilonychia, conjunctival pallor, and marked microcytosis.",
+        "thalassemia-beta": "Thalassaemia can cause microcytosis, but the high RDW, depleted ferritin, and heavy blood loss support acquired iron deficiency.",
+        "anemia-of-chronic-disease": "The low ferritin and increased binding capacity indicate depleted stores rather than iron sequestration."
+      },
+      "correctTitle": "Iron Deficiency Anemia",
+      "correctFeedback": "Correct — iron deficiency anemia from chronic menstrual blood loss, compounded by limited intake.",
+      "patientCorrect": "So there is a physical reason I have felt unlike myself. I needed to hear that.",
+      "patientWrong": "I can accept uncertainty. I cannot accept another answer that ignores the rest of me."
+    },
+    "workup": {
+      "history": {
+        "title": "ADDITIONAL HISTORY",
+        "cost": 5,
+        "text": "Periods last seven to eight days with clots and frequent overnight product changes. No melena, hematochezia, abdominal pain, weight loss, or pregnancy. She eats mostly toast and tea during seasonal rushes.",
+        "quote": "“I thought heavy meant inconvenient, not medically important.”",
+        "fennick": "Seven to eight days of heavy cyclic bleeding with clots; no gastrointestinal alarm symptoms; restricted intake during busy periods.",
+        "hint": "Which common deficiency follows chronic menstrual loss and can cause pagophagia, fatigue, and cognitive symptoms?"
+      },
+      "exam": {
+        "title": "PHYSICAL EXAMINATION",
+        "cost": 8,
+        "text": "Conjunctival pallor, angular cheilitis, mild glossitis, and bilateral koilonychia. Regular tachycardia with a soft systolic flow murmur. No lymphadenopathy, jaundice, petechiae, or organomegaly.",
+        "quote": "“The nails have curved for months. I assumed it was the chemicals at work.”",
+        "fennick": "Conjunctival pallor, angular cheilitis, glossitis, spoon-shaped nails, tachycardia, and a soft flow murmur.",
+        "hint": "This cluster points toward impaired haemoglobin production from depletion of which substrate?"
+      },
+      "imaging": {
+        "title": "PELVIC ULTRASOUND",
+        "cost": 15,
+        "text": "Pelvic ultrasound shows a 3.8-cm submucosal uterine fibroid; endometrial thickness is appropriate for cycle phase. No adnexal mass.",
+        "quote": "“A fibroid. At least the bleeding finally has somewhere to point.”",
+        "fennick": "A submucosal uterine fibroid is present; no adnexal mass.",
+        "hint": "A submucosal fibroid supplies a plausible source for the chronic blood loss. Which deficiency should the blood work confirm?"
+      }
+    },
+    "labs": [
+      {
+        "name": "CBC",
+        "status": "critical",
+        "result": "Hgb 7.4 g/dL, MCV 64 fL, RDW 18.2%, platelets 487 ×10⁹/L.",
+        "remark": "That explains the stairs, then. I was not simply losing discipline.",
+        "fennick": "Marked microcytic anaemia with high distribution width and reactive thrombocytosis.",
+        "hint": "Microcytosis with high RDW suggests an evolving acquired deficiency rather than uniformly small inherited cells."
+      },
+      {
+        "name": "CMP",
+        "status": "normal",
+        "result": "Renal function, electrolytes, bilirubin, and transaminases are within reference ranges.",
+        "remark": "One clean page. Good.",
+        "fennick": "Renal function, electrolytes, bilirubin, and liver enzymes are preserved.",
+        "hint": "Normal kidney and liver function remove common nonhaematologic contributors but do not explain the microcytosis."
+      },
+      {
+        "name": "Ferritin + iron profile",
+        "status": "critical",
+        "result": "Ferritin 4 ng/mL, transferrin saturation 5%, serum iron low, TIBC elevated.",
+        "remark": "Those stores sound less like a cupboard and more like an empty drawer.",
+        "fennick": "Ferritin and transferrin saturation are markedly reduced; binding capacity is increased.",
+        "hint": "This is the biochemical pattern of exhausted iron stores."
+      },
+      {
+        "name": "Reticulocyte count",
+        "status": "abnormal",
+        "result": "Reticulocyte production index is inappropriately low for the degree of anemia.",
+        "remark": "My body is not replacing them quickly enough.",
+        "fennick": "Marrow response is inadequate for the degree of anaemia.",
+        "hint": "A production problem fits substrate deficiency; brisk reticulocytosis would instead suggest loss with adequate replacement or haemolysis."
+      },
+      {
+        "name": "TSH",
+        "status": "normal",
+        "result": "TSH is within reference range.",
+        "remark": "So the thyroid does not get blamed today.",
+        "fennick": "Thyroid-stimulating hormone is within reference range.",
+        "hint": "This weakens hypothyroidism as an explanation for fatigue and mood change."
+      },
+      {
+        "name": "Pregnancy test",
+        "status": "normal",
+        "result": "Serum β-hCG is negative.",
+        "remark": "Expected, but worth confirming before treatment decisions.",
+        "fennick": "Pregnancy testing is negative.",
+        "hint": "This narrows causes of bleeding and matters before medication or imaging decisions."
+      },
+      {
+        "name": "Coagulation studies",
+        "status": "normal",
+        "result": "PT/INR and aPTT are within reference ranges.",
+        "remark": "The bleeding is heavy, but my blood still clots normally.",
+        "fennick": "Baseline coagulation studies are normal.",
+        "hint": "A normal screen makes a major coagulation-factor defect less likely; local uterine bleeding remains plausible."
+      },
+      {
+        "name": "Celiac serology",
+        "status": "normal",
+        "result": "tTG-IgA negative with normal total IgA.",
+        "remark": "No hidden problem with bread, then.",
+        "fennick": "Celiac serology is negative with adequate total IgA.",
+        "hint": "Malabsorption becomes less likely, leaving menstrual loss and intake as the dominant causes."
+      },
+      {
+        "name": "Peripheral smear",
+        "status": "critical",
+        "result": "Microcytic hypochromic cells with anisopoikilocytosis and pencil cells; no schistocytes or blasts.",
+        "remark": "The cells themselves show the shortage.",
+        "fennick": "Small pale erythrocytes, marked size and shape variation, and pencil forms; no fragmentation or blasts.",
+        "hint": "The morphology confirms defective haemoglobin production without evidence of microangiopathic haemolysis or marrow malignancy.",
+        "special": true,
+        "cost": 20
+      }
+    ],
+    "management": [
+      {
+        "title": "Begin replacement",
+        "openingFenn": "Her stores are nearly empty, but she is stable and not actively hemorrhaging.",
+        "hint": "Choose a practical first-line replacement strategy and arrange response monitoring.",
+        "hintPatient": "I can take tablets if someone tells me how to make them tolerable.",
+        "prompt": "She is haemodynamically stable with symptomatic iron deficiency. What is the best initial treatment?",
+        "promptRemark": "I would prefer treatment that lets me keep working, if it is safe.",
+        "options": [
+          {
+            "text": "Start oral iron once daily or every other day and recheck response",
+            "correct": true,
+            "feedback": "Correct. Begin oral elemental iron once daily at most; alternate-day dosing may improve tolerance and absorption. Recheck haemoglobin response in several weeks and continue long enough to restore iron stores.",
+            "patientCorrect": "A schedule I can follow. Good."
+          },
+          {
+            "text": "Transfuse two units immediately",
+            "correct": false,
+            "feedback": "A restrictive transfusion strategy is appropriate in stable adults; the number alone does not mandate transfusion without instability, active bleeding, or ischaemic symptoms. Treat the deficiency and reassess clinically.",
+            "patientWrong": "Blood from someone else already? I am dizzy, not collapsing.",
+            "fennWrong": "She is stable; do not let one laboratory value replace the bedside assessment."
+          },
+          {
+            "text": "Increase sertraline and review in three months",
+            "correct": false,
+            "feedback": "Escalating antidepressant therapy leaves the severe anaemia and ongoing blood loss untreated. Mood and concentration should be reassessed after correcting the medical cause.",
+            "patientWrong": "That is the same plan that failed me for eight weeks.",
+            "fennWrong": "The physical syndrome cannot be treated by increasing the label attached to it."
+          },
+          {
+            "text": "Give folic acid alone",
+            "correct": false,
+            "feedback": "Folate treats a macrocytic deficiency and will not replenish iron needed for haemoglobin synthesis.",
+            "patientWrong": "Another vitamin, but not the missing one?",
+            "fennWrong": "The indices are microcytic; folate answers a different pattern."
+          }
+        ],
+        "vitals": {
+          "bp": "104/70",
+          "hr": "100",
+          "o2": "98%"
+        },
+        "quote": "“Tablets first. I can manage that.”"
+      },
+      {
+        "title": "Control the source",
+        "openingFenn": "Replacement will fail if the leak continues.",
+        "hint": "Address the heavy menstrual bleeding and the demonstrated structural cause rather than treating the blood count alone.",
+        "hintPatient": "I would like the next cycle not to undo all of this.",
+        "prompt": "What completes the plan for the underlying cause?",
+        "promptRemark": "The bleeding has been normal to me for years. Apparently normal was the problem.",
+        "options": [
+          {
+            "text": "Arrange gynecology evaluation and offer menstrual blood-loss control",
+            "correct": true,
+            "feedback": "Correct. Evaluate and treat heavy menstrual bleeding and the submucosal fibroid while replacing iron. Discuss suitable hormonal or nonhormonal options with gynecology and use shared decision-making around fertility goals.",
+            "patientCorrect": "Someone will treat the bleeding itself. That feels overdue."
+          },
+          {
+            "text": "Dietary advice alone",
+            "correct": false,
+            "feedback": "Nutrition matters, but diet alone cannot offset prolonged heavy menstrual loss from a submucosal fibroid.",
+            "patientWrong": "I can eat better. I cannot eat my way out of eight days of bleeding.",
+            "fennWrong": "The intake contributes; the structural source sustains the deficit."
+          },
+          {
+            "text": "Stop iron when haemoglobin first normalizes",
+            "correct": false,
+            "feedback": "Haemoglobin recovery precedes restoration of iron stores. Stopping immediately invites rapid recurrence, especially while bleeding continues.",
+            "patientWrong": "So the number can recover before the cupboard is full.",
+            "fennWrong": "Normalize the stores, not merely the first visible number."
+          },
+          {
+            "text": "No further evaluation because she is premenopausal",
+            "correct": false,
+            "feedback": "Premenopausal status does not make severe or symptomatic bleeding benign. Her history and ultrasound identify a cause that warrants treatment; gastrointestinal evaluation can be discussed if the response is poor or other concerns emerge.",
+            "patientWrong": "Being young does not make this amount of bleeding harmless.",
+            "fennWrong": "A common source is still a source worth treating."
+          }
+        ],
+        "vitals": {
+          "bp": "106/70",
+          "hr": "94",
+          "o2": "99%"
+        },
+        "quote": "“I came in for mistakes at work. I am leaving with an explanation.”"
+      }
+    ],
+    "hints": [
+      {
+        "fenn": "Pagophagia plus spoon nails and heavy menstrual loss is a very specific trail.",
+        "patient": "The ice craving felt too strange to matter."
+      },
+      {
+        "fenn": "Use the MCV and RDW first, then let ferritin and binding capacity distinguish depleted stores.",
+        "patient": "So the pattern matters more than the word fatigue."
+      },
+      {
+        "fenn": "Replace iron, but do not ignore the fibroid and ongoing menstrual loss.",
+        "patient": "I would rather not repeat this in six months."
+      }
+    ],
+    "debrief": {
+      "title": "Iron Deficiency Anemia",
+      "pearl": "Pagophagia, koilonychia, microcytosis, high RDW, low ferritin, and high TIBC support iron deficiency. Replace iron with a tolerable regimen, verify response, continue until stores recover, and identify and treat the source of blood loss."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "scoring": {
+      "initialScore": 100,
+      "hintCost": 10,
+      "labCost": 5,
+      "wrongDiagnosisCost": 10,
+      "wrongManagementCost": 5,
+      "earlyRecognitionBonus": 2,
+      "mustNotMissBonus": 1
+    },
+    "id": "007-common-fibular-nerve-palsy",
+    "date": "2026-05-07",
+    "patient": {
+      "caseLabel": "ROUTINE · CASE 007",
+      "status": "STABLE",
+      "title": "The Mail Carrier's Foot Drop",
+      "age": 34,
+      "sex": "M",
+      "occupation": "Letter carrier · East Loop route",
+      "initialQuote": "My foot keeps slapping the pavement. Also—great lamp. Sorry. The foot.",
+      "vitals": {
+        "bp": "118/74",
+        "hr": "82",
+        "rr": "14",
+        "temp": "37.0°",
+        "o2": "99%"
+      },
+      "criticalVitals": []
+    },
+    "fenn": {
+      "initial": "He arrived mid-sentence. The localization may be quieter than he is.",
+      "labMenuHint": "This is chiefly a localization problem. Routine blood work excludes metabolic mimics; the special study should identify where conduction fails.",
+      "labMenuPatient": "If one of these tests involves sitting still, please define “still.”",
+      "diagnosisCorrect": "Nicely localized. Now remove the pressure and protect the gait.",
+      "diagnosisWrong": "Check dorsiflexion, eversion, inversion, reflexes, and the sensory map before choosing a root or nerve.",
+      "diagnosisUnsupported": "That cannot explain isolated foot drop with preserved inversion, normal reflexes, and focal tenderness at the fibular head.",
+      "differentialLocked": "A focal motor neuropathy is a good start. Localize it before naming it.",
+      "debrief": "The neighborhood cats will miss the deep squats. I suspect they will survive."
+    },
+    "hpi": "A 34-year-old letter carrier reports three weeks of progressive right foot weakness, a slapping gait, and three recent trips. He has no back pain, trauma, bowel or bladder symptoms, or generalized weakness. He spends long breaks in a deep squat greeting every cat on his route and has recently stayed longer to befriend a shy kitten.",
+    "chart": {
+      "PMH": "ADHD.",
+      "PSH": "None.",
+      "Medications": "Methylphenidate.",
+      "Allergies": "Penicillin—anaphylaxis.",
+      "Family Hx": "Father has chronic back pain.",
+      "Social Hx": "Walks six to eight hours daily; non-smoker; lives with a housemate and two unofficially adopted neighborhood cats."
+    },
+    "diagnosticReasoning": {
+      "finalDiagnosisId": "common-fibular-peroneal-nerve-palsy",
+      "earlyRecognitionIds": [
+        "common-fibular-peroneal-nerve-palsy",
+        "deep-peroneal-nerve-palsy",
+        "superficial-peroneal-nerve-palsy"
+      ],
+      "earlyRecognitionFeedback": "Foot drop with eversion weakness, preserved inversion, and dorsum sensory loss localizes near the common fibular nerve at the fibular head.",
+      "mustNotMiss": [
+        {
+          "id": "ischemic-stroke",
+          "feedback": "Acute focal weakness would require stroke assessment, but this isolated, progressive peripheral pattern lacks upper-motor-neuron signs."
+        }
+      ],
+      "reasonableAlternatives": [
+        {
+          "id": "sciatic-nerve-palsy",
+          "feedback": "Sciatic injury can cause foot drop but should affect tibial-division functions and a broader sensory territory."
+        },
+        {
+          "id": "guillain-barre-syndrome",
+          "feedback": "GBS can cause weakness, but it is usually bilateral and progressive with reduced reflexes."
+        }
+      ],
+      "finalFeedback": {
+        "deep-peroneal-nerve-palsy": "Deep-branch injury would spare eversion and most dorsum sensation; both are abnormal here.",
+        "superficial-peroneal-nerve-palsy": "Superficial-branch injury would spare dorsiflexion, which is profoundly weak here.",
+        "sciatic-nerve-palsy": "Preserved plantar flexion, inversion, and ankle reflex localize distal to the sciatic nerve."
+      },
+      "correctTitle": "Common Fibular Nerve Palsy at the Fibular Head",
+      "correctFeedback": "Correct — compressive common fibular neuropathy at the fibular head.",
+      "patientCorrect": "So the cats did not betray me. My posture did. Important distinction.",
+      "patientWrong": "I can repeat the walking demonstration, but I may also collide with your furniture."
+    },
+    "workup": {
+      "history": {
+        "title": "ADDITIONAL HISTORY",
+        "cost": 5,
+        "text": "He spends 40–120 minutes per shift in deep knee flexion while talking to neighborhood cats. No leg crossing, recent weight loss, casting, knee surgery, back pain, saddle anaesthesia, or sphincter change.",
+        "quote": "“Mrs. Patel’s kitten needed time. I did not know my nerve had an appointment.”",
+        "fennick": "Prolonged deep squatting for up to two hours daily; no back pain, sphincter symptoms, weight loss, surgery, or cast.",
+        "hint": "Which nerve is exposed to compression where it wraps around the fibular head during prolonged knee flexion?"
+      },
+      "exam": {
+        "title": "NEUROLOGIC EXAMINATION",
+        "cost": 8,
+        "text": "Steppage gait. Right ankle dorsiflexion 2/5 and eversion 3/5; inversion and plantar flexion 5/5. Reduced sensation over lateral shin and dorsum of foot, with sole spared. Reflexes symmetric. Tinel sign at the fibular head.",
+        "quote": "“I will walk the line again. No promises about remaining on it.”",
+        "fennick": "Steppage gait; weak dorsiflexion and eversion; preserved inversion, plantar flexion, sole sensation, and reflexes; focal Tinel sign at the fibular head.",
+        "hint": "Preserved inversion argues against L5 radiculopathy, while combined dorsiflexion and eversion weakness places the lesion before which nerve division?"
+      },
+      "imaging": {
+        "title": "KNEE IMAGING",
+        "cost": 15,
+        "text": "MRI of the right knee and fibular head shows no mass, ganglion cyst, fracture, or structural lesion.",
+        "quote": "“Can I get a copy? The cats have never seen the inside of a knee.”",
+        "fennick": "No mass, cyst, fracture, or structural lesion at the fibular head.",
+        "hint": "With structural compression excluded, which repetitive posture best explains a focal conduction block at this site?"
+      }
+    },
+    "labs": [
+      {
+        "name": "CBC",
+        "status": "normal",
+        "result": "Blood counts are within reference ranges.",
+        "remark": "Excellent. My blood is less distractible than I am.",
+        "fennick": "Blood counts are within reference ranges.",
+        "hint": "This does not suggest anaemia, infection, or a marrow process causing generalized weakness."
+      },
+      {
+        "name": "CMP",
+        "status": "normal",
+        "result": "Electrolytes, renal function, and liver enzymes are normal.",
+        "remark": "No electrolyte mutiny. Nice.",
+        "fennick": "Electrolytes and organ function are preserved.",
+        "hint": "A focal deficit with normal electrolytes remains a localization problem."
+      },
+      {
+        "name": "HbA1c",
+        "status": "normal",
+        "result": "HbA1c 5.2%.",
+        "remark": "So diabetes is not sneaking around in the background.",
+        "fennick": "Long-term glycaemic marker is normal.",
+        "hint": "This weakens a length-dependent diabetic polyneuropathy."
+      },
+      {
+        "name": "Vitamin B12",
+        "status": "normal",
+        "result": "Vitamin B12 is within reference range.",
+        "remark": "One vitamin cleared. How many vitamins are there? Never mind.",
+        "fennick": "Vitamin B12 is adequate.",
+        "hint": "B12 deficiency usually produces a broader, often bilateral sensory-motor syndrome."
+      },
+      {
+        "name": "TSH",
+        "status": "normal",
+        "result": "TSH is within reference range.",
+        "remark": "The thyroid is innocent. I am building a suspect board.",
+        "fennick": "Thyroid testing is normal.",
+        "hint": "Endocrine myopathy would not fit this sharply focal pattern."
+      },
+      {
+        "name": "CK",
+        "status": "normal",
+        "result": "Creatine kinase is within reference range.",
+        "remark": "So the muscle itself is not falling apart. Reassuring phrase.",
+        "fennick": "Muscle enzyme level is normal.",
+        "hint": "Normal CK and focal weakness favor neuropathy over primary muscle injury."
+      },
+      {
+        "name": "ESR / CRP",
+        "status": "normal",
+        "result": "Inflammatory markers are not elevated.",
+        "remark": "No inflammation. The board is getting crowded with innocent parties.",
+        "fennick": "Inflammatory markers are not elevated.",
+        "hint": "Systemic inflammatory neuropathy is less likely."
+      },
+      {
+        "name": "Urinalysis",
+        "status": "normal",
+        "result": "Urinalysis is unremarkable.",
+        "remark": "The foot did not require urine, did it? Do not answer.",
+        "fennick": "Urinalysis is unremarkable.",
+        "hint": "This adds little to a focal foot-drop localization."
+      },
+      {
+        "name": "Nerve conduction study",
+        "status": "critical",
+        "result": "Focal slowing and conduction block across the fibular head; tibial and proximal root studies are preserved.",
+        "remark": "There it is—the exact place my foot stopped receiving mail.",
+        "fennick": "Conduction slows abruptly across the fibular head; other tested pathways are preserved.",
+        "hint": "This confirms a focal lesion before the deep and superficial branches divide.",
+        "special": true,
+        "cost": 20
+      }
+    ],
+    "management": [
+      {
+        "title": "Protect function and remove compression",
+        "openingFenn": "The lesion is focal and there is no mass.",
+        "hint": "Stop the mechanical insult, prevent falls and contracture, and begin rehabilitation.",
+        "hintPatient": "I can greet cats while standing. It will feel impersonal, but I can adapt.",
+        "prompt": "What is the best initial management?",
+        "promptRemark": "The route still has stairs. I would prefer not to meet them face-first.",
+        "options": [
+          {
+            "text": "Avoid compression, provide an ankle-foot orthosis, and arrange physical therapy",
+            "correct": true,
+            "feedback": "Correct. Remove prolonged fibular-head compression, use an ankle-foot orthosis for toe clearance and fall prevention, and begin range-of-motion and strengthening therapy. Most posture-related neuropraxic injuries improve over weeks to months.",
+            "patientCorrect": "A brace, exercises, and no deep squats. The cats will receive a memo."
+          },
+          {
+            "text": "Immediate lumbar decompression surgery",
+            "correct": false,
+            "feedback": "The examination and conduction study localize to the fibular head, not a lumbar root, and there are no cauda equina features.",
+            "patientWrong": "Back surgery for the nerve beside my knee feels geographically ambitious.",
+            "fennWrong": "The map is peripheral; lumbar surgery does not match it."
+          },
+          {
+            "text": "Strict bed rest until strength returns",
+            "correct": false,
+            "feedback": "Bed rest does not remove the specific compression risk and promotes deconditioning. Protected mobility with an orthosis and therapy is safer.",
+            "patientWrong": "I deliver letters for a living. Also bed rest sounds catastrophically boring.",
+            "fennWrong": "Protect the gait; do not immobilize the patient."
+          },
+          {
+            "text": "Begin high-dose corticosteroids",
+            "correct": false,
+            "feedback": "There is no evidence of an inflammatory neuropathy. Steroids add risk without correcting mechanical compression.",
+            "patientWrong": "Steroids because I squat near cats? That seems escalated.",
+            "fennWrong": "A focal pressure lesion does not call for systemic immunosuppression."
+          }
+        ],
+        "vitals": {
+          "bp": "118/74",
+          "hr": "80",
+          "o2": "99%"
+        },
+        "quote": "“I will stand for feline consultations.”"
+      },
+      {
+        "title": "Plan follow-up",
+        "openingFenn": "Recovery should occur, but not every axon listens to optimism.",
+        "hint": "Monitor objective strength and escalate if recovery stalls or the deficit progresses.",
+        "hintPatient": "Please give me a deadline before we discuss anything involving needles or surgeons.",
+        "prompt": "What is the appropriate follow-up plan?",
+        "promptRemark": "I am excellent with plans. Following them is a separate skill.",
+        "options": [
+          {
+            "text": "Reassess strength in 6–8 weeks; refer if progressive or not improving",
+            "correct": true,
+            "feedback": "Correct. Follow serial dorsiflexion strength and gait over 6–8 weeks. Progressive weakness, pain, a structural lesion, or absent recovery should prompt neurology or peripheral-nerve surgical review and repeat electrodiagnostic assessment.",
+            "patientCorrect": "Six weeks. I can make a chart. It may include cat stickers."
+          },
+          {
+            "text": "No follow-up is needed once a brace is supplied",
+            "correct": false,
+            "feedback": "An orthosis prevents falls but does not prove neural recovery. Persistent or worsening weakness requires reassessment.",
+            "patientWrong": "The brace is equipment, not an ending. Even I know that.",
+            "fennWrong": "Support is not surveillance; measure recovery."
+          },
+          {
+            "text": "Repeat MRI every week",
+            "correct": false,
+            "feedback": "Serial weekly imaging adds no value when the initial study excludes a mass and the clinical deficit is stable.",
+            "patientWrong": "Weekly tunnel appointments would interfere with the entire east route.",
+            "fennWrong": "Follow function; do not substitute repetitive pictures for change."
+          },
+          {
+            "text": "Permanently restrict all walking",
+            "correct": false,
+            "feedback": "Walking with protection is appropriate and supports conditioning. Permanent restriction is disproportionate to a typically recoverable compression neuropathy.",
+            "patientWrong": "You cannot medically retire a mail carrier from walking this quickly.",
+            "fennWrong": "Modify the compression posture, not the patient’s entire life."
+          }
+        ],
+        "vitals": {
+          "bp": "120/76",
+          "hr": "78",
+          "o2": "99%"
+        },
+        "quote": "“Good. A follow-up date and a cat-safe posture.”"
+      }
+    ],
+    "hints": [
+      {
+        "fenn": "Weak dorsiflexion and eversion with preserved inversion localizes below the L5 root.",
+        "patient": "My foot has apparently filed a very specific complaint."
+      },
+      {
+        "fenn": "The common fibular nerve is superficial at the fibular head and vulnerable during prolonged squatting.",
+        "patient": "That kitten was shy for an unusually long time."
+      },
+      {
+        "fenn": "An orthosis protects toe clearance while the nerve recovers; follow objective strength.",
+        "patient": "A practical answer. I like those."
+      }
+    ],
+    "debrief": {
+      "title": "Common Fibular Nerve Palsy",
+      "pearl": "Foot drop with weak eversion, preserved inversion, dorsum sensory loss, and focal findings at the fibular head localizes to the common fibular nerve. Remove compression, protect gait with an ankle-foot orthosis, use therapy, and reassess recovery."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "scoring": {
+      "initialScore": 100,
+      "hintCost": 10,
+      "labCost": 5,
+      "wrongDiagnosisCost": 10,
+      "wrongManagementCost": 5,
+      "earlyRecognitionBonus": 2,
+      "mustNotMissBonus": 1
+    },
+    "id": "008-carbon-monoxide-poisoning",
+    "date": "2026-05-12",
+    "patient": {
+      "caseLabel": "EMERGENT · CASE 008",
+      "status": "TOXIC",
+      "title": "The Maintenance Technician's Headache",
+      "age": 41,
+      "sex": "M",
+      "occupation": "Building maintenance technician · Northline Apartments",
+      "initialQuote": "Sorry to bother you. It is probably just the long shifts, but the headache keeps coming back.",
+      "vitals": {
+        "bp": "138/86",
+        "hr": "102",
+        "rr": "20",
+        "temp": "37.1°",
+        "o2": "97%"
+      },
+      "criticalVitals": [
+        "hr"
+      ]
+    },
+    "fenn": {
+      "initial": "He feels better away from work. Two coworkers do too. That pattern deserves respect.",
+      "labMenuHint": "A normal pulse oximeter cannot exclude dyshemoglobinaemia. Check a co-oximetry level, acid-base status, ECG, glucose, and evidence of cardiac injury.",
+      "labMenuPatient": "Whatever you need. I should have come sooner—sorry.",
+      "diagnosisCorrect": "Good. Oxygen first, then protect everyone still in that building.",
+      "diagnosisWrong": "The timing by location and the sick coworkers matter more than the reassuring saturation.",
+      "diagnosisUnsupported": "That diagnosis does not explain recurrent workplace headache, cognitive slowing, near-syncope, and clustered coworkers.",
+      "differentialLocked": "An inhalational exposure is a strong start. Remember what an ordinary pulse oximeter cannot distinguish.",
+      "debrief": "He apologized for occupying a chair while his building was quietly poisoning three people."
+    },
+    "hpi": "A 41-year-old apartment maintenance technician reports three weeks of dull morning headaches, nausea, slowed thinking, and two workplace mistakes. Symptoms begin within an hour of entering the basement utility room and improve on days off. Two coworkers have similar headaches. Yesterday he nearly lost consciousness while servicing an older gas boiler.",
+    "chart": {
+      "PMH": "No chronic illness.",
+      "PSH": "None.",
+      "Medications": "None.",
+      "Allergies": "NKDA.",
+      "Family Hx": "Father has coronary artery disease.",
+      "Social Hx": "Non-smoker; works 10-hour shifts in a basement utility area. Ventilation was partially sealed during recent renovation."
+    },
+    "diagnosticReasoning": {
+      "finalDiagnosisId": "carbon-monoxide-poisoning",
+      "earlyRecognitionIds": [
+        "carbon-monoxide-poisoning"
+      ],
+      "earlyRecognitionFeedback": "Symptoms tied to a combustion space, improvement away, and a cluster of affected coworkers make carbon monoxide exposure recognizable early.",
+      "mustNotMiss": [
+        {
+          "id": "ischemic-stroke",
+          "feedback": "Confusion and ataxia require neurologic assessment, though the recurrent exposure pattern is not vascular."
+        },
+        {
+          "id": "myocardial-infarction-heart-attack",
+          "feedback": "Carbon monoxide can cause cardiac injury, so ECG and troponin matter even without classic chest pain."
+        }
+      ],
+      "reasonableAlternatives": [
+        {
+          "id": "migraine",
+          "feedback": "Headache and nausea fit, but the workplace clustering and improvement away do not."
+        },
+        {
+          "id": "viral-meningitis-aseptic",
+          "feedback": "Headache and cognitive symptoms are possible, but there is no fever or meningismus and symptoms recur by location."
+        }
+      ],
+      "finalFeedback": {
+        "migraine": "Migraine cannot explain two affected coworkers and reliable improvement away from the utility room.",
+        "viral-meningitis-aseptic": "The afebrile, location-dependent cluster argues against infection.",
+        "ischemic-stroke": "A stroke would not recur during each shift or affect coworkers in the same space."
+      },
+      "correctTitle": "Carbon Monoxide Poisoning",
+      "correctFeedback": "Correct — carbon monoxide poisoning from a faulty combustion system.",
+      "patientCorrect": "The boiler. The others are still there—someone has to call them now.",
+      "patientWrong": "I may be apologizing too much, but that answer does not explain why my coworkers are sick too."
+    },
+    "workup": {
+      "history": {
+        "title": "EXPOSURE HISTORY",
+        "cost": 5,
+        "text": "Headache begins 30–60 minutes after entering the utility room and nearly disappears after a full day away. A gas boiler has produced intermittent soot since renovation crews sealed an exterior vent. Two coworkers report nausea and headache; one is currently on shift.",
+        "quote": "“I signed off on that vent. Please call them before we do anything else.”",
+        "fennick": "Symptoms track time in the basement utility room; a sooting gas boiler and sealed vent are present; multiple coworkers are affected.",
+        "hint": "Which odorless combustion product causes a workplace cluster that improves away from the source?"
+      },
+      "exam": {
+        "title": "PHYSICAL EXAMINATION",
+        "cost": 8,
+        "text": "Slow responses, impaired short-term recall, mild truncal ataxia, and tachycardia. Lungs clear; no meningismus or focal weakness. Lips appear flushed but not reliably cherry red.",
+        "quote": "“The floor keeps shifting. Sorry—I will try the walk again.”",
+        "fennick": "Cognitive slowing, impaired recall, mild ataxia, and tachycardia; clear lungs and no focal deficit or meningismus.",
+        "hint": "Neurologic dysfunction with clear lungs and a normal conventional saturation can occur when haemoglobin carries which competing gas?"
+      },
+      "imaging": {
+        "title": "NEUROIMAGING",
+        "cost": 15,
+        "text": "Non-contrast head CT shows no hemorrhage, mass, or territorial infarct. No acute pulmonary abnormality on chest radiograph.",
+        "quote": "“The scan is clear. That does not make my head feel clear.”",
+        "fennick": "No acute intracranial lesion and no acute chest radiograph abnormality.",
+        "hint": "Normal structural imaging does not exclude cellular hypoxia from a toxic exposure. Which blood measurement is needed?"
+      }
+    },
+    "labs": [
+      {
+        "name": "CBC",
+        "status": "normal",
+        "result": "Blood counts are within reference ranges.",
+        "remark": "At least the blood count is behaving.",
+        "fennick": "Blood counts are within reference ranges.",
+        "hint": "Anaemia does not explain the symptoms, but normal haemoglobin concentration does not prove normal oxygen delivery."
+      },
+      {
+        "name": "CMP",
+        "status": "normal",
+        "result": "Electrolytes, renal function, and liver enzymes are within reference ranges.",
+        "remark": "Normal is good. I am trying not to apologize for saying that.",
+        "fennick": "Electrolytes and organ function are preserved.",
+        "hint": "A normal metabolic panel does not exclude a toxic impairment of oxygen transport."
+      },
+      {
+        "name": "ECG",
+        "status": "abnormal",
+        "result": "Sinus tachycardia with nonspecific ST-T changes.",
+        "remark": "My heart is involved too? I did not feel chest pain.",
+        "fennick": "Sinus tachycardia with nonspecific repolarization changes.",
+        "hint": "This exposure can injure myocardium even without classic chest pain; check a cardiac biomarker."
+      },
+      {
+        "name": "Troponin",
+        "status": "abnormal",
+        "result": "Troponin is mildly elevated and stable on repeat measurement.",
+        "remark": "So it reached more than my head.",
+        "fennick": "A mild myocardial injury signal is present.",
+        "hint": "Cardiac involvement increases severity and strengthens the need for toxicology and hyperbaric consultation."
+      },
+      {
+        "name": "VBG + lactate",
+        "status": "critical",
+        "result": "pH 7.28 with lactate 5.1 mmol/L.",
+        "remark": "That sounds like my body has been working without enough air, even when the machine says otherwise.",
+        "fennick": "Metabolic acidaemia with substantially elevated lactate.",
+        "hint": "Cellular hypoxia can elevate lactate despite a deceptively normal pulse-oximeter reading."
+      },
+      {
+        "name": "Glucose",
+        "status": "normal",
+        "result": "Bedside glucose is within reference range.",
+        "remark": "So low sugar is not making me confused.",
+        "fennick": "Glucose is within reference range.",
+        "hint": "This removes a rapidly reversible mimic of altered cognition."
+      },
+      {
+        "name": "Coagulation studies",
+        "status": "normal",
+        "result": "PT/INR and aPTT are within reference ranges.",
+        "remark": "One less complication.",
+        "fennick": "Coagulation studies are normal.",
+        "hint": "This is useful baseline information but does not identify the exposure."
+      },
+      {
+        "name": "Standard ABG oxygen tension",
+        "status": "normal",
+        "result": "PaO₂ is within reference range despite ongoing symptoms.",
+        "remark": "Normal oxygen in the sample, but I still feel wrong.",
+        "fennick": "Dissolved oxygen tension is preserved.",
+        "hint": "PaO₂ measures dissolved oxygen, not how much haemoglobin is occupied by a competing gas."
+      },
+      {
+        "name": "Co-oximetry",
+        "status": "critical",
+        "result": "Carboxyhaemoglobin is 28%; sample obtained shortly after removal from the site.",
+        "remark": "Twenty-eight percent. I need the others out of there.",
+        "fennick": "A large fraction of haemoglobin is bound to carbon monoxide.",
+        "hint": "The level strongly supports the suspected exposure; interpret it with time since removal and clinical severity.",
+        "special": true,
+        "cost": 20
+      }
+    ],
+    "management": [
+      {
+        "title": "Immediate treatment and scene safety",
+        "openingFenn": "Treat the patient and stop the continuing exposure.",
+        "hint": "Use high-concentration oxygen now and trigger emergency investigation of the source and exposed coworkers.",
+        "hintPatient": "Please call the building. Someone is still downstairs.",
+        "prompt": "What should happen immediately?",
+        "promptRemark": "The headache is worse again. And the others—please.",
+        "options": [
+          {
+            "text": "Give 100% oxygen and alert emergency services to evacuate and assess the site",
+            "correct": true,
+            "feedback": "Correct. Administer 100% oxygen by non-rebreather immediately and perform serial neurologic examinations. Notify emergency services so the source is controlled and all potentially exposed people are removed and evaluated.",
+            "patientCorrect": "Call them first. I can keep the mask on while you do."
+          },
+          {
+            "text": "Observe on room air because SpO₂ is 97%",
+            "correct": false,
+            "feedback": "Conventional pulse oximetry cannot distinguish oxyhaemoglobin from carboxyhaemoglobin and may look normal. Room-air observation prolongs toxic exposure at the tissue level.",
+            "patientWrong": "The screen looked normal at work too. I still nearly passed out.",
+            "fennWrong": "That saturation is falsely reassuring in dyshemoglobinaemia."
+          },
+          {
+            "text": "Treat as migraine and discharge to a dark room",
+            "correct": false,
+            "feedback": "Migraine treatment does not address a shared combustion exposure, altered cognition, acidosis, or cardiac injury.",
+            "patientWrong": "The boiler room is dark. It is also where I get sick.",
+            "fennWrong": "A dark room does not remove carbon monoxide from haemoglobin."
+          },
+          {
+            "text": "Wait for repeat co-oximetry before starting oxygen",
+            "correct": false,
+            "feedback": "Oxygen is safe, time-sensitive, and should start on clinical suspicion; levels fall after removal and must not delay treatment.",
+            "patientWrong": "Please do not wait for a second number while the first one is already bad.",
+            "fennWrong": "The confirmatory trend should follow treatment, not postpone it."
+          }
+        ],
+        "vitals": {
+          "bp": "136/84",
+          "hr": "94",
+          "o2": "100%"
+        },
+        "quote": "“The pressure in my head is easing.”"
+      },
+      {
+        "title": "Escalate treatment",
+        "openingFenn": "The level is high and there are neurologic, metabolic, and cardiac severity markers.",
+        "hint": "Consult specialists about hyperbaric therapy rather than using the number alone.",
+        "hintPatient": "If the chamber protects my brain, make the call.",
+        "prompt": "What is the appropriate next step after oxygen begins?",
+        "promptRemark": "I am steadier, but I still cannot remember the nurse’s name.",
+        "options": [
+          {
+            "text": "Consult toxicology and a hyperbaric oxygen center urgently",
+            "correct": true,
+            "feedback": "Correct. Neurologic impairment, near-syncope, severe acidosis, cardiac involvement, and a carboxyhaemoglobin level near 30% support urgent hyperbaric consultation. Continue 100% oxygen during coordination and transport.",
+            "patientCorrect": "Make the call. I do not want “almost fine” to become permanent."
+          },
+          {
+            "text": "Stop oxygen once the headache improves",
+            "correct": false,
+            "feedback": "Symptom improvement alone does not establish adequate clearance or neurologic safety. Continue high-concentration oxygen and serial assessment.",
+            "patientWrong": "The headache is better. My memory is not.",
+            "fennWrong": "One improved symptom is not a clearance test."
+          },
+          {
+            "text": "Give prophylactic antibiotics",
+            "correct": false,
+            "feedback": "There is no infectious source; antibiotics do not displace carbon monoxide or prevent delayed neurologic injury.",
+            "patientWrong": "Antibiotics for a boiler leak? Sorry, that does not sound connected.",
+            "fennWrong": "This is toxic hypoxia, not bacterial disease."
+          },
+          {
+            "text": "Arrange outpatient neurology review only",
+            "correct": false,
+            "feedback": "Delayed follow-up matters, but current neurologic dysfunction, acidosis, and cardiac injury require acute treatment first.",
+            "patientWrong": "Outpatient? I still cannot walk straight.",
+            "fennWrong": "Later surveillance cannot replace today’s escalation."
+          }
+        ],
+        "vitals": {
+          "bp": "132/82",
+          "hr": "86",
+          "o2": "100%"
+        },
+        "quote": "“I can think more clearly. Not perfectly.”"
+      },
+      {
+        "title": "Disposition and delayed risk",
+        "openingFenn": "Acute improvement is not the entire story.",
+        "hint": "Ensure source remediation, reassess cognition, and warn about delayed neurologic symptoms.",
+        "hintPatient": "I will not go back until the fire department says it is safe.",
+        "prompt": "What must the discharge or admission plan include?",
+        "promptRemark": "The others are out. Now tell me what happens next.",
+        "options": [
+          {
+            "text": "Observe appropriately, arrange follow-up, and give delayed neurologic return precautions",
+            "correct": true,
+            "feedback": "Correct. Continue monitoring based on severity, document cognitive examination, ensure the exposure source is remediated, and arrange follow-up for delayed neurocognitive sequelae. New memory, mood, gait, or focal symptoms require urgent reassessment.",
+            "patientCorrect": "A checklist I can follow—and no return to that room. Understood."
+          },
+          {
+            "text": "Clear him to return once the utility room smells normal",
+            "correct": false,
+            "feedback": "Carbon monoxide is odorless. Return requires professional source investigation and remediation, not a smell test.",
+            "patientWrong": "There was never a smell. That was the problem.",
+            "fennWrong": "An odorless gas cannot be cleared by the nose."
+          },
+          {
+            "text": "Provide no follow-up if symptoms resolve today",
+            "correct": false,
+            "feedback": "Delayed neurologic sequelae may emerge after an apparent recovery. Cognitive and neurologic return precautions and follow-up are necessary.",
+            "patientWrong": "I forgot two valves before I nearly collapsed. I want someone checking that my memory came back.",
+            "fennWrong": "Acute recovery does not erase delayed neurocognitive risk."
+          },
+          {
+            "text": "Advise only him to avoid the room",
+            "correct": false,
+            "feedback": "A shared environmental source threatens residents and coworkers. Public-safety notification and exposure assessment are essential.",
+            "patientWrong": "There are families above that boiler. This cannot be only about me.",
+            "fennWrong": "The exposure belongs to the building, not merely the patient."
+          }
+        ],
+        "vitals": {
+          "bp": "128/80",
+          "hr": "80",
+          "o2": "100%"
+        },
+        "quote": "“Everyone is out. That matters as much as the mask.”"
+      }
+    ],
+    "hints": [
+      {
+        "fenn": "Symptoms tied to one combustion space and shared by coworkers make the environment part of the history.",
+        "patient": "I feel nearly normal on Sundays."
+      },
+      {
+        "fenn": "A standard pulse oximeter can look normal because it cannot distinguish the competing haemoglobin species.",
+        "patient": "That screen reassured us at work."
+      },
+      {
+        "fenn": "Neurologic change, acidosis, syncope, and cardiac injury matter when considering hyperbaric treatment.",
+        "patient": "So the percentage is not the only reason."
+      }
+    ],
+    "debrief": {
+      "title": "Carbon Monoxide Poisoning",
+      "pearl": "Suspect carbon monoxide when nonspecific neurologic symptoms cluster around a combustion environment and improve away. Conventional pulse oximetry and PaO₂ may be misleading. Give 100% oxygen immediately, protect other exposed people, consider hyperbaric consultation for severe features, and counsel about delayed neurologic sequelae."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "scoring": {
+      "initialScore": 100,
+      "hintCost": 10,
+      "labCost": 5,
+      "wrongDiagnosisCost": 10,
+      "wrongManagementCost": 5,
+      "earlyRecognitionBonus": 2,
+      "mustNotMissBonus": 1
+    },
+    "id": "009-rhabdomyolysis",
+    "date": "2026-05-18",
+    "patient": {
+      "caseLabel": "URGENT · CASE 009",
+      "status": "AT RISK",
+      "title": "The Fitness Creator's Personal Record",
+      "age": 38,
+      "sex": "M",
+      "occupation": "Warehouse loader · fitness video creator",
+      "initialQuote": "I hit one thousand squats yesterday. The urine color is probably recovery-related, right?",
+      "vitals": {
+        "bp": "134/82",
+        "hr": "96",
+        "rr": "16",
+        "temp": "37.3°",
+        "o2": "99%"
+      },
+      "criticalVitals": []
+    },
+    "fenn": {
+      "initial": "He is proud of the workout. His kidneys are less enthusiastic.",
+      "labMenuHint": "Start with urinalysis, electrolytes, renal function, ECG, and muscle enzymes. Dark dipstick blood without red cells is an important fork.",
+      "labMenuPatient": "If there is a test that measures gains, order that one first.",
+      "diagnosisCorrect": "Correct. Protect the kidneys and address the potassium.",
+      "diagnosisWrong": "Separate true haematuria from pigment in the urine, then connect it to the muscle injury.",
+      "diagnosisUnsupported": "That does not connect extreme exertion, diffuse muscle tenderness, dark urine, electrolyte release, and acute kidney injury.",
+      "differentialLocked": "An exertional muscle process is a good start. Establish pigment release and complications.",
+      "debrief": "He asked whether the hospital had a gym before asking whether his kidneys would recover."
+    },
+    "hpi": "A 38-year-old warehouse loader and aspiring fitness creator presents with cola-colored urine and severe bilateral thigh pain the morning after completing 1,000 squats in one hour. He drank little water, continued after his legs became numb, and takes creatine and protein supplements. No fever, dysuria, flank colic, trauma, or statin use.",
+    "chart": {
+      "PMH": "No chronic illness.",
+      "PSH": "None.",
+      "Medications": "Creatine monohydrate and protein supplements.",
+      "Allergies": "NKDA.",
+      "Family Hx": "Father has hypertension.",
+      "Social Hx": "Physical warehouse work; intense recreational exercise; non-smoker; no alcohol; lives alone."
+    },
+    "diagnosticReasoning": {
+      "finalDiagnosisId": "rhabdomyolysis",
+      "earlyRecognitionIds": [
+        "rhabdomyolysis"
+      ],
+      "earlyRecognitionFeedback": "Extreme exertion, muscle pain, and dark urine strongly suggest muscle breakdown before the enzyme level returns.",
+      "mustNotMiss": [
+        {
+          "id": "compartment-syndrome-acute",
+          "feedback": "Severe swelling, pain out of proportion, and neurovascular compromise would require urgent surgical evaluation."
+        },
+        {
+          "id": "acute-kidney-injury-aki",
+          "feedback": "Renal injury is a major complication that must be identified and followed."
+        }
+      ],
+      "reasonableAlternatives": [
+        {
+          "id": "urolithiasis-kidney-stones",
+          "feedback": "Dark or bloody urine is possible, but bilateral muscle pain and pigment without red cells argue against stones."
+        },
+        {
+          "id": "pyelonephritis",
+          "feedback": "Urinary discoloration could distract toward infection, though fever, pyuria, and flank symptoms are absent."
+        }
+      ],
+      "finalFeedback": {
+        "acute-kidney-injury-aki": "AKI is present but is a complication; the extreme CK elevation and myoglobinuria identify the upstream process.",
+        "urolithiasis-kidney-stones": "Stones do not explain diffuse exertional muscle pain, massive CK elevation, or dipstick blood without red cells.",
+        "pyelonephritis": "There is no fever, pyuria, bacteriuria, or flank syndrome."
+      },
+      "correctTitle": "Exertional Rhabdomyolysis with AKI and Hyperkalemia",
+      "correctFeedback": "Correct — severe exertional rhabdomyolysis complicated by acute kidney injury and hyperkalemia.",
+      "patientCorrect": "So the workout destroyed muscle instead of building it. Please do not quantify how much.",
+      "patientWrong": "The squats and the urine happened together. I feel like the diagnosis should also do that."
+    },
+    "workup": {
+      "history": {
+        "title": "ADDITIONAL HISTORY",
+        "cost": 5,
+        "text": "He completed 1,000 squats without rest, drank half a cup of water, and continued for 300 repetitions after his legs felt numb. Dark urine began overnight. No medications, infection, heat exposure, or family history of metabolic muscle disease.",
+        "quote": "“The last three hundred were automatic. I assumed that meant I found the zone.”",
+        "fennick": "One thousand squats without rest, minimal fluid intake, sensory warning ignored, and dark urine within hours; no medication or infectious trigger.",
+        "hint": "Which exertional syndrome releases intracellular muscle contents after extreme repetitive contraction?"
+      },
+      "exam": {
+        "title": "PHYSICAL EXAMINATION",
+        "cost": 8,
+        "text": "Marked bilateral quadriceps and hamstring tenderness with moderate swelling; compartments remain soft, passive stretch does not cause disproportionate pain, and distal pulses and sensation are intact.",
+        "quote": "“Tender means stimulated. Swollen means—actually, you look concerned.”",
+        "fennick": "Diffuse thigh tenderness and swelling with soft compartments, intact distal neurovascular findings, and no disproportionate passive-stretch pain.",
+        "hint": "The exam supports muscle injury while arguing against which immediate surgical complication?"
+      },
+      "imaging": {
+        "title": "RENAL ULTRASOUND",
+        "cost": 15,
+        "text": "Kidneys are normal in size with no stone, hydronephrosis, or obstruction.",
+        "quote": "“Structurally good kidneys. Biochemically angry kidneys?”",
+        "fennick": "Normal renal structure without stone, hydronephrosis, or obstruction.",
+        "hint": "With postrenal obstruction excluded, which circulating muscle pigment can injure otherwise normal tubules?"
+      }
+    },
+    "labs": [
+      {
+        "name": "CBC",
+        "status": "abnormal",
+        "result": "WBC 13.2 ×10⁹/L; haemoglobin and platelets are normal.",
+        "remark": "The white count is part of recovery stress, yes? Please say yes.",
+        "fennick": "Mild leukocytosis with preserved haemoglobin and platelets.",
+        "hint": "This can be a stress response; it does not explain the dark urine."
+      },
+      {
+        "name": "CMP",
+        "status": "critical",
+        "result": "Creatinine 2.1 mg/dL, K 5.8 mmol/L, calcium 7.2 mg/dL, AST 680 U/L.",
+        "remark": "The kidneys and potassium sound less impressed than my followers were.",
+        "fennick": "Acute kidney injury, hyperkalaemia, hypocalcaemia, and marked AST elevation.",
+        "hint": "Muscle injury can release potassium and AST while damaged tubules reduce potassium clearance."
+      },
+      {
+        "name": "ECG",
+        "status": "critical",
+        "result": "Peaked T waves; QRS remains narrow.",
+        "remark": "Those peaks are not the kind of personal record I wanted.",
+        "fennick": "Peaked T waves without QRS widening.",
+        "hint": "ECG change makes the hyperkalaemia immediately actionable."
+      },
+      {
+        "name": "Troponin",
+        "status": "normal",
+        "result": "High-sensitivity troponin is within reference range.",
+        "remark": "Good. The heart is not joining the challenge.",
+        "fennick": "Cardiac injury marker is not elevated.",
+        "hint": "The ECG change is more consistent with potassium than myocardial injury."
+      },
+      {
+        "name": "Urinalysis",
+        "status": "critical",
+        "result": "Dipstick 3+ blood with 0–1 RBC/hpf; granular casts are present.",
+        "remark": "Blood on the strip but not under the microscope. That is unsettling.",
+        "fennick": "Strong heme positivity with almost no red cells and granular casts.",
+        "hint": "A heme-positive dipstick without erythrocytes suggests myoglobin or haemoglobin pigment."
+      },
+      {
+        "name": "VBG",
+        "status": "abnormal",
+        "result": "pH 7.32, bicarbonate 18 mmol/L.",
+        "remark": "Acidic. I should have hydrated. I understand the lecture now.",
+        "fennick": "Mild metabolic acidaemia.",
+        "hint": "Acidosis increases arrhythmic risk in hyperkalaemia and accompanies impaired clearance."
+      },
+      {
+        "name": "Coagulation studies",
+        "status": "normal",
+        "result": "Coagulation studies are within reference ranges.",
+        "remark": "No clotting complication. One win.",
+        "fennick": "Coagulation studies are normal.",
+        "hint": "Severe systemic injury can rarely disrupt coagulation, but that is not present now."
+      },
+      {
+        "name": "Urine culture",
+        "status": "normal",
+        "result": "No growth.",
+        "remark": "So definitely not a urinary infection from doing squats.",
+        "fennick": "Urine culture is negative.",
+        "hint": "This removes infection as the explanation for the abnormal dipstick."
+      },
+      {
+        "name": "Muscle injury panel",
+        "status": "critical",
+        "result": "Creatine kinase 48,200 U/L with elevated LDH and urine myoglobin detected.",
+        "remark": "That is substantially beyond a normal post-workout number, I assume.",
+        "fennick": "Muscle enzymes are massively elevated and myoglobin is present in urine.",
+        "hint": "The magnitude and pigment release confirm severe skeletal muscle breakdown.",
+        "special": true,
+        "cost": 20
+      }
+    ],
+    "management": [
+      {
+        "title": "Stabilize and protect the kidneys",
+        "openingFenn": "Two threats need parallel action: pigment-associated AKI and ECG-active hyperkalaemia.",
+        "hint": "Begin isotonic crystalloid and immediately stabilize the myocardium because ECG changes are present.",
+        "hintPatient": "If the heart monitor is reacting, perhaps we prioritize that over my protein shake.",
+        "prompt": "What is the best immediate plan?",
+        "promptRemark": "My legs hurt more, and the monitor has started making everyone serious.",
+        "options": [
+          {
+            "text": "Give IV calcium for ECG changes and start aggressive isotonic IV fluids",
+            "correct": true,
+            "feedback": "Correct. Stabilize the myocardium with IV calcium when hyperkalaemia produces ECG changes, shift potassium intracellularly as needed, and begin goal-directed isotonic crystalloid. Titrate fluids to urine output and volume status rather than using an unmonitored fixed volume.",
+            "patientCorrect": "Calcium, fluids, monitor. The shake can wait."
+          },
+          {
+            "text": "Give oral hydration and discharge",
+            "correct": false,
+            "feedback": "Severe CK elevation, acute kidney injury, hyperkalaemia, and ECG changes cannot be managed with oral fluids at home.",
+            "patientWrong": "I own a two-liter bottle, but even I can see this is beyond it.",
+            "fennWrong": "The complications—not thirst—set the level of care."
+          },
+          {
+            "text": "Start a loop diuretic before replacing volume",
+            "correct": false,
+            "feedback": "Routine forced diuresis does not prevent pigment-associated kidney injury and may worsen volume depletion.",
+            "patientWrong": "Making more urine while I am dry sounds backwards.",
+            "fennWrong": "Restore perfusion; do not manufacture urine by worsening depletion."
+          },
+          {
+            "text": "Wait for CK to peak before treating",
+            "correct": false,
+            "feedback": "Renal and cardiac complications are already present. Delaying treatment sacrifices the window to reduce further injury.",
+            "patientWrong": "The current number is already enough of a record.",
+            "fennWrong": "A future peak is not permission to ignore present organ injury."
+          }
+        ],
+        "vitals": {
+          "bp": "132/80",
+          "hr": "92",
+          "o2": "99%"
+        },
+        "quote": "“The monitor looks less dramatic. I appreciate that.”"
+      },
+      {
+        "title": "Choose adjuncts wisely",
+        "openingFenn": "Fluids are essential; several traditional add-ons are not routine prevention.",
+        "hint": "Continue goal-directed crystalloid and monitor output, electrolytes, CK, and renal function.",
+        "hintPatient": "So no experimental recovery stack. Fine.",
+        "prompt": "Which ongoing strategy is most appropriate?",
+        "promptRemark": "I would like the medically boring option now.",
+        "options": [
+          {
+            "text": "Continue isotonic fluids with serial potassium, creatinine, CK, and urine-output checks",
+            "correct": true,
+            "feedback": "Correct. Continue goal-directed isotonic crystalloid and frequent reassessment of renal function, electrolytes, CK trend, urine output, and volume status. Routine bicarbonate or mannitol is not supported solely to prevent AKI.",
+            "patientCorrect": "Serial numbers and fluids. I can respect a disciplined program."
+          },
+          {
+            "text": "Add routine bicarbonate and mannitol to every case",
+            "correct": false,
+            "feedback": "Evidence does not support routine bicarbonate or mannitol for prevention of rhabdomyolysis-associated AKI. Reserve therapies for specific indications rather than protocol folklore.",
+            "patientWrong": "A mandatory supplement stack. That is how bad fitness advice starts.",
+            "fennWrong": "Tradition is not an indication; use adjuncts for specific physiology."
+          },
+          {
+            "text": "Restrict fluids to prevent leg swelling",
+            "correct": false,
+            "feedback": "Volume restriction worsens renal perfusion and pigment concentration unless pulmonary overload develops.",
+            "patientWrong": "The kidneys need flow, not a cutting phase.",
+            "fennWrong": "Monitor for overload, but do not under-resuscitate active pigment injury."
+          },
+          {
+            "text": "Treat the CK number with corticosteroids",
+            "correct": false,
+            "feedback": "Corticosteroids do not treat exertional muscle necrosis and add metabolic risk.",
+            "patientWrong": "Steroids would also ruin the credibility of my channel.",
+            "fennWrong": "This is mechanical metabolic injury, not immune myositis."
+          }
+        ],
+        "vitals": {
+          "bp": "128/78",
+          "hr": "84",
+          "o2": "99%"
+        },
+        "quote": "“The urine is lighter. I know that is not the only endpoint.”"
+      },
+      {
+        "title": "Disposition",
+        "openingFenn": "The ECG improved; the kidney injury and enzyme burden have not disappeared.",
+        "hint": "Admit for ongoing fluids, telemetry, and serial laboratory monitoring.",
+        "hintPatient": "I already canceled tomorrow’s workout. That should communicate severity.",
+        "prompt": "Where should care continue?",
+        "promptRemark": "Please tell me the hospital has meals with enough protein. Or do not.",
+        "options": [
+          {
+            "text": "Admit to a monitored bed for fluids and serial renal and electrolyte assessment",
+            "correct": true,
+            "feedback": "Correct. AKI, severe CK elevation, and ECG-active hyperkalaemia require admission with telemetry and serial potassium, renal function, CK, fluid balance, and urine output. Dialysis is reserved for standard refractory indications, not the CK value alone.",
+            "patientCorrect": "Admitted. No squats. I understand both parts."
+          },
+          {
+            "text": "Discharge when the urine looks clear",
+            "correct": false,
+            "feedback": "Urine color can improve before CK and renal risk resolve. Visual appearance is not a safe discharge criterion.",
+            "patientWrong": "I was going to suggest that. I am glad I did not.",
+            "fennWrong": "The eye cannot trend potassium or tubular injury."
+          },
+          {
+            "text": "Start emergency dialysis solely because CK exceeds 40,000",
+            "correct": false,
+            "feedback": "CK magnitude predicts risk but is not itself a dialysis indication. Dialysis is used for refractory hyperkalaemia, severe acidosis, overload, or uraemic complications.",
+            "patientWrong": "A machine because of one giant number? I would rather use actual criteria.",
+            "fennWrong": "Treat the complications; do not dialyze an enzyme value."
+          },
+          {
+            "text": "Transfer directly to an unmonitored rehabilitation gym",
+            "correct": false,
+            "feedback": "He needs medical monitoring before rehabilitation or return-to-exercise planning.",
+            "patientWrong": "A gym is the scene of the crime, Doctor.",
+            "fennWrong": "Rehabilitation begins after the acute metabolic danger is controlled."
+          }
+        ],
+        "vitals": {
+          "bp": "126/78",
+          "hr": "80",
+          "o2": "99%"
+        },
+        "quote": "“I will rest. You may document that historic sentence.”"
+      }
+    ],
+    "hints": [
+      {
+        "fenn": "Dipstick blood with almost no red cells points toward pigment, not urinary bleeding.",
+        "patient": "The color started after the squat challenge."
+      },
+      {
+        "fenn": "The potassium has changed the ECG; stabilize the myocardium while treating the source.",
+        "patient": "That sounds more urgent than muscle soreness."
+      },
+      {
+        "fenn": "Fluids are foundational. Routine bicarbonate and mannitol are not substitutes for goal-directed reassessment.",
+        "patient": "No unnecessary recovery stack. Understood."
+      }
+    ],
+    "debrief": {
+      "title": "Exertional Rhabdomyolysis",
+      "pearl": "Extreme exertion can cause muscle necrosis, myoglobinuria, hyperkalaemia, and AKI. A heme-positive dipstick with few red cells is a key clue. Treat ECG-active hyperkalaemia immediately, give goal-directed isotonic fluids, monitor closely, and use dialysis only for standard refractory indications."
+    }
+  },
+  {
+    "schemaVersion": 1,
+    "scoring": {
+      "initialScore": 100,
+      "hintCost": 10,
+      "labCost": 5,
+      "wrongDiagnosisCost": 10,
+      "wrongManagementCost": 5,
+      "earlyRecognitionBonus": 2,
+      "mustNotMissBonus": 1
+    },
+    "id": "010-pulmonary-hypertension",
+    "date": "2026-05-24",
+    "patient": {
+      "caseLabel": "URGENT · CASE 010",
+      "status": "LIMITED",
+      "title": "The Madame's Breath",
+      "age": 42,
+      "sex": "F",
+      "occupation": "Philanthropic board member · Northbank Arts Foundation",
+      "initialQuote": "I am… fine. This is what not fine feels like, I assume.",
+      "vitals": {
+        "bp": "104/68",
+        "hr": "96",
+        "rr": "20",
+        "temp": "37.0°",
+        "o2": "93%"
+      },
+      "criticalVitals": [
+        "o2"
+      ]
+    },
+    "fenn": {
+      "initial": "Two years. She redesigned her life around the stairs rather than mention them.",
+      "labMenuHint": "Build the right-heart picture with ECG, natriuretic peptide, gas exchange, and tests for common secondary causes. The definitive haemodynamics come later.",
+      "labMenuPatient": "My private physician runs tests quarterly. I assume yours are comparably organized.",
+      "diagnosisCorrect": "Good. We have named the pressure problem; now classify it before treating it.",
+      "diagnosisWrong": "Clear lungs with an elevated JVP, loud P2, and right-ventricular strain should move your attention to the pulmonary circulation.",
+      "diagnosisUnsupported": "That does not connect progressive exertional dyspnoea, near-syncope, a loud P2, right-heart strain, and clear lungs.",
+      "differentialLocked": "Right-sided pressure overload is a defensible start. Determine whether the source is pulmonary vascular, left-heart, thromboembolic, or parenchymal.",
+      "debrief": "She had the staircase widened. The staircase, rather unfairly, was innocent."
+    },
+    "hpi": "A 42-year-old philanthropic board member reports two years of progressive exertional dyspnoea. She once climbed four flights without stopping; she now pauses after one. During the past six months she has had two exertional near-syncopal episodes and bilateral ankle swelling by evening. She denies cough, fever, wheeze, orthopnoea, or chest pain and discusses the limitations as if they belong to someone else.",
+    "chart": {
+      "PMH": "No known cardiac or pulmonary disease.",
+      "PSH": "None.",
+      "Medications": "Occasional herbal supplements; no prescribed medicines.",
+      "Allergies": "NKDA.",
+      "Family Hx": "Mother had unspecified heart disease in her sixties.",
+      "Social Hx": "Married; non-smoker; no stimulant use; travels frequently; no known venous thromboembolism or occupational exposure."
+    },
+    "diagnosticReasoning": {
+      "finalDiagnosisId": "pulmonary-hypertension",
+      "earlyRecognitionIds": [
+        "pulmonary-hypertension"
+      ],
+      "earlyRecognitionFeedback": "Progressive exertional limitation, near-syncope, loud P2, right-ventricular heave, elevated JVP, and clear lungs strongly suggest pulmonary hypertension before invasive confirmation.",
+      "mustNotMiss": [
+        {
+          "id": "pulmonary-embolism-pe",
+          "feedback": "Acute or chronic thromboembolic disease must be considered because it changes treatment and may be surgically treatable."
+        },
+        {
+          "id": "acute-decompensated-heart-failure",
+          "feedback": "Elevated JVP and oedema require assessment for decompensated heart failure, including right- and left-sided causes."
+        }
+      ],
+      "reasonableAlternatives": [
+        {
+          "id": "heart-failure-with-preserved-ejection-fraction-hfpef",
+          "feedback": "Post-capillary pulmonary hypertension from left-heart disease is common, but the normal left atrium and wedge pressure argue against it here."
+        },
+        {
+          "id": "copd-emphysema",
+          "feedback": "Chronic lung disease can cause pulmonary hypertension, but she has no smoking history, obstruction, or parenchymal disease."
+        },
+        {
+          "id": "generalized-anxiety-disorder-gad",
+          "feedback": "Anxiety may cause dyspnoea, but it cannot explain objective right-heart pressure overload."
+        }
+      ],
+      "finalFeedback": {
+        "pulmonary-embolism-pe": "Thromboembolic disease must be excluded, but the chronic course and negative perfusion study do not support it as the final explanation.",
+        "acute-decompensated-heart-failure": "Right-heart failure is present as a consequence; the unifying diagnosis is the pulmonary pressure disorder driving it.",
+        "heart-failure-with-preserved-ejection-fraction-hfpef": "Normal left-heart structure and a normal wedge pressure argue against post-capillary disease.",
+        "copd-emphysema": "Normal spirometry and chest imaging argue against lung-disease-associated pulmonary hypertension.",
+        "generalized-anxiety-disorder-gad": "Anxiety does not produce right-axis deviation, RV dilation, elevated JVP, or a loud P2."
+      },
+      "correctTitle": "Pulmonary Arterial Hypertension with Right-Heart Strain",
+      "correctFeedback": "Correct — severe pre-capillary pulmonary hypertension with right-ventricular pressure overload.",
+      "patientCorrect": "I see. … That expression means this is not merely the stairs.",
+      "patientWrong": "An interesting theory. … Does it also enlarge the right side of the heart?"
+    },
+    "workup": {
+      "history": {
+        "title": "ADDITIONAL HISTORY",
+        "cost": 5,
+        "text": "Dyspnoea began on stairs and now occurs walking across large rooms. The near-syncope occurred during brisk walking, never at rest. Ankle oedema is symmetric and resolves overnight. No Raynaud symptoms, dysphagia, rash, joint swelling, stimulant or appetite-suppressant use, liver disease, HIV risk, prior clot, or family history of early unexplained death.",
+        "quote": "“The stairs became… a project. I had them widened. It did not help.”",
+        "fennick": "Two years of progressive exertional limitation, exertional near-syncope, and dependent oedema; no orthopnoea, thromboembolic history, stimulant exposure, or connective-tissue symptoms.",
+        "hint": "Which vascular pressure disorder classically causes progressive exertional dyspnoea and exertional syncope as right-ventricular output becomes fixed?"
+      },
+      "exam": {
+        "title": "PHYSICAL EXAMINATION",
+        "cost": 8,
+        "text": "Composed but mildly dyspnoeic at rest. Elevated JVP, parasternal right-ventricular heave, loud P2, and a holosystolic tricuspid-regurgitation murmur that increases with inspiration. Mild bilateral ankle oedema. Lungs are clear without wheeze or crackles; extremities are cool.",
+        "quote": "“You keep returning to the right side. … I assume it has become unfashionably important.”",
+        "fennick": "Elevated JVP, right-ventricular heave, loud P2, inspiratory tricuspid-regurgitation murmur, dependent oedema, cool extremities, and clear lungs.",
+        "hint": "Clear lungs plus sustained right-heart pressure signs point away from airway disease and toward which circulation?"
+      },
+      "imaging": {
+        "title": "CHEST IMAGING",
+        "cost": 15,
+        "text": "Chest radiograph shows enlarged central pulmonary arteries with peripheral vascular pruning and mild right-sided cardiomegaly. No oedema, focal opacity, pleural disease, or emphysema.",
+        "quote": "“The vessels look wrong. … I had the house plumbing replaced for less.”",
+        "fennick": "Enlarged central pulmonary arteries, peripheral vascular pruning, and right-sided cardiac enlargement; no oedema or parenchymal lung disease.",
+        "hint": "Central arterial enlargement with peripheral pruning is a radiographic pattern of chronically elevated pressure in which vascular bed?"
+      }
+    },
+    "labs": [
+      {
+        "name": "CBC",
+        "status": "normal",
+        "result": "Haemoglobin, white-cell count, and platelets are within reference ranges.",
+        "remark": "Standard, then. … Good.",
+        "fennick": "Blood counts are within reference ranges.",
+        "hint": "Anaemia does not explain the exertional limitation."
+      },
+      {
+        "name": "CMP + liver panel",
+        "status": "abnormal",
+        "result": "Creatinine is normal; bilirubin 1.4 mg/dL and alkaline phosphatase are mildly elevated.",
+        "remark": "Two glasses of wine. A good one. … I assume that is not the entire explanation.",
+        "fennick": "Renal function is preserved with mild cholestatic abnormalities.",
+        "hint": "Mild hepatic congestion can follow elevated right-sided filling pressure; screen for portal disease but keep the haemodynamics central."
+      },
+      {
+        "name": "ECG",
+        "status": "critical",
+        "result": "Sinus rhythm with right-axis deviation, right-atrial enlargement, incomplete RBBB, and T-wave inversion V1–V4.",
+        "remark": "The right side again. … It is becoming repetitive.",
+        "fennick": "Right-axis deviation, right-atrial enlargement, incomplete bundle-branch block, and anterior right-ventricular strain.",
+        "hint": "This pattern reflects chronic pressure overload of the right ventricle rather than a primary left-sided infarct."
+      },
+      {
+        "name": "NT-proBNP",
+        "status": "critical",
+        "result": "NT-proBNP is markedly elevated.",
+        "remark": "That one has a very long name. … What has it found?",
+        "fennick": "The natriuretic peptide is markedly elevated.",
+        "hint": "This quantifies myocardial wall stress and helps risk-stratify right-ventricular dysfunction."
+      },
+      {
+        "name": "ABG",
+        "status": "abnormal",
+        "result": "pH 7.46, PaO₂ 62 mmHg, PaCO₂ 32 mmHg.",
+        "remark": "So I am breathing quickly and still accomplishing less. … Irritating.",
+        "fennick": "Mild respiratory alkalosis with hypoxaemia.",
+        "hint": "Hyperventilation and impaired pulmonary perfusion can produce this gas pattern."
+      },
+      {
+        "name": "Pulmonary function + DLCO",
+        "status": "abnormal",
+        "result": "Spirometry and lung volumes are normal; DLCO is reduced to 48% predicted.",
+        "remark": "The airways perform. … The transfer does not.",
+        "fennick": "No obstructive or restrictive ventilatory defect; diffusion capacity is disproportionately reduced.",
+        "hint": "A low isolated diffusion capacity supports pulmonary vascular limitation over asthma or COPD."
+      },
+      {
+        "name": "Autoimmune + HIV screen",
+        "status": "normal",
+        "result": "ANA, anticentromere, anti-Scl-70, and HIV testing are negative.",
+        "remark": "An efficient list of things I do not have.",
+        "fennick": "Screening for connective-tissue disease and HIV is negative.",
+        "hint": "These results remove important associated causes but do not establish idiopathic disease alone."
+      },
+      {
+        "name": "Ventilation–perfusion scan",
+        "status": "normal",
+        "result": "Normal matched ventilation and perfusion without segmental perfusion defects.",
+        "remark": "A lung scan. … I had the air quality tested at home. Apparently unrelated.",
+        "fennick": "No mismatched segmental perfusion defects.",
+        "hint": "A normal perfusion study makes chronic thromboembolic disease unlikely."
+      },
+      {
+        "name": "Right-heart catheterization",
+        "status": "critical",
+        "result": "Mean pulmonary artery pressure 48 mmHg, pulmonary artery wedge pressure 10 mmHg, pulmonary vascular resistance 9 Wood units, cardiac index 2.1 L/min/m²; no acute vasoreactivity response.",
+        "remark": "A catheter into the heart. … Necessary, apparently. … I see.",
+        "fennick": "Markedly elevated pulmonary arterial pressure and resistance with normal left-sided filling pressure and reduced cardiac index; vasoreactivity testing is negative.",
+        "hint": "This is a severe pre-capillary haemodynamic pattern. The normal wedge pressure excludes left-heart congestion, and the negative vasoreactivity test argues against high-dose calcium-channel-blocker therapy.",
+        "special": true,
+        "cost": 20
+      }
+    ],
+    "management": [
+      {
+        "title": "Classify before prescribing",
+        "openingFenn": "The catheter confirms pre-capillary disease; the cause still determines the treatment.",
+        "hint": "Complete classification for thromboembolic, lung, left-heart, connective-tissue, infectious, portal, drug, and heritable causes in a specialist centre.",
+        "hintPatient": "More tests. … Fine. I prefer a correct label to an elegant mistake.",
+        "prompt": "What should happen before committing to PAH-specific therapy?",
+        "promptRemark": "You have confirmed the pressure. … Now tell me why it is there.",
+        "options": [
+          {
+            "text": "Complete secondary-cause evaluation and refer urgently to a pulmonary-hypertension centre",
+            "correct": true,
+            "feedback": "Correct. Pulmonary arterial hypertension is a diagnosis within a broader pulmonary-hypertension classification. Exclude chronic thromboembolic, left-heart, lung, connective-tissue, HIV, portal, drug-associated, and heritable causes in an expert centre before selecting targeted therapy.",
+            "patientCorrect": "A specialist centre. … I will have my schedule moved."
+          },
+          {
+            "text": "Start sildenafil from the echocardiogram alone",
+            "correct": false,
+            "feedback": "Targeted therapy should not begin from an echo estimate alone. Confirm complete haemodynamics and classify the pulmonary-hypertension group because drugs useful in group 1 may be ineffective or harmful in other groups.",
+            "patientWrong": "Medication before deciding what kind. … That sounds unusually casual.",
+            "fennWrong": "Echo estimates probability; catheter haemodynamics and classification guide therapy."
+          },
+          {
+            "text": "Order a surgical lung biopsy",
+            "correct": false,
+            "feedback": "Lung biopsy is not a routine diagnostic test for this syndrome and carries substantial procedural risk in severe pulmonary vascular disease.",
+            "patientWrong": "A biopsy of a functioning lung. … No, that does not improve with repetition.",
+            "fennWrong": "This is a haemodynamic classification problem, not a histology hunt."
+          },
+          {
+            "text": "Label it idiopathic without a V/Q scan",
+            "correct": false,
+            "feedback": "Chronic thromboembolic disease must be actively excluded because it has a distinct and potentially interventional treatment pathway. CT angiography alone can miss chronic disease; perfusion imaging remains important.",
+            "patientWrong": "Idiopathic because we did not look for clots. … Convenient.",
+            "fennWrong": "Do not call a disease idiopathic before excluding a treatable vascular obstruction."
+          }
+        ],
+        "vitals": {
+          "bp": "106/70",
+          "hr": "94",
+          "o2": "94%"
+        },
+        "quote": "“Very well. Find the category before furnishing it.”"
+      },
+      {
+        "title": "Treat congestion without collapsing preload",
+        "openingFenn": "She has right-heart congestion but no systemic shock.",
+        "hint": "Relieve excess volume cautiously while preserving right-ventricular filling and monitoring renal function, electrolytes, pressure, and symptoms.",
+        "hintPatient": "The ankles can be less decorative. … Gently, you said.",
+        "prompt": "How should her symptomatic volume overload be managed now?",
+        "promptRemark": "The shoes stop fitting by dinner. … It has become inconvenient.",
+        "options": [
+          {
+            "text": "Give a rapid two-litre crystalloid bolus",
+            "correct": false,
+            "feedback": "A large unselected fluid bolus can further distend the failing right ventricle, worsen septal shift, and reduce left-sided filling. Volume decisions require careful examination and reassessment.",
+            "patientWrong": "More fluid for the swelling. … I fail to see the aesthetic logic.",
+            "fennWrong": "A pressure-loaded right ventricle does not benefit from indiscriminate volume."
+          },
+          {
+            "text": "Begin cautious loop diuresis with close renal, electrolyte, and blood-pressure monitoring",
+            "correct": true,
+            "feedback": "Correct. Diuretics relieve systemic congestion in right-heart failure, but the right ventricle remains preload sensitive. Titrate carefully to examination, weight, renal function, electrolytes, and systemic pressure rather than pursuing abrupt volume loss.",
+            "patientCorrect": "A measured reduction. … My tailor uses the same principle."
+          },
+          {
+            "text": "Start a beta blocker solely for the heart rate",
+            "correct": false,
+            "feedback": "Routine beta blockade is not a treatment for PAH-related right-heart failure and may reduce the compensatory heart-rate response when output is limited. Use it only for a separate compelling indication under specialist guidance.",
+            "patientWrong": "Slowing the heart because it is trying to compensate. … That seems punitive.",
+            "fennWrong": "Do not suppress a compensatory response without another indication."
+          },
+          {
+            "text": "Restrict all oral fluid and give no diuretic",
+            "correct": false,
+            "feedback": "Extreme unsupervised restriction is not a substitute for measured decongestion and can reduce preload excessively. Use a monitored plan tailored to volume status.",
+            "patientWrong": "Nothing to drink and nothing to remove the swelling. … Severe, but not precise.",
+            "fennWrong": "Manage volume with measurements, not absolutes."
+          }
+        ],
+        "vitals": {
+          "bp": "106/70",
+          "hr": "90",
+          "o2": "94%"
+        },
+        "quote": "“The shoes fit again. … A modest but meaningful victory.”"
+      },
+      {
+        "title": "Choose disease-targeted therapy",
+        "openingFenn": "The workup supports idiopathic PAH; vasoreactivity is negative and she is not in overt shock.",
+        "hint": "Use risk assessment and initial combination therapy appropriate for a treatment-naive patient without major cardiopulmonary comorbidity.",
+        "hintPatient": "Two pathways. … I suppose one medication would be aesthetically cleaner, but medicine rarely consults me.",
+        "prompt": "Which initial targeted strategy is most appropriate at the specialist centre?",
+        "promptRemark": "I would like the treatment plan now. Preferably before another staircase appears.",
+        "options": [
+          {
+            "text": "High-dose calcium-channel blocker monotherapy",
+            "correct": false,
+            "feedback": "High-dose calcium-channel blockers are reserved for the small minority with a positive acute vasoreactivity test and durable response. Her test is negative, so empiric treatment could worsen haemodynamics.",
+            "patientWrong": "My mother took one of those. … My test, however, was negative.",
+            "fennWrong": "Vasoreactivity is the gate; she did not pass it."
+          },
+          {
+            "text": "Anticoagulation as the sole PAH treatment",
+            "correct": false,
+            "feedback": "Routine anticoagulation is not a substitute for pulmonary vascular therapy and is individualized because benefit and bleeding risk vary. It does not lower pulmonary vascular resistance by itself.",
+            "patientWrong": "A thinner blood supply facing the same resistance. … Incomplete.",
+            "fennWrong": "An adjunct in selected patients cannot replace targeted vasodilator therapy."
+          },
+          {
+            "text": "Begin an endothelin-receptor antagonist plus a PDE-5 inhibitor with specialist risk follow-up",
+            "correct": true,
+            "feedback": "Correct. For treatment-naive idiopathic PAH without major cardiopulmonary comorbidity at low or intermediate risk, initial ERA plus PDE-5 inhibitor therapy is recommended. Reassess risk early; inadequate response or high-risk features should prompt escalation, including parenteral prostacyclin consideration.",
+            "patientCorrect": "Two medications. Daily. … I will have a cabinet made for them."
+          },
+          {
+            "text": "Use inhaled corticosteroid and a rescue bronchodilator",
+            "correct": false,
+            "feedback": "Normal spirometry and absent airway symptoms argue against asthma, and inhaled therapy does not lower the fixed pulmonary vascular resistance shown on catheterization.",
+            "patientWrong": "An inhaler for normal airways. … Decorative, perhaps.",
+            "fennWrong": "The obstruction is vascular, not bronchial."
+          }
+        ],
+        "vitals": {
+          "bp": "108/72",
+          "hr": "86",
+          "o2": "95%"
+        },
+        "quote": "“A two-drug plan. … Proportionate, apparently.”"
+      },
+      {
+        "title": "Plan monitoring and escalation",
+        "openingFenn": "A prescription is not the endpoint; risk changes over time.",
+        "hint": "Follow symptoms, functional class, exercise capacity, natriuretic peptide, echocardiographic right-heart function, and haemodynamics when indicated.",
+        "hintPatient": "You are scheduling my future rather aggressively. … Sensible.",
+        "prompt": "What is the appropriate ongoing plan?",
+        "promptRemark": "I assume this requires more than an annual polite inquiry.",
+        "options": [
+          {
+            "text": "Return in one year if symptoms persist",
+            "correct": false,
+            "feedback": "PAH requires early structured reassessment because clinical worsening may be subtle and treatment escalation is risk-driven. A one-year gap is unsafe in newly diagnosed symptomatic disease.",
+            "patientWrong": "A year. … I deteriorated while being patient for two.",
+            "fennWrong": "Risk must be reassessed before another long adaptation becomes invisible."
+          },
+          {
+            "text": "Stop therapy once ankle swelling resolves",
+            "correct": false,
+            "feedback": "Oedema is one consequence of right-heart strain, not a marker that pulmonary vascular disease has resolved. Stopping targeted therapy risks clinical worsening.",
+            "patientWrong": "My ankles are not the entire pulmonary circulation. … Even I know that.",
+            "fennWrong": "Decongestion is not cure."
+          },
+          {
+            "text": "Use symptoms alone and avoid objective reassessment",
+            "correct": false,
+            "feedback": "Patients can unconsciously reduce activity and report stability while disease progresses—the pattern that delayed her presentation. Objective functional and right-heart measures are essential.",
+            "patientWrong": "I redesigned my day around the breathlessness. … Symptoms alone were clearly unreliable.",
+            "fennWrong": "Her adaptation is exactly why objective risk markers matter."
+          },
+          {
+            "text": "Arrange early multidisciplinary reassessment and escalate therapy according to risk",
+            "correct": true,
+            "feedback": "Correct. Follow her at a pulmonary-hypertension centre with functional class, exercise capacity, biomarkers, right-ventricular assessment, and medication monitoring. Escalate promptly for intermediate-high or high-risk status and consider transplant evaluation when response remains inadequate.",
+            "patientCorrect": "I see. … My husband will worry. Good. He widened the stairs."
+          }
+        ],
+        "vitals": {
+          "bp": "110/72",
+          "hr": "82",
+          "o2": "95%"
+        },
+        "quote": "“A specialist, a schedule, and objective measures. … Acceptable.”"
+      }
+    ],
+    "hints": [
+      {
+        "fenn": "Clear lungs, loud P2, elevated JVP, and a right-ventricular heave describe pressure overload on the right side.",
+        "patient": "The right side has become the subject of the evening."
+      },
+      {
+        "fenn": "The ECG, natriuretic peptide, and isolated low diffusion capacity support a pulmonary vascular process; echo should estimate probability next.",
+        "patient": "A sequence. … I appreciate sequences."
+      },
+      {
+        "fenn": "Echo can suggest the disorder, but right-heart catheterization confirms the pre-capillary haemodynamics.",
+        "patient": "The invasive test is the decisive one. … Unfortunate, but clear."
+      },
+      {
+        "fenn": "Before calling it idiopathic, exclude chronic thromboembolic disease and associated systemic causes.",
+        "patient": "Idiopathic should mean unexplained, not uninvestigated."
+      }
+    ],
+    "debrief": {
+      "title": "Pulmonary Arterial Hypertension with Right-Heart Strain",
+      "pearl": "Progressive exertional dyspnoea, exertional near-syncope, loud P2, RV heave, elevated JVP, right-heart strain, and clear lungs suggest pulmonary hypertension. Echocardiography estimates probability; right-heart catheterization confirms and classifies haemodynamics. Exclude secondary causes, treat congestion carefully, begin risk-appropriate PAH therapy in an expert centre, and reassess risk early."
+    }
   }
 ]
