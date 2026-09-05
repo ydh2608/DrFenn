@@ -58,50 +58,50 @@
       "id": "006-iron-deficiency-anemia",
       "batch": "batch01cases.json",
       "legacyId": "008",
-      "title": "The Seamstress's Sorrow",
+      "title": "The Tailor's Fatigue",
       "diagnosis": "Iron Deficiency Anemia",
       "system": "Hematology",
-      "status": "planned"
+      "status": "active"
     },
     {
       "number": 7,
       "id": "007-common-fibular-nerve-palsy",
       "batch": "batch01cases.json",
       "legacyId": "023",
-      "title": "The Postman's Foot",
+      "title": "The Mail Carrier's Foot Drop",
       "diagnosis": "Common Fibular (Peroneal) Nerve Palsy",
       "system": "Neurology",
-      "status": "planned"
+      "status": "active"
     },
     {
       "number": 8,
       "id": "008-carbon-monoxide-poisoning",
       "batch": "batch01cases.json",
       "legacyId": "005",
-      "title": "The Furnace Keeper's Headache",
+      "title": "The Maintenance Technician's Headache",
       "diagnosis": "Carbon Monoxide Poisoning",
       "system": "Toxicology",
-      "status": "planned"
+      "status": "active"
     },
     {
       "number": 9,
       "id": "009-rhabdomyolysis",
       "batch": "batch01cases.json",
       "legacyId": "013",
-      "title": "The Stoker's PR",
+      "title": "The Fitness Creator's Personal Record",
       "diagnosis": "Rhabdomyolysis",
       "system": "Renal / Musculoskeletal",
-      "status": "planned"
+      "status": "active"
     },
     {
       "number": 10,
-      "id": "010-spontaneous-pneumothorax",
+      "id": "010-pulmonary-hypertension",
       "batch": "batch01cases.json",
-      "legacyId": "006",
-      "title": "The Locksmith's Sudden Chest",
-      "diagnosis": "Spontaneous Pneumothorax",
-      "system": "Pulmonology",
-      "status": "planned"
+      "legacyId": "014",
+      "title": "The Madame's Breath",
+      "diagnosis": "Pulmonary Arterial Hypertension",
+      "system": "Cardiopulmonary",
+      "status": "active"
     },
     {
       "number": 11,
@@ -145,18 +145,8 @@
     },
     {
       "number": 15,
-      "id": "015-pulmonary-hypertension",
+      "id": "015-wilson-disease",
       "batch": "batch01cases.json",
-      "legacyId": "014",
-      "title": "The Madame's Breath",
-      "diagnosis": "Pulmonary Hypertension",
-      "system": "Cardiopulmonary",
-      "status": "planned"
-    },
-    {
-      "number": 16,
-      "id": "016-wilson-disease",
-      "batch": "batch02cases.json",
       "legacyId": "024",
       "title": "The Beggar King's Humour",
       "diagnosis": "Wilson Disease",
